@@ -1,0 +1,13 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using SimScale.Sdk.V1.Models;
+
+namespace SimScale.Sdk.V1.Models.SimulationModels;
+
+public class OffPositionTolerance : OneOf_SlidingContactPositionTolerance, OneOf_BondedContactPositionTolerance, OneOf_MarcBondedContactConnectionPositionTolerance, OneOf_MarcBondedAndTouchingContactConnectionPositionTolerance
+{
+    /// <summary>Schema name: OffPositionTolerance</summary>
+    [JsonPropertyName("type")]
+    public string Type { get; set; } = "OFF";
+
+}

@@ -1,0 +1,16 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using SimScale.Sdk.V1.Models;
+
+namespace SimScale.Sdk.V1.Models.SimulationModels;
+
+public class CrossPlaneCustomOrientation : OneOf_ConstCrossPlaneOrthotropicTransportOrientation
+{
+    /// <summary>Schema name: CrossPlaneCustomOrientation</summary>
+    [JsonPropertyName("type")]
+    public string Type { get; set; } = "CROSS_PLANE";
+
+    [JsonPropertyName("crossPlaneOrientation")]
+    public DimensionalVector_Length? CrossPlaneOrientation { get; set; }
+
+}

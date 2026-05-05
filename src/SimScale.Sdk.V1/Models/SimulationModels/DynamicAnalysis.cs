@@ -1,0 +1,46 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using SimScale.Sdk.V1.Models;
+
+namespace SimScale.Sdk.V1.Models.SimulationModels;
+
+public class DynamicAnalysis : Analysis
+{
+    /// <summary>Schema name: DynamicAnalysis</summary>
+    [JsonPropertyName("type")]
+    public string Type { get; set; } = "DYNAMIC_ANALYSIS";
+
+    [JsonPropertyName("connectionGroups")]
+    public List<OneOf_DynamicAnalysisConnectionGroups>? ConnectionGroups { get; set; }
+
+    [JsonPropertyName("connectors")]
+    public List<OneOf_DynamicAnalysisConnectors>? Connectors { get; set; }
+
+    [JsonPropertyName("elementTechnology")]
+    public SolidElementTechnology? ElementTechnology { get; set; }
+
+    [JsonPropertyName("model")]
+    public SolidModel? Model { get; set; }
+
+    [JsonPropertyName("materials")]
+    public List<SolidMaterial>? Materials { get; set; }
+
+    [JsonPropertyName("initialConditions")]
+    public SolidInitialConditions? InitialConditions { get; set; }
+
+    [JsonPropertyName("boundaryConditions")]
+    public List<OneOf_DynamicAnalysisBoundaryConditions>? BoundaryConditions { get; set; }
+
+    [JsonPropertyName("numerics")]
+    public SolidNumerics? Numerics { get; set; }
+
+    [JsonPropertyName("simulationControl")]
+    public SolidSimulationControl? SimulationControl { get; set; }
+
+    [JsonPropertyName("resultControl")]
+    public SolidResultControl? ResultControl { get; set; }
+
+    [JsonPropertyName("meshOrder")]
+    public string? MeshOrder { get; set; }
+
+}

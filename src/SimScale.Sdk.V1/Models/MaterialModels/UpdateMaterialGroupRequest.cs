@@ -1,0 +1,16 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using SimScale.Sdk.V1.Models;
+
+namespace SimScale.Sdk.V1.Models.MaterialModels;
+
+public class UpdateMaterialGroupRequest
+{
+    /// <summary>The name of the material group.</summary>
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+
+    [JsonPropertyName("metadata")]
+    public Dictionary<string, JsonElement>? Metadata { get; set; }
+
+}

@@ -1,0 +1,16 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using SimScale.Sdk.V1.Models;
+
+namespace SimScale.Sdk.V1.Models.GeometryPrimitiveModels;
+
+public class Dimensional_Angle
+{
+    [JsonPropertyName("value")]
+    public double? Value { get; set; }
+
+    [JsonPropertyName("unit")]
+    [JsonRequired]
+    public required string Unit { get; set; }
+
+}

@@ -1,0 +1,14 @@
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/bin/Debug/net8.0/SimScale.Sdk.V1.deps.json
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/bin/Debug/net8.0/SimScale.Sdk.V1.dll
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/bin/Debug/net8.0/SimScale.Sdk.V1.pdb
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/bin/Debug/net8.0/SimScale.Sdk.V1.xml
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/obj/Debug/net8.0/SimScale.Sdk.V1.GeneratedMSBuildEditorConfig.editorconfig
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/obj/Debug/net8.0/SimScale.Sdk.V1.AssemblyInfoInputs.cache
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/obj/Debug/net8.0/SimScale.Sdk.V1.AssemblyInfo.cs
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/obj/Debug/net8.0/SimScale.Sdk.V1.csproj.CoreCompileInputs.cache
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/obj/Debug/net8.0/SimScale.Sdk.V1.sourcelink.json
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/obj/Debug/net8.0/SimScale.Sdk.V1.dll
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/obj/Debug/net8.0/refint/SimScale.Sdk.V1.dll
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/obj/Debug/net8.0/SimScale.Sdk.V1.xml
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/obj/Debug/net8.0/SimScale.Sdk.V1.pdb
+/builds/simscale-gmbh/platform/simscale-sdk-v1/csharp/src/SimScale.Sdk.V1/obj/Debug/net8.0/ref/SimScale.Sdk.V1.dll
