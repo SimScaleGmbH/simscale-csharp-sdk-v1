@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>If a fixed support boundary condition is used, all degrees of freedom of the selected entities are fixed at zero. This constraint is often used to model a fixation to the ground or an undeformable part.Learn more.</summary>
-public class FixedSupportBC : OneOf_HarmonicAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions, OneOf_FrequencyAnalysisBoundaryConditions
+public class FixedSupportBC : OneOf_HarmonicAnalysisBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions, OneOf_FrequencyAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
 {
     /// <summary>If a fixed support boundary condition is used, all degrees of freedom of the selected entities are fixed at zero. Thi...</summary>
     [JsonPropertyName("type")]

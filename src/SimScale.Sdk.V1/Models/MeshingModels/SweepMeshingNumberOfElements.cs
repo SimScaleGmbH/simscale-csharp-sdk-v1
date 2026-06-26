@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class SweepMeshingNumberOfElements : OneOf_SimmetrixExtrusionMeshRefinementSizingType, OneOf_SimmetrixSweptMeshRefinementSizingType, OneOf_SimmetrixThinSectionMeshRefinementSizingType
+public class SweepMeshingNumberOfElements : OneOf_SimmetrixThinSectionMeshRefinementSizingType, OneOf_SimmetrixSweptMeshRefinementSizingType, OneOf_SimmetrixExtrusionMeshRefinementSizingType
 {
     /// <summary>Schema name: SweepMeshingNumberOfElements</summary>
     [JsonPropertyName("type")]

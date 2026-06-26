@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class GeometricGrowth : OneOf_SimmetrixBoundaryLayerRefinementLayerType, OneOf_AutomaticLayerOnLayerType
+public class GeometricGrowth : OneOf_AutomaticLayerOnLayerType, OneOf_SimmetrixBoundaryLayerRefinementLayerType
 {
     /// <summary>Schema name: GeometricGrowth</summary>
     [JsonPropertyName("type")]

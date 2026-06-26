@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>In contrast to ordinary pressure, the follower pressure boundary condition is applied normal to the surface of all face elements in the deformed state. This is a nonlinear boundary condition as the update of the geometry is required. In a linear analysis it becomes a simple pressure boundary condition.The following conditions are taken into account: The current deformed state of the surface.Any changes in the direction of the normals of assigned entities.Changes in the surface area of the assigned faces.Learn more.</summary>
-public class FollowerPressureBC : OneOf_ThermalMechanicalBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
+public class FollowerPressureBC : OneOf_StaticAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
 {
     /// <summary>In contrast to ordinary pressure, the follower pressure boundary condition is applied normal to the surface of all fa...</summary>
     [JsonPropertyName("type")]

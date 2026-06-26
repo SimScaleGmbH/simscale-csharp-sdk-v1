@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This option controls how the simulation results are written and how frequently.</summary>
-public class NumberIterationsWriteControl : OneOf_FluidSimulationControlWriteControl, OneOf_AreaAverageResultControlWriteControl
+public class NumberIterationsWriteControl : OneOf_AreaAverageResultControlWriteControl, OneOf_FluidSimulationControlWriteControl
 {
     /// <summary>This option controls how the simulation results are written and how frequently. Schema name: NumberIterationsWriteCon...</summary>
     [JsonPropertyName("type")]

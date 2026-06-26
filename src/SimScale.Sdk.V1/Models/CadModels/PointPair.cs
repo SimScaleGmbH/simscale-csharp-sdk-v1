@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.CadModels;
 
-/// <summary>Hit line in meters to be used in the viewer.</summary>
+/// <summary>Hint line in meters to be used in the viewer.</summary>
 public class PointPair
 {
     [JsonPropertyName("point1")]

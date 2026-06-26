@@ -280,6 +280,7 @@ The `examples/` folder contains complete, runnable projects:
 | `IncompressibleLbmExample` | Incompressible LBM (Pacefish): table imports (CSV inlet profiles, probe points), flow domain boundaries, geometry primitives, mesh refinement regions, transient/statistical/snapshot result controls, forces/moments tracking, and screenshot report |
 | `PedestrianWindComfortExample` | Pedestrian Wind Comfort (PWC): wind rose data, geographical location, region of interest, comfort surfaces, Wind API integration, and additional wind data for reusing directional results |
 | `FoldersAndSpacesExample` | Space and folder management: creation, listing, moving, and deletion |
+| `WorkflowMeshAndResultImportExample` | Workflow public API: upload VTU data, create and run the mesh-and-result-import workflow, and export the imported result |
 
 ### Running Examples
 
@@ -287,4 +288,3 @@ The `examples/` folder contains complete, runnable projects:
 cd examples/IncompressibleExample
 dotnet run
 ```
-

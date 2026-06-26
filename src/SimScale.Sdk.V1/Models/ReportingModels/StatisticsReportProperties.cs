@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.ReportingModels;
 
-/// <summary>Configuration for a statistics (bulk calculation) report. Computes scalar field statistics (minimum, maximum, average, integral, and area/volume-weighted equivalents) over model geometry at a chosen time step. At least one of partIdentifiers, partGroupIdentifiers, or cuttingPlanes must be provided. Parts are named surfaces or volumes that exist in the simulation result (e.g. wall patches in a CFD model or solid bodies in a structural model). Use partIdentifiers to get independent results per part, or partGroupIdentifiers to combine several parts into one aggregated result. Cutting planes are user-defined infinite planes that slice through the model geometry. They are specified by a point on the plane and a normal vector, and statistics are computed over the intersection.</summary>
+/// <summary>Configuration for a statistics (bulk calculation) report. Computes scalar field statistics (minimum, maximum, average, integral, and area/volume-weighted equivalents) over model geometry at a chosen time step. Also carries the server-resolved resolution hints (cadAssociations, topologyLabelByName) that postproc-manager populates and postproc-result-query consumes; these hints are stripped from the public API response, which uses the reduced StatisticsReportPropertiesPublic projection. At least one of partIdentifiers, partGroupIdentifiers, or cuttingPlanes must be provided.</summary>
 public class StatisticsReportProperties : ReportProperties
 {
     [JsonPropertyName("reportType")]
@@ -33,5 +33,9 @@ public class StatisticsReportProperties : ReportProperties
     /// <summary>Filtered CAD-Mesh name mapping for the requested parts only. Each key is a CAD entity name provided by the user and e...</summary>
     [JsonPropertyName("cadAssociations")]
     public Dictionary<string, List<string>>? CadAssociations { get; set; }
+
+    /// <summary>Mesh-part-name to user-facing label mapping for the mesh topology, used to label cutting-plane regions with a human-r...</summary>
+    [JsonPropertyName("topologyLabelByName")]
+    public Dictionary<string, string>? TopologyLabelByName { get; set; }
 
 }

@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class WithCellZone : OneOf_SurfaceRefinementHexDominantSnappyCellZone, OneOf_SurfaceRefinementCellZone
+public class WithCellZone : OneOf_SurfaceRefinementCellZone, OneOf_SurfaceRefinementHexDominantSnappyCellZone
 {
     /// <summary>Schema name: WithCellZone</summary>
     [JsonPropertyName("type")]

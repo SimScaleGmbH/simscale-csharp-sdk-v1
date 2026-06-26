@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class VectorRotation : OneOf_RotatingSBMRotation, OneOf_RotatingMotionTypeRotation
+public class VectorRotation : OneOf_RotatingMotionTypeRotation, OneOf_RotatingSBMRotation
 {
     /// <summary>Schema name: VectorRotation</summary>
     [JsonPropertyName("type")]

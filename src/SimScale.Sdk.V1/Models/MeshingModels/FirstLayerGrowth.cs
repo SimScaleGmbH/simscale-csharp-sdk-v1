@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class FirstLayerGrowth : OneOf_SimmetrixBoundaryLayerRefinementLayerType, OneOf_AutomaticLayerOnLayerType
+public class FirstLayerGrowth : OneOf_AutomaticLayerOnLayerType, OneOf_SimmetrixBoundaryLayerRefinementLayerType
 {
     /// <summary>Schema name: FirstLayerGrowth</summary>
     [JsonPropertyName("type")]

@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "SimScale.Sdk.V1/0.1.0": {
+      "SimScale.Sdk.V1/0.2.0": {
         "runtime": {
           "SimScale.Sdk.V1.dll": {}
         }
@@ -14,7 +14,7 @@
     }
   },
   "libraries": {
-    "SimScale.Sdk.V1/0.1.0": {
+    "SimScale.Sdk.V1/0.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

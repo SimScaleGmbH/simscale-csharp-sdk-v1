@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class SpecificHumidityValue : OneOf_FixedValueRHBCHumidityValue, OneOf_InletOutletRHBCHumidityValue
+public class SpecificHumidityValue : OneOf_InletOutletRHBCHumidityValue, OneOf_FixedValueRHBCHumidityValue
 {
     /// <summary>Schema name: SpecificHumidityValue</summary>
     [JsonPropertyName("type")]

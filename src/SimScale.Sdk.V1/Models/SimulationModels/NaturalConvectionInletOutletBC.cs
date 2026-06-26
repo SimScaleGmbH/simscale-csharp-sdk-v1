@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This boundary condition is suitable for an open boundary where the air can enter or exit freely from or to the atmosphere. Learn more.</summary>
-public class NaturalConvectionInletOutletBC : OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_CoupledConjugateHeatTransferBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_EmbeddedBoundaryExternalFlowBoundaryCondition, OneOf_EmbeddedBoundaryBoundaryConditions
+public class NaturalConvectionInletOutletBC : OneOf_EmbeddedBoundaryExternalFlowBoundaryCondition, OneOf_EmbeddedBoundaryBoundaryConditions, OneOf_CoupledConjugateHeatTransferBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions
 {
     /// <summary>This boundary condition is suitable for an open boundary where the air can enter or exit freely from or to the atmosp...</summary>
     [JsonPropertyName("type")]

@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class AugmentedLagrangeMethod : OneOf_FrictionlessContactContactSolutionMethod, OneOf_FrictionContactContactSolutionMethod
+public class AugmentedLagrangeMethod : OneOf_FrictionContactContactSolutionMethod, OneOf_FrictionlessContactContactSolutionMethod
 {
     /// <summary>Schema name: AugmentedLagrangeMethod</summary>
     [JsonPropertyName("type")]

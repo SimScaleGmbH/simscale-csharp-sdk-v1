@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class FluidOnlyHeatTransfer : OneOf_PressureLossCurvePorousMediaHeatTransfer, OneOf_FixedCoeffMediumPorousMediaHeatTransfer, OneOf_DarcyForchheimerMediumPorousMediaHeatTransfer, OneOf_PerforatedPlatePorousMediaHeatTransfer, OneOf_PowerLawMediumPorousMediaHeatTransfer
+public class FluidOnlyHeatTransfer : OneOf_PerforatedPlatePorousMediaHeatTransfer, OneOf_PressureLossCurvePorousMediaHeatTransfer, OneOf_FixedCoeffMediumPorousMediaHeatTransfer, OneOf_DarcyForchheimerMediumPorousMediaHeatTransfer, OneOf_PowerLawMediumPorousMediaHeatTransfer
 {
     /// <summary>Schema name: FluidOnlyHeatTransfer</summary>
     [JsonPropertyName("type")]

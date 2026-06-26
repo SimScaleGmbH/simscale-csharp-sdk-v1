@@ -43,7 +43,7 @@ public class ReportResponse
     public List<Guid>? ResultIds { get; set; }
 
     [JsonPropertyName("reportProperties")]
-    public ReportProperties? ReportProperties { get; set; }
+    public ReportPropertiesPublic? ReportProperties { get; set; }
 
     [JsonPropertyName("reportFromStateProperties")]
     public ReportFromStateProperties? ReportFromStateProperties { get; set; }

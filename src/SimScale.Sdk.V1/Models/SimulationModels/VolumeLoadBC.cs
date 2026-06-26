@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This is a volume load boundary condition representing a distributed load on the selected volumes applied in the global coordinate system and each element of the assignment is loaded with a volume force depending on the volume of the element.Important remarks: The applied total force depends on the volume of the selection.Learn more.</summary>
-public class VolumeLoadBC : OneOf_HarmonicAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
+public class VolumeLoadBC : OneOf_HarmonicAnalysisBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
 {
     /// <summary>This is a volume load boundary condition representing a distributed load on the selected volumes applied in the globa...</summary>
     [JsonPropertyName("type")]

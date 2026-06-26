@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This option controls how the simulation results are written and how frequently.</summary>
-public class CustomResolution : OneOf_ForcesMomentsResultControlWriteControl, OneOf_TransientResultControlWriteControl, OneOf_StatisticalAveragingResultControlV2SamplingInterval, OneOf_ProbePointsResultControlWriteControl
+public class CustomResolution : OneOf_StatisticalAveragingResultControlV2SamplingInterval, OneOf_ProbePointsResultControlWriteControl, OneOf_TransientResultControlWriteControl, OneOf_ForcesMomentsResultControlWriteControl
 {
     /// <summary>This option controls how the simulation results are written and how frequently. Schema name: CustomResolution</summary>
     [JsonPropertyName("type")]

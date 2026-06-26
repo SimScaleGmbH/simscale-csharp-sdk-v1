@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
 /// <summary>A region refinement can be used to refine the mesh in a given area. The refinement area needs to be defined either via an existing solid or a geometry primitive.</summary>
-public class RegionRefinementWithLength : OneOf_SimmetrixMeshingSolidRefinements, OneOf_SimmetrixMeshingFluidRefinements, OneOf_SimmetrixMeshingElectromagneticsRefinements, OneOf_HexDominantSnappyRefinements
+public class RegionRefinementWithLength : OneOf_SimmetrixMeshingFluidRefinements, OneOf_SimmetrixMeshingSolidRefinements, OneOf_HexDominantSnappyRefinements, OneOf_SimmetrixMeshingElectromagneticsRefinements
 {
     /// <summary>A region refinement can be used to refine the mesh in a given area. The refinement area needs to be defined either vi...</summary>
     [JsonPropertyName("type")]

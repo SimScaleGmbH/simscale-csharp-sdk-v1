@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class FractionalHeight2 : OneOf_SimmetrixBoundaryLayerRefinementLayerType, OneOf_AutomaticLayerOnLayerType
+public class FractionalHeight2 : OneOf_AutomaticLayerOnLayerType, OneOf_SimmetrixBoundaryLayerRefinementLayerType
 {
     /// <summary>Schema name: FractionalHeight2</summary>
     [JsonPropertyName("type")]

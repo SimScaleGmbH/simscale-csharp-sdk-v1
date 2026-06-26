@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class FrequencyList : OneOf_HarmonicResponseControlExcitationFrequencies, OneOf_SolidSimulationControlExcitationFrequencies
+public class FrequencyList : OneOf_SolidSimulationControlExcitationFrequencies, OneOf_HarmonicResponseControlExcitationFrequencies
 {
     /// <summary>Schema name: FrequencyList</summary>
     [JsonPropertyName("type")]

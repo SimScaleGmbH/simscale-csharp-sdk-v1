@@ -29,4 +29,7 @@ public class ReportFromStateRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public Guid ReportId { get; set; }
 
+    [JsonPropertyName("trigger")]
+    public string? Trigger { get; set; }
+
 }

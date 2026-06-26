@@ -1,13 +1,18 @@
 using System.Net.Http.Headers;
+using System.Text.Json;
 using SimScale.Sdk.V1.Models;
+using SimScale.Sdk.V1.Models.DataRepositoryModels;
 using SimScale.Sdk.V1.Models.MaterialModels;
 
 namespace SimScale.Sdk.V1;
 
 public partial class SimScaleSDK
 {
-    private static readonly string[] DefaultTerminalStatuses = ["FINISHED", "CANCELED", "FAILED", "DONE", "EXPIRED"];
-    private static readonly string[] DefaultSuccessStatuses = ["FINISHED", "DONE"];
+    private const long DefaultUploadSessionChunkSize = 2_000_000_000L;
+    private const int UploadBufferSize = 8 * 1024 * 1024;
+
+    private static readonly string[] DefaultTerminalStatuses = ["FINISHED", "SUCCEEDED", "CANCELED", "FAILED", "DONE", "EXPIRED"];
+    private static readonly string[] DefaultSuccessStatuses = ["FINISHED", "SUCCEEDED", "DONE"];
 
     /// <summary>
     /// Poll until status reaches a terminal state.
@@ -116,5 +121,246 @@ public partial class SimScaleSDK
         using var stream = response.Content.ReadAsStreamAsync().GetAwaiter().GetResult();
         using var fileOut = File.Create(filepath);
         stream.CopyTo(fileOut);
+    }
+
+    /// <summary>
+    /// Upload a file to data-repository and return its DataId.
+    /// </summary>
+    /// <param name="filepath">Path to the file to upload.</param>
+    /// <param name="projectId">Project where the data will be stored.</param>
+    /// <param name="dataType">Workflow data type reference for the uploaded data.</param>
+    /// <param name="contentType">Content type stored with the uploaded data.</param>
+    /// <param name="chunkSize">Maximum append size in bytes. Defaults to 2,000,000,000 bytes (2 GB), matching the direct upload limit.</param>
+    public string UploadToDataRepository(
+        string filepath,
+        string projectId,
+        string dataType,
+        string contentType = "application/octet-stream",
+        long chunkSize = DefaultUploadSessionChunkSize)
+    {
+        if (chunkSize <= 0)
+            throw new ArgumentException("chunkSize must be greater than zero", nameof(chunkSize));
+
+        var fileInfo = new FileInfo(filepath);
+        if (fileInfo.Length == 0)
+            throw new ArgumentException("upload sessions require a non-empty file", nameof(filepath));
+
+        var uploadSession = DataRepository.CreateUploadSession(
+            new CreateUploadSessionRequest
+            {
+                DataType = dataType,
+                ContentType = contentType,
+            },
+            projectId);
+        var storageId = uploadSession.StorageId
+            ?? throw new InvalidOperationException("Upload session response did not contain StorageId");
+
+        try
+        {
+            using var file = File.OpenRead(filepath);
+            var offset = 0L;
+            while (offset < fileInfo.Length)
+            {
+                var currentChunkSize = Math.Min(chunkSize, fileInfo.Length - offset);
+                var append = DataRepository.StartUploadSessionAppend(
+                    storageId,
+                    new StartUploadSessionAppendRequest
+                    {
+                        Size = currentChunkSize,
+                    },
+                    projectId);
+                var appendId = append.AppendId
+                    ?? throw new InvalidOperationException("Upload session append response did not contain AppendId");
+
+                try
+                {
+                    UploadFileRangeToPresignedRequest(append.PreSignedPutRequest, file, currentChunkSize);
+                    DataRepository.FinishUploadSessionAppend(storageId, appendId, projectId);
+                }
+                catch
+                {
+                    try
+                    {
+                        DataRepository.CancelUploadSessionAppend(storageId, appendId, projectId);
+                    }
+                    catch
+                    {
+                        // Keep the original upload failure visible to the caller.
+                    }
+                    throw;
+                }
+
+                offset += currentChunkSize;
+            }
+
+            return DataRepository.FinalizeUploadSession(storageId, projectId);
+        }
+        catch
+        {
+            try
+            {
+                DataRepository.DeleteUploadSession(storageId, projectId);
+            }
+            catch
+            {
+                // Keep the original upload failure visible to the caller.
+            }
+            throw;
+        }
+    }
+
+    /// <summary>
+    /// Create a workflow data map for workflows without parameter values.
+    /// Workflow data maps support parameter-value combinations. For non-parametric
+    /// data there is one combination with empty parameter values; its UUID only
+    /// links both sections of this serialized data map.
+    /// </summary>
+    public JsonElement CreateNonParametricWorkflowDataMap(IReadOnlyDictionary<string, string> dataByName)
+    {
+        var parameterValueCombinationId = Guid.NewGuid().ToString();
+        var payload = new
+        {
+            parameterValueCombinationsById = new Dictionary<string, object>
+            {
+                [parameterValueCombinationId] = new
+                {
+                    parameterValues = new Dictionary<string, object>(),
+                },
+            },
+            dataByNameAndParameterValueCombinationId = dataByName.ToDictionary(
+                item => item.Key,
+                item => new Dictionary<string, string>
+                {
+                    [parameterValueCombinationId] = item.Value,
+                }),
+        };
+
+        return JsonSerializer.SerializeToElement(payload, SimScaleClient.JsonOptions);
+    }
+
+    /// <summary>
+    /// Read a data ID from a workflow data map without parameter values.
+    /// </summary>
+    public string? GetNonParametricWorkflowDataId(JsonElement? dataMap, string dataName)
+    {
+        if (dataMap is null)
+            return null;
+
+        if (!dataMap.Value.TryGetProperty("dataByNameAndParameterValueCombinationId", out var dataByNameElement))
+            return null;
+
+        if (!dataByNameElement.TryGetProperty(dataName, out var dataByParameterId))
+            return null;
+
+        foreach (var property in dataByParameterId.EnumerateObject())
+        {
+            if (property.Value.ValueKind == JsonValueKind.String)
+                return property.Value.GetString();
+        }
+
+        return null;
+    }
+
+    private static void UploadFileRangeToPresignedRequest(PresignedRequest? presignedRequest, FileStream file, long size)
+    {
+        var url = presignedRequest?.Url
+            ?? throw new InvalidOperationException("Upload session append response did not contain a pre-signed PUT URL");
+
+        using var http = new HttpClient
+        {
+            Timeout = TimeSpan.FromHours(1),
+        };
+        using var limitedStream = new LimitedReadStream(file, size);
+        using var content = new StreamContent(limitedStream, UploadBufferSize);
+        content.Headers.ContentLength = size;
+
+        using var request = new HttpRequestMessage(HttpMethod.Put, url)
+        {
+            Content = content,
+        };
+        request.Headers.UserAgent.ParseAdd(SimScaleClient.UserAgent);
+
+        foreach (var header in presignedRequest?.Headers ?? [])
+        {
+            if (string.IsNullOrWhiteSpace(header.Name) || header.Value is null)
+                continue;
+
+            if (header.Name.Equals("Content-Length", StringComparison.OrdinalIgnoreCase))
+                continue;
+
+            if (header.Name.StartsWith("Content-", StringComparison.OrdinalIgnoreCase))
+                content.Headers.TryAddWithoutValidation(header.Name, header.Value);
+            else
+                request.Headers.TryAddWithoutValidation(header.Name, header.Value);
+        }
+
+        using var response = http.Send(request);
+        if (!response.IsSuccessStatusCode)
+            throw new SimScaleAPIError(
+                (int)response.StatusCode,
+                response.Content.ReadAsStringAsync().GetAwaiter().GetResult(),
+                url);
+    }
+
+    private sealed class LimitedReadStream : Stream
+    {
+        private readonly Stream _inner;
+        private long _remaining;
+
+        public LimitedReadStream(Stream inner, long size)
+        {
+            _inner = inner;
+            _remaining = size;
+        }
+
+        public override bool CanRead => true;
+        public override bool CanSeek => false;
+        public override bool CanWrite => false;
+        public override long Length => throw new NotSupportedException();
+
+        public override long Position
+        {
+            get => throw new NotSupportedException();
+            set => throw new NotSupportedException();
+        }
+
+        public override void Flush() { }
+
+        public override int Read(byte[] buffer, int offset, int count)
+        {
+            if (_remaining <= 0)
+                return 0;
+
+            var bytesToRead = (int)Math.Min(count, _remaining);
+            var bytesRead = _inner.Read(buffer, offset, bytesToRead);
+            _remaining -= bytesRead;
+            return bytesRead;
+        }
+
+        public override int Read(Span<byte> buffer)
+        {
+            if (_remaining <= 0)
+                return 0;
+
+            var bytesToRead = (int)Math.Min(buffer.Length, _remaining);
+            var bytesRead = _inner.Read(buffer[..bytesToRead]);
+            _remaining -= bytesRead;
+            return bytesRead;
+        }
+
+        public override async ValueTask<int> ReadAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
+        {
+            if (_remaining <= 0)
+                return 0;
+
+            var bytesToRead = (int)Math.Min(buffer.Length, _remaining);
+            var bytesRead = await _inner.ReadAsync(buffer[..bytesToRead], cancellationToken);
+            _remaining -= bytesRead;
+            return bytesRead;
+        }
+
+        public override long Seek(long offset, SeekOrigin origin) => throw new NotSupportedException();
+        public override void SetLength(long value) => throw new NotSupportedException();
+        public override void Write(byte[] buffer, int offset, int count) => throw new NotSupportedException();
     }
 }

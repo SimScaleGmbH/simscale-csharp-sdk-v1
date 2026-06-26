@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
 /// <summary>Refine specific faces of interest or complex geometrical shapes by defining a local element size. This will ensure a relatively uniform mesh.</summary>
-public class SimmetrixLocalSizingRefinement : OneOf_SimmetrixMeshingSolidRefinements, OneOf_SimmetrixMeshingFluidRefinements, OneOf_SimmetrixMeshingElectromagneticsRefinements
+public class SimmetrixLocalSizingRefinement : OneOf_SimmetrixMeshingFluidRefinements, OneOf_SimmetrixMeshingSolidRefinements, OneOf_SimmetrixMeshingElectromagneticsRefinements
 {
     /// <summary>Refine specific faces of interest or complex geometrical shapes by defining a local element size. This will ensure a...</summary>
     [JsonPropertyName("type")]

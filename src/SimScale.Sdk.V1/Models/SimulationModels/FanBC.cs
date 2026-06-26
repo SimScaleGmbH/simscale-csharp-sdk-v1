@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This boundary condition sets the pressure based on the pressure drop specified as a function of the volumetric flow rate. Learn more</summary>
-public class FanBC : OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_CoupledConjugateHeatTransferBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_IncompressibleBoundaryConditions, OneOf_EmbeddedBoundaryBoundaryConditions
+public class FanBC : OneOf_EmbeddedBoundaryBoundaryConditions, OneOf_CoupledConjugateHeatTransferBoundaryConditions, OneOf_IncompressibleBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions
 {
     /// <summary>This boundary condition sets the pressure based on the pressure drop specified as a function of the volumetric flow r...</summary>
     [JsonPropertyName("type")]

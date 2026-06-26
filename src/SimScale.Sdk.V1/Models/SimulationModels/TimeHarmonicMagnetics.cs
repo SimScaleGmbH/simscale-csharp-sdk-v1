@@ -17,4 +17,7 @@ public class TimeHarmonicMagnetics : OneOf_ElectromagneticAnalysisModel
     [JsonPropertyName("thermal")]
     public bool? Thermal { get; set; }
 
+    [JsonPropertyName("timeDependency")]
+    public OneOf_TimeHarmonicMagneticsTimeDependency? TimeDependency { get; set; }
+
 }

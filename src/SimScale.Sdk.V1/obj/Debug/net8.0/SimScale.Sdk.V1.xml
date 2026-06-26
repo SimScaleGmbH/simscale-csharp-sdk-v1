@@ -278,7 +278,7 @@
             <summary>Unit of measurement.</summary>
         </member>
         <member name="T:SimScale.Sdk.V1.Models.CadModels.PointPair">
-            <summary>Hit line in meters to be used in the viewer.</summary>
+            <summary>Hint line in meters to be used in the viewer.</summary>
         </member>
         <member name="P:SimScale.Sdk.V1.Models.CadModels.RegionContact.RegionA">
             <summary>Internal name of the solid region.</summary>
@@ -403,6 +403,87 @@
         <member name="P:SimScale.Sdk.V1.Models.CollectionMeta.Total">
             <summary>Total number of resources in the collection.</summary>
         </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.ComponentGroupMetadata">
+            <summary>Data for fetching information about component groups. Contains all properties which are accessible by clients.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ComponentRegistryModels.ComponentGroupMetadata.ComponentGroupReference">
+            <summary>Reference to a component group. Components are organized into a group hierarchy which serves as a qualification mecha...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ComponentRegistryModels.ComponentGroupMetadata.State">
+            <summary>Possible states of a component group.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.ComponentOverview">
+            <summary>Read projection of a component, enriched with the display name taken from the latest non-archived version. Returned by endpoints that exist to display components (the listing endpoint and the single-component fetch); write/state-transition endpoints return `ComponentMetadata`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ComponentRegistryModels.ComponentOverview.ComponentReference">
+            <summary>Reference to a component. Components are organized into a group hierarchy which serves as a qualification mechanism t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ComponentRegistryModels.ComponentOverview.State">
+            <summary>Possible states of a component.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.ComponentVersionDependencies">
+            <summary>Contains the dependencies of a component version, grouped by component type. Note that not all component types can have dependencies of all component types. For instance, data types can only depend on other data types, but not methods or workflows.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.ComponentVersionDependents">
+            <summary>Contains the component versions dependent on a component version, grouped by component type. Note that not all component types can have dependents of all component types. For instance, data types cannot depend on methods or workflow types.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.ComponentVersionMetadata">
+            <summary>Encapsulates all generic metadata about a component at a particular version.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ComponentRegistryModels.ComponentVersionMetadata.ComponentVersionReference">
+            <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ComponentRegistryModels.ComponentVersionMetadata.State">
+            <summary>Possible states of a component version.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.DataDescription">
+            <summary>Description of a single data.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ComponentRegistryModels.DataDescription.DataProviderType">
+            <summary>Identifies if a data is - `INTERNAL`: data is stored and managed by `data-repository` service or - `EXTERNAL`: data i...</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.DataInterface">
+            <summary>Description of the input and output data of a method or a workflow.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.DataTypeFileOperationsDescription">
+            <summary>Data type description in association to file operations</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.FileFormat">
+            <summary>High-level description of a file format which makes it suitable for dealing with files on user interfaces.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.FileFormatGroup">
+            <summary>A group of related file formats.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.OrganizationComponentGroupMetadata">
+            <summary>Metadata of an organization component group.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ComponentRegistryModels.OrganizationComponentGroupMetadata.OrganizationComponentGroupReference">
+            <summary>Reference to a component group. Components are organized into a group hierarchy which serves as a qualification mecha...</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.ParameterDescription">
+            <summary>Description of a single parameter for parametric data.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.ValidationRule">
+            <summary>Validation rule defined on top of a value model. Each rule consists of one or more cases.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.ValidationRuleCase">
+            <summary>One particular case of a validation rule to be checked during validation.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ComponentRegistryModels.ValidationRuleCase.SeverityLevel">
+            <summary>Severity levels for reporting validation results.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.ValidationRuleSet">
+            <summary>Set of validation rules. It can be associated to for example a workflow type configuration schema or a method configuration schema.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ComponentRegistryModels.WorkflowDefinition">
+            <summary>Simulation workflow definition. The definition follows the semantics of a workflow, which is a set of connected operations to generate some desired output data from available input data. The workflow developer defines the data and operations and the workflow engine executes the workflow to achieve the declared goal. Within the entire definition all data and operations are named. This drives the attention towards the semantics and the domain, also helps with communicating the state of the execution. In regard to consistency validation (name duplications etc.), the framework takes care of that.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ComponentRegistryModels.WorkflowDefinition.WorkflowDefinitionAnalysisStrategy">
+            <summary>Possible strategies for analysing the workflow definition.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ComponentRegistryModels.WorkflowDefinition.WorkflowTopology">
+            <summary>Possible workflow topologies.</summary>
+        </member>
         <member name="T:SimScale.Sdk.V1.Models.ComputeResource">
             <summary>An interval with the estimated compute resources (CPUh or GPUh) required to run the simulation.</summary>
         </member>
@@ -432,6 +513,54 @@
         </member>
         <member name="P:SimScale.Sdk.V1.Models.CreateSavedSelectionResponse.SavedSelectionId">
             <summary>ID of the newly created saved selection.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.DataRepositoryModels.CreateUploadSessionRequest">
+            <summary>Request to initialize an upload session backed by pre-signed URLs.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.DataRepositoryModels.CreateUploadSessionRequest.DataType">
+            <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.DataRepositoryModels.DataInfo">
+            <summary>Information about one data entity. General metadata about the associated piece of business data.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.DataRepositoryModels.ExternalDataInfo.DataId">
+            <summary>Data identifier. It is a string composed of the type identifier and a UUID: `data:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.DataRepositoryModels.ExternalDataInfo.DataProviderType">
+            <summary>Identifies if a data is - `INTERNAL`: data is stored and managed by `data-repository` service or - `EXTERNAL`: data i...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.DataRepositoryModels.ExternalDataInfo.DataType">
+            <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.DataRepositoryModels.ExternalDataInfo.Origin">
+            <summary>Identifies the origin of data creation: - `USER_UPLOAD`: data was uploaded or registered directly by a user through t...</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.DataRepositoryModels.HttpHeader">
+            <summary>HTTP header.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.DataRepositoryModels.InternalDataInfo.DataId">
+            <summary>Data identifier. It is a string composed of the type identifier and a UUID: `data:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.DataRepositoryModels.InternalDataInfo.DataProviderType">
+            <summary>Identifies if a data is - `INTERNAL`: data is stored and managed by `data-repository` service or - `EXTERNAL`: data i...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.DataRepositoryModels.InternalDataInfo.DataType">
+            <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.DataRepositoryModels.InternalDataInfo.Origin">
+            <summary>Identifies the origin of data creation: - `USER_UPLOAD`: data was uploaded or registered directly by a user through t...</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.DataRepositoryModels.PresignedRequest">
+            <summary>Pre-signed HTTP request.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.DataRepositoryModels.StartUploadSessionAppendRequest">
+            <summary>Request to start appending one chunk to an initialized upload session.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.DataRepositoryModels.UploadSession">
+            <summary>Initialized upload session.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.DataRepositoryModels.UploadSessionAppend">
+            <summary>Append operation initialized for an upload session.</summary>
         </member>
         <member name="P:SimScale.Sdk.V1.Models.DownloadOriginalCadResponse.Url">
             <summary>The temporary url for downloading the the originally imported CAD file.</summary>
@@ -1516,6 +1645,9 @@
         <member name="P:SimScale.Sdk.V1.Models.ReportingModels.DownloadInfo.Compression">
             <summary>The compression used for the report result download archive.</summary>
         </member>
+        <member name="T:SimScale.Sdk.V1.Models.ReportingModels.InternalReportResponse">
+            <summary>Report properties as returned by the internal report endpoint that postproc-result-query reads. Its reportProperties uses the full ReportProperties, including the server-resolved resolution hints (cadAssociations, topologyLabelByName) that the public ReportResponse omits. Only the fields the batch job needs are exposed here; the public-facing report fields (status, download, statisticsResult, ...) live on ReportResponse.</summary>
+        </member>
         <member name="P:SimScale.Sdk.V1.Models.ReportingModels.IsoSurface.IsoValue">
             <summary>The iso scalar value. Should be within the selected scalar range. Default value is the average between the min and ma...</summary>
         </member>
@@ -1566,6 +1698,9 @@
         </member>
         <member name="P:SimScale.Sdk.V1.Models.ReportingModels.ReportFromStateRequest.ReportId">
             <summary>If provided, the newly created report will have this value for its UUID.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ReportingModels.ReportPropertiesPublic">
+            <summary>Public counterpart of ReportProperties whose STATISTICS variant omits the server-resolved resolution hints (cadAssociations, topologyLabelByName). Used by the public ReportResponse; the report request and the internal report representation use ReportProperties, which carries those fields.</summary>
         </member>
         <member name="P:SimScale.Sdk.V1.Models.ReportingModels.ReportRequest.Name">
             <summary>The name of the report.</summary>
@@ -1624,6 +1759,9 @@
         <member name="P:SimScale.Sdk.V1.Models.ReportingModels.ScreenshotOutputSettings.FrameIndex">
             <summary>Default to the last timestep or frame in the result.</summary>
         </member>
+        <member name="P:SimScale.Sdk.V1.Models.ReportingModels.ScreenshotReportFromStateProperties.Persist">
+            <summary>When false, the rendered screenshot is not registered back into the project (ephemeral). Defaults to true.</summary>
+        </member>
         <member name="P:SimScale.Sdk.V1.Models.ReportingModels.SeedSettings.HorizontalDimension">
             <summary>Number of seed points in the horizontal direction.</summary>
         </member>
@@ -1651,6 +1789,9 @@
         <member name="P:SimScale.Sdk.V1.Models.ReportingModels.SpheresVisualizationStyle.NumPulses">
             <summary>This value specifies how many pulses there should be in the model.</summary>
         </member>
+        <member name="T:SimScale.Sdk.V1.Models.ReportingModels.StatisticsBulkValues">
+            <summary>Bulk statistical values (metrics, centroid and bounding box) computed over a region of the model - a part, a part group, a whole cutting plane, or a single cutting-plane region. Each numeric metric is an object with a 'value' and a 'unit' field. Integral metrics carry composite units; all others carry the plain scalar field unit.</summary>
+        </member>
         <member name="T:SimScale.Sdk.V1.Models.ReportingModels.StatisticsCentroidMetric">
             <summary>Centroid [x, y, z] coordinates paired with their length unit.</summary>
         </member>
@@ -1665,6 +1806,12 @@
         </member>
         <member name="P:SimScale.Sdk.V1.Models.ReportingModels.StatisticsCuttingPlane.Identifier">
             <summary>Unique label for this cutting plane. Used as the key for this plane's entry in the statisticsResult map returned when...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ReportingModels.StatisticsCuttingPlaneRegionEntry.PartName">
+            <summary>The mesh part name the plane intersected to produce this region; null when the part could not be resolved.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ReportingModels.StatisticsCuttingPlaneRegionEntry.PartLabel">
+            <summary>The user-facing label of the intersected part, resolved from the mesh topology (e.g. "Air domain", "solid1"); null wh...</summary>
         </member>
         <member name="T:SimScale.Sdk.V1.Models.ReportingModels.StatisticsMetric">
             <summary>A scalar metric value paired with its unit string.</summary>
@@ -1685,7 +1832,7 @@
             <summary>Names of the model parts to include in this group. Each name must exactly match a part name present in the simulation...</summary>
         </member>
         <member name="T:SimScale.Sdk.V1.Models.ReportingModels.StatisticsReportProperties">
-            <summary>Configuration for a statistics (bulk calculation) report. Computes scalar field statistics (minimum, maximum, average, integral, and area/volume-weighted equivalents) over model geometry at a chosen time step. At least one of partIdentifiers, partGroupIdentifiers, or cuttingPlanes must be provided. Parts are named surfaces or volumes that exist in the simulation result (e.g. wall patches in a CFD model or solid bodies in a structural model). Use partIdentifiers to get independent results per part, or partGroupIdentifiers to combine several parts into one aggregated result. Cutting planes are user-defined infinite planes that slice through the model geometry. They are specified by a point on the plane and a normal vector, and statistics are computed over the intersection.</summary>
+            <summary>Configuration for a statistics (bulk calculation) report. Computes scalar field statistics (minimum, maximum, average, integral, and area/volume-weighted equivalents) over model geometry at a chosen time step. Also carries the server-resolved resolution hints (cadAssociations, topologyLabelByName) that postproc-manager populates and postproc-result-query consumes; these hints are stripped from the public API response, which uses the reduced StatisticsReportPropertiesPublic projection. At least one of partIdentifiers, partGroupIdentifiers, or cuttingPlanes must be provided.</summary>
         </member>
         <member name="P:SimScale.Sdk.V1.Models.ReportingModels.StatisticsReportProperties.PartIdentifiers">
             <summary>Names of individual model parts for which to compute statistics independently. Each name must exactly match a part na...</summary>
@@ -1702,8 +1849,26 @@
         <member name="P:SimScale.Sdk.V1.Models.ReportingModels.StatisticsReportProperties.CadAssociations">
             <summary>Filtered CAD-Mesh name mapping for the requested parts only. Each key is a CAD entity name provided by the user and e...</summary>
         </member>
-        <member name="T:SimScale.Sdk.V1.Models.ReportingModels.StatisticsResultEntry">
-            <summary>Bulk statistical values computed for a single part, part group, or cutting plane. Each numeric metric is an object with a 'value' and a 'unit' field. Integral metrics carry composite units; all others carry the plain scalar field unit.</summary>
+        <member name="P:SimScale.Sdk.V1.Models.ReportingModels.StatisticsReportProperties.TopologyLabelByName">
+            <summary>Mesh-part-name to user-facing label mapping for the mesh topology, used to label cutting-plane regions with a human-r...</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.ReportingModels.StatisticsReportPropertiesPublic">
+            <summary>Public projection of StatisticsReportProperties, used in the report response. Mirrors StatisticsReportProperties' user-facing fields but omits the server-resolved resolution hints (cadAssociations, topologyLabelByName), so they are never exposed on the public API. Standalone schema (rather than allOf StatisticsReportProperties) because the latter is a discriminated oneOf member, which the generator does not flatten - keep this field set in sync with StatisticsReportProperties. Configuration for a statistics (bulk calculation) report. Computes scalar field statistics (minimum, maximum, average, integral, and area/volume-weighted equivalents) over model geometry at a chosen time step. At least one of partIdentifiers, partGroupIdentifiers, or cuttingPlanes must be provided. Parts are named surfaces or volumes that exist in the simulation result (e.g. wall patches in a CFD model or solid bodies in a structural model). Use partIdentifiers to get independent results per part, or partGroupIdentifiers to combine several parts into one aggregated result. Cutting planes are user-defined infinite planes that slice through the model geometry. They are specified by a point on the plane and a normal vector, and statistics are computed over the intersection.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ReportingModels.StatisticsReportPropertiesPublic.PartIdentifiers">
+            <summary>Names of individual model parts for which to compute statistics independently. Each name must exactly match a part na...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ReportingModels.StatisticsReportPropertiesPublic.PartGroupIdentifiers">
+            <summary>Named groups of parts whose bulk values are aggregated into a single combined result entry. Useful when several parts...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ReportingModels.StatisticsReportPropertiesPublic.CuttingPlanes">
+            <summary>Cutting planes for which to compute statistics. A cutting plane is an infinite plane defined by a point and a normal...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ReportingModels.StatisticsReportPropertiesPublic.FrameIndex">
+            <summary>Zero-based time step index at which to evaluate the field. When not provided, statistics are computed at the last ava...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.ReportingModels.StatisticsResultEntry.Regions">
+            <summary>For a cutting plane, the per-region breakdown: one entry per distinct area produced by the cut (one per intersected p...</summary>
         </member>
         <member name="P:SimScale.Sdk.V1.Models.ReportingModels.TimeStepAnimationOutputSettings.ToFrameIndex">
             <summary>Index of the last frame to include (inclusive). Defaults to the last available frame when not provided.</summary>
@@ -2730,6 +2895,12 @@
         </member>
         <member name="P:SimScale.Sdk.V1.Models.SimulationModels.ElectromagneticAnalysis.Type">
             <summary>Schema name: ElectromagneticAnalysis</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.SimulationModels.ElectromagneticCircuit.Type">
+            <summary>Schema name: ElectromagneticCircuit</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.SimulationModels.ElectromagneticCircuit.ObjectId">
+            <summary>The file definition for the EMWORKS Circuit Netlist specification</summary>
         </member>
         <member name="P:SimScale.Sdk.V1.Models.SimulationModels.ElectromagneticCurrentTypeConstant.Type">
             <summary>Schema name: ElectromagneticCurrentTypeConstant</summary>
@@ -5218,6 +5389,9 @@
         <member name="T:SimScale.Sdk.V1.Models.SimulationModels.OneOf_TimeDifferentiationSchemesForDefault">
             <summary>With this option, you can choose your desired time-differentiation scheme:For steady-state simulations, choose steadyState.Euler is a first-order implicit and bounded scheme. If unsure, try this scheme first.localEuler is a local time-step scheme, which is first-order implicit and bounded.</summary>
         </member>
+        <member name="T:SimScale.Sdk.V1.Models.SimulationModels.OneOf_TimeHarmonicMagneticsTimeDependency">
+            <summary>Steady-state: Steady-state simulations are time-independent. That is, the magnetic and thermal field are constant during the simulation.Transient: Transient simulations account for time-dependent effects where the magnetic and thermal field can change with time (e.g. due to Ohmic heating or boundary conditions).</summary>
+        </member>
         <member name="T:SimScale.Sdk.V1.Models.SimulationModels.OneOf_VelocityInletBCRadiativeIntensityRay">
             <summary>Radiative behaviour of the wall. The Kirchhoff's law of thermal radiation is applied in all options. This means that the absorptivity of the surface is equal to its emissivity. Opaque is applied to surfaces with transmissivity equal to 0. The radiation that hits the surface will be absorbed and reflected, but not transmitted, e.g.: brick or concrete walls.Transparent is applied to surfaces with transmissivity equal to 1. The radiation that hits the surface will be fully transmitted to the other side, e.g.: inlets, outlets or regular windows.Semi-transparent is applied to non-fully transparent surfaces. The radiation that hits the surface will be absorbed, reflected and transmitted, e.g. some stained glass windows.</summary>
         </member>
@@ -5733,6 +5907,9 @@
         </member>
         <member name="P:SimScale.Sdk.V1.Models.SimulationModels.RelativeConvergenceResiduals.RelativeForceTolerance">
             <summary>The ratio of the maximum residual force to the maximum reaction force (or applied load). A typical value is 5 &amp;ti...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.SimulationModels.RelativeConvergenceResiduals.RelativeResidualAutoSwitch">
+            <summary>Auto switch method: Automatically toggles the convergence criteria between residual, displacement, or energy methods...</summary>
         </member>
         <member name="P:SimScale.Sdk.V1.Models.SimulationModels.RelativeConvergenceResidualsOrDisplacements.Type">
             <summary>Schema name: RelativeConvergenceResidualsOrDisplacements</summary>
@@ -7027,6 +7204,1110 @@
         <member name="T:SimScale.Sdk.V1.Models.WindRoseResponse">
             <summary>Wrapper containing WindRose schema</summary>
         </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.CreateWorkflowRequest">
+            <summary>Workflow creation data structure. Holds all properties that one can provide upon creation. Properties which are not presented will not be initialized in the workflow.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.CreateWorkflowRequest.WorkflowTypeReference">
+            <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.ReadWorkflowResponse">
+            <summary>Workflow or workflow version reading response. Contains all properties available for the requested workflow or workflow version.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.ReadWorkflowResponse.ParentWorkflowVersionId">
+            <summary>Workflow version identifier. It is a string composed of the type identifier and a UUID: `workflow.version:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.ReadWorkflowResponse.WorkflowId">
+            <summary>Workflow identifier. It is a string composed of the type identifier and a UUID: `workflow:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.ReadWorkflowResponse.WorkflowTypeReference">
+            <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.ReadWorkflowResponse.WorkflowVersionId">
+            <summary>Workflow version identifier. It is a string composed of the type identifier and a UUID: `workflow.version:[UUID]`.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.UpdateWorkflowRequest">
+            <summary>Workflow update data structure. Suitable for specifying all mutable properties. Properties which are not presented will not be updated in the workflow.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.UpdateWorkflowRequest.WorkflowTypeVersionReference">
+            <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowOverview">
+            <summary>Workflow overview data structure. Holds high-level information but skips details (for example data mapping and configuration) to keep the response size reasonably small.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowOverview.ParentWorkflowVersionId">
+            <summary>Workflow version identifier. It is a string composed of the type identifier and a UUID: `workflow.version:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowOverview.WorkflowId">
+            <summary>Workflow identifier. It is a string composed of the type identifier and a UUID: `workflow:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowOverview.WorkflowTypeReference">
+            <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowOverview.WorkflowVersionId">
+            <summary>Workflow version identifier. It is a string composed of the type identifier and a UUID: `workflow.version:[UUID]`.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowVersionOverview">
+            <summary>Workflow version overview data structure. Holds high-level information but skips details (for example data mapping and configuration) to keep the response size reasonably small.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowVersionOverview.ParentWorkflowVersionId">
+            <summary>Workflow version identifier. It is a string composed of the type identifier and a UUID: `workflow.version:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowVersionOverview.WorkflowId">
+            <summary>Workflow identifier. It is a string composed of the type identifier and a UUID: `workflow:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowVersionOverview.WorkflowTypeReference">
+            <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowVersionOverview.WorkflowVersionId">
+            <summary>Workflow version identifier. It is a string composed of the type identifier and a UUID: `workflow.version:[UUID]`.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.InitializeWorkflowRunRequest">
+            <summary>Workflow run information to be presented for the initialization.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.InitializeWorkflowRunRequest.WorkflowVersionId">
+            <summary>Workflow version identifier. It is a string composed of the type identifier and a UUID: `workflow.version:[UUID]`.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.MethodCheckpointProgress">
+            <summary>Checkpoint progress information.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.MethodPercentageProgress">
+            <summary>Percentage progress value.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.MethodProgressEntry">
+            <summary>A progress entry from the method engine.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.MethodResourceUsageReport">
+            <summary>Standalone resource usage report for one method run.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.MethodResourceUsageReport.MethodRunId">
+            <summary>Method run identifier. It is a string composed of the type identifier and a UUID: `method.run:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.MethodResourceUsageReport.OperationRunId">
+            <summary>Operation run identifier. It is a string composed of the type identifier and a UUID: `operation.run:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.MethodResourceUsageReport.Status">
+            <summary>Completeness status for resource usage reporting.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRun">
+            <summary>Operation level information about workflow run.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRun.MethodReference">
+            <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRun.MethodRunId">
+            <summary>Method run identifier. It is a string composed of the type identifier and a UUID: `method.run:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRun.NestedWorkflowRunId">
+            <summary>Workflow run identifier. It is a string composed of the type identifier and a UUID: `workflow.run:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRun.NestedWorkflowTypeReference">
+            <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRun.OperationRunId">
+            <summary>Operation run identifier. It is a string composed of the type identifier and a UUID: `operation.run:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRun.OperationType">
+            <summary>Possible types of an operation run in the workflow run.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRun.WorkflowRunId">
+            <summary>Workflow run identifier. It is a string composed of the type identifier and a UUID: `workflow.run:[UUID]`.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRunProgress">
+            <summary>Details about an individual operation run's progress.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRunProgress.MethodRunId">
+            <summary>Method run identifier. It is a string composed of the type identifier and a UUID: `method.run:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRunProgress.NestedWorkflowRunId">
+            <summary>Workflow run identifier. It is a string composed of the type identifier and a UUID: `workflow.run:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRunProgress.OperationRunId">
+            <summary>Operation run identifier. It is a string composed of the type identifier and a UUID: `operation.run:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRunProgress.OperationType">
+            <summary>Possible types of an operation run in the workflow run.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRunStateHistoryItem">
+            <summary>Item in the operation run state history. Each history item stores the new state that the operation run has entered at the stored timestamp.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRunStateHistoryItem.OperationRunState">
+            <summary>Possible states of an operation run.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.OperationRunStateHistoryStatisticalSummary">
+            <summary>Statistical summary information about the workflow run state history.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.PublicWorkflowRunOverview">
+            <summary>Public-API overview of a workflow run. When the run is in the SUCCEEDED state, `outputDataMap` is populated with the DataIds of the run's outputs; in all other states (including in listings) the field is null.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.PublicWorkflowRunOverview.State">
+            <summary>Workflow run state is a higher-level state describing overall progression.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.PublicWorkflowRunOverview.WorkflowId">
+            <summary>Workflow identifier. It is a string composed of the type identifier and a UUID: `workflow:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.PublicWorkflowRunOverview.WorkflowRunId">
+            <summary>Workflow run identifier. It is a string composed of the type identifier and a UUID: `workflow.run:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.PublicWorkflowRunOverview.WorkflowTypeReference">
+            <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.PublicWorkflowRunOverview.WorkflowVersionId">
+            <summary>Workflow version identifier. It is a string composed of the type identifier and a UUID: `workflow.version:[UUID]`.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.ResourceUsage">
+            <summary>Resource usage amount in core-seconds.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.ResourceUsageSummary">
+            <summary>Resource usage split into total, chargeable, and non-chargeable parts.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.WorkflowRunError">
+            <summary>Error information for a failed workflow run. Present only when the run is in the FAILED state.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowRunnerModels.WorkflowRunProgress">
+            <summary>Represents the progress of a workflow run</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRunnerModels.WorkflowRunProgress.WorkflowRunId">
+            <summary>Workflow run identifier. It is a string composed of the type identifier and a UUID: `workflow.run:[UUID]`.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.AbstractCompoundField.Supertype">
+            <summary>Abstract compound field denotes a schema element which has nested schema elements.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.AbstractDataDefinition">
+            <summary>Abstract workflow data definition. It can be either: * input data of the workflow * output data of the workflow * other intermediate data in the workflow</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.AbstractOperationDefinition">
+            <summary>Abstract workflow operation definition. It can be either: * atomic method or nested workflow, * composition element: grouping operations, control structures etc.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.AtomicField">
+            <summary>Abstract base class for atomic fields.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.AtomicOperationDefinition">
+            <summary>Atomic workflow operation which can be executed as is without further decomposition by the workflow engine. It can either refer to a method or a nested workflow.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.BooleanOperationAnd.OperandA">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.BooleanOperationAnd.OperandB">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.BooleanOperationNot.Operand">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.BooleanOperationOr.OperandB">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.BooleanToStringValueConversion.BooleanValue">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.Breakpoint">
+            <summary>Breakpoints provide an automated mechanism to pause a workflow run based on certain criteria. Based on the criteria the following cases are possible: * operation only breakpoint: the workflow gets automatically paused when the workflow run would get to the processing of a particular operation * condition only breakpoint: the workflow gets automatically paused when the particular condition (expressed as a boolean value model) becomes true * operation with condition breakpoint: the workflow gets automatically paused when the workflow run gets to the processing of a particular operation and also the additional condition is met In all cases, whenever a breakpoints get activated, the workflow executor puts the workflow run into paused state and not scheduling any further operation processing until the workflow run is resumed explicitly by the user. That's also true for those operations which has no associated activated breakpoint, in other words, there's no concept of "multi-threading" in workflows in the sense of pausing one "thread" and keeping others running, even if when the run is ongoing maximum parallelism is aimed by the workflow executor. Note that already running operations are allowed to finish and to be processed in case of breakpoint activation, but after their processing the workflow run is completely paused and not reprocessed for other potential further operations. Breakpoints can be defined at these levels: * workflow type level: defined as part of the workflow definition by the workflow developer, these breakpoints apply to all workflows and their runs based on top of the particular workflow type * workflow level: users can define workflow specific custom breakpoints which apply only to the particular workflow and its runs * workflow run level: users can also define workflow run specific custom breakpoints which apply only to the particular workflow run</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.Breakpoint.Condition">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.CompoundComparisonEqual.OperandA">
+            <summary>Value model for a compound value. Resolves to an object JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.CompoundComparisonEqual.OperandB">
+            <summary>Value model for a compound value. Resolves to an object JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.CompoundFieldCustomUiConfigurationEntry.CustomUiConfigurationValue">
+            <summary>Value model for a concrete compound value. Resolves to an object JSON node. Note that the serialized representation o...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.CompoundFieldTitleUiConfigurationEntry.TitleType">
+            <summary>Value model for an enum value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.CompoundMapEntities.CompoundValue">
+            <summary>Value model for a concrete compound value. Resolves to an object JSON node. Note that the serialized representation o...</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.DataReference">
+            <summary>Reference to a data in a workflow. It is used to wire together the workflow topology and also used in the algorithms for the workflow execution. Specific subtypes are generated for each data type for type safe wiring.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalField.QuantityClass">
+            <summary>Possible values are: `Double` for dimensional scalar and `Vector` for dimensional vector.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalProfileObjectDimension">
+            <summary>Encapsulates a default unit, additional units, and an optional default value for a dimensional quantity.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalProfilesObjectDimension">
+            <summary>Holds dimensional profiles for a given quantity: one for the metric system, and an optional profile for the US customary system.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalar">
+            <summary>A dimensional scalar is represented by a real number and a unit. By convention, all operators return a DimensionalScalar in base SI units. The interface for certain functions accepts Numbers instead of Doubles so that we can have operations with all types of numbers. If this proves to be a performance bottleneck, we can re-assess.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarComparisonGreaterThan.OperandA">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarComparisonGreaterThan.OperandB">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarComparisonGreaterThanOrEqual.OperandA">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarComparisonGreaterThanOrEqual.OperandB">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarComparisonLessThan.OperandA">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarComparisonLessThan.OperandB">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarComparisonLessThanOrEqual.OperandA">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarComparisonLessThanOrEqual.OperandB">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarFromDimensionalVectorComponent.Component">
+            <summary>Components of a dimensional vector (x, y, z).</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarFromDimensionalVectorComponent.Vector">
+            <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector comp...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarFunctionPow.Argument1">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarFunctionPow.Argument2">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarObject">
+            <summary>A dimensional scalar is represented by a real number and a unit. By convention, all operators return a DimensionalScalar in base SI units. The interface for certain functions accepts Numbers instead of Doubles so that we can have operations with all types of numbers. If this proves to be a performance bottleneck, we can re-assess.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarOperationDiv.OperandA">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarOperationDiv.OperandB">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarOperationMinus.OperandA">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarOperationMinus.OperandB">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarOperationPlus.OperandA">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarOperationPlus.OperandB">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarOperationTimes.OperandA">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarOperationTimes.OperandB">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarToRealValueConversion.DimensionalScalarValue">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarToStringValueConversion.DimensionalScalarValue">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalScalarValue">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (text node). Note: during resolution all dimensionals are converted to base SI units (e.g. 50 miles/hour -&gt; 22.352 m/s).</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVector">
+            <summary>A dimensional vector is represented by a 3D vector and a unit. By convention, all operators return a DimensionalVector in base SI units. The interface for certain functions accepts Numbers instead of Doubles so that we can have operations with all types of numbers. If this proves to be a performance bottleneck, we can re-assess.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorFromComponents.Unit">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorFromComponents.X">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorFromComponents.Y">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorFromComponents.Z">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorFunctionMag.Argument">
+            <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector comp...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorFunctionNorm.Argument">
+            <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector comp...</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorObject">
+            <summary>A dimensional vector is represented by a 3D vector and a unit. By convention, all operators return a DimensionalVector in base SI units. The interface for certain functions accepts Numbers instead of Doubles so that we can have operations with all types of numbers. If this proves to be a performance bottleneck, we can re-assess.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorOperationDiv.OperandA">
+            <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector comp...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorOperationDiv.OperandB">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorOperationMinus.OperandA">
+            <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector comp...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorOperationMinus.OperandB">
+            <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector comp...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorOperationPlus.OperandA">
+            <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector comp...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorOperationPlus.OperandB">
+            <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector comp...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorOperationTimes.OperandA">
+            <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector comp...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorOperationTimes.OperandB">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorToStringValueConversion.DimensionalVectorValue">
+            <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector comp...</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.DimensionalVectorValue">
+            <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector components (`x`, `y`, `z`; as double nodes) and field `unit` (text node). Note that during resolution, all dimensionals are converted to base SI units (e.g. 50 miles/hour -&gt; 22.352 m/s),</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignment">
+            <summary>(A single-select) entity assignment from an arbitrary source (CAD/Mesh).</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentField.AllowedEntityType">
+            <summary>Entity type distinguished by its spatial dimensionality.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentFunctionIsEmpty.EntityAssignmentValue">
+            <summary>Value model for an entity assignment. Resolves to an object node following the [EntityAssignment] data model.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentList">
+            <summary>(A multi-select) geometric entity assignment list.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentListFromComponents.Entities">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentListFromComponents.Source">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentListFromComponents.SourceType">
+            <summary>Source type is either CAD (model) or mesh.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentListFunctionCountEntities.EntityAssignmentListValue">
+            <summary>Value model for an entity assignment list. Resolves to an object node following the [EntityAssignmentList] data model.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentListFunctionIsEmpty.EntityAssignmentListValue">
+            <summary>Value model for an entity assignment list. Resolves to an object node following the [EntityAssignmentList] data model.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentListIntersect.First">
+            <summary>Value model for an entity assignment list. Resolves to an object node following the [EntityAssignmentList] data model.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentListIntersect.Second">
+            <summary>Value model for an entity assignment list. Resolves to an object node following the [EntityAssignmentList] data model.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentListMapEntities.EntityAssignmentListValue">
+            <summary>Value model for an entity assignment list. Resolves to an object node following the [EntityAssignmentList] data model.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentListToMarkdownLinkValueConversion.EntityAssignmentListValue">
+            <summary>Value model for an entity assignment list. Resolves to an object node following the [EntityAssignmentList] data model.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentListToMarkdownLinkValueConversion.LabelValue">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentListValue">
+            <summary>Value model for an entity assignment list. Resolves to an object node following the [EntityAssignmentList] data model.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentMapEntities.EntityAssignmentValue">
+            <summary>Value model for an entity assignment. Resolves to an object node following the [EntityAssignment] data model.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentSource">
+            <summary>Entity assignment source is represented by its input data ID and its type (CAD or MESH).</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentSource.Type">
+            <summary>Source type is either CAD (model) or mesh.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentToEntityAssignmentListValueConversion.EntityAssignmentValue">
+            <summary>Value model for an entity assignment. Resolves to an object node following the [EntityAssignment] data model.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentToMarkdownLinkValueConversion.EntityAssignmentValue">
+            <summary>Value model for an entity assignment. Resolves to an object node following the [EntityAssignment] data model.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentToMarkdownLinkValueConversion.LabelValue">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentToStringValueConversion.EntityAssignmentValue">
+            <summary>Value model for an entity assignment. Resolves to an object node following the [EntityAssignment] data model.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.EntityAssignmentValue">
+            <summary>Value model for an entity assignment. Resolves to an object node following the [EntityAssignment] data model.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EnumComparisonEqual.OperandA">
+            <summary>Value model for an enum value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EnumComparisonEqual.OperandB">
+            <summary>Value model for an enum value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EnumComparisonNotEqual.OperandA">
+            <summary>Value model for an enum value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EnumComparisonNotEqual.OperandB">
+            <summary>Value model for an enum value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EnumField.EnumValueType">
+            <summary>Type of the enum value.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EnumFunctionOneOf.OperandA">
+            <summary>Value model for an enum value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EnumFunctionOneOf.OperandB">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.EnumToStringValueConversion.EnumValue">
+            <summary>Value model for an enum value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.EnumValue">
+            <summary>Value model for an enum value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.EnumValueDoc">
+            <summary>Documentation for one particular enum value.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.EnumValueLabel">
+            <summary>Label information for one particular enum value.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.GpuScalingEstimationValueModel.Cpus">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.GpuScalingEstimationValueModel.GpuMemory">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.InlineOperationDefinition.ConfigurationValueModel">
+            <summary>Value model for a concrete compound value. Resolves to an object JSON node. Note that the serialized representation o...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerComparisonEqual.OperandA">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerComparisonEqual.OperandB">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerComparisonGreaterThan.OperandA">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerComparisonGreaterThan.OperandB">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerComparisonGreaterThanOrEqual.OperandA">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerComparisonGreaterThanOrEqual.OperandB">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerComparisonLessThan.OperandA">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerComparisonLessThan.OperandB">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerComparisonLessThanOrEqual.OperandA">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerComparisonLessThanOrEqual.OperandB">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerComparisonNotEqual.OperandA">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerComparisonNotEqual.OperandB">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerFunctionAbs.Argument">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerFunctionMax.Argument2">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerFunctionMin.Argument1">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerFunctionMin.Argument2">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerOperationDiv.OperandA">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerOperationDiv.OperandB">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerOperationMinus.OperandB">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerOperationPlus.OperandA">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerOperationPlus.OperandB">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerOperationRem.OperandA">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerOperationRem.OperandB">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerOperationTimes.OperandA">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerOperationTimes.OperandB">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerSequenceGenerator.First">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerSequenceGenerator.Increment">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerSequenceGenerator.Length">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerToDimensionalScalarValueConversion.IntegerValue">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerToDimensionalScalarValueConversion.Unit">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerToRealValueConversion.IntegerValue">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.IntegerToStringValueConversion.IntegerValue">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.MeasurementUnitComparisonEqual.OperandA">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.MeasurementUnitComparisonEqual.OperandB">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.MeasurementUnitComparisonNotEqual.OperandA">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.MeasurementUnitComparisonNotEqual.OperandB">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.MeasurementUnitFunctionPow.Argument">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.MeasurementUnitFunctionPow.Exponent">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.MeasurementUnitOperationDiv.OperandA">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.MeasurementUnitOperationDiv.OperandB">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.MeasurementUnitOperationTimes.OperandA">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.MeasurementUnitOperationTimes.OperandB">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.MeasurementUnitValue">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.MethodOperationDefinition.ConfigurationValueModel">
+            <summary>Value model for a concrete compound value. Resolves to an object JSON node. Note that the serialized representation o...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.NavigationListUiConfigurationEntry.Icon">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.NavigationListUiConfigurationEntry.InitiallyOpen">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.NavigationListUiConfigurationEntry.ShowItemCountIfCollapsed">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.NavigationUiConfigurationEntry.Icon">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.NavigationUiConfigurationEntry.InitiallyOpen">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.NavigationUiConfigurationEntry.NameField">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.NavigationUiConfigurationEntry.NewElementName">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.NestedWorkflowOperationDefinition.ConfigurationValueModel">
+            <summary>Value model for a concrete compound value. Resolves to an object JSON node. Note that the serialized representation o...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.OneGpuEstimationValueModel.Cpus">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.OneGpuEstimationValueModel.GpuMemoryInMebibytes">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.OneProcessorEstimationValueModel.MemoryInMebibytes">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.OneProcessorEstimationValueModel.StorageInMebibytes">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.OneProcessorEstimationValueModel.TimeInSeconds">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.OneProcessorEstimationValueModel.TimeInSecondsByArch">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.OneProcessorEstimationValueModel.TimeInSecondsByGpuArch">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.OneProcessorEstimationValueModel.TimeInSecondsByGpuArchAndModel">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.OperationGroupWithConditionDefinition.Condition">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.OperationGroupWithParameterDefinition.IteratorReference">
+            <summary>Iterator reference for processing collections.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.OperationGroupWithParameterDefinition.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PairBooleanValueAbstractCompoundValue.Second">
+            <summary>Value model for a compound value. Resolves to an object JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PairBooleanValueBooleanValue.Second">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PairBooleanValueDimensionalScalarValue.Second">
+            <summary>Value model for a dimensional scalar. Resolves to an object node with field `value` (double node) and field `unit` (t...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PairBooleanValueDimensionalVectorValue.Second">
+            <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector comp...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PairBooleanValueEnumValue.Second">
+            <summary>Value model for an enum value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PairBooleanValueIntegerValue.First">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PairBooleanValueIntegerValue.Second">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PairBooleanValueMeasurementUnitValue.Second">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PairBooleanValueRealValue.Second">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PairBooleanValueStringValue.Second">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PairBooleanValueValueListValue.Second">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.Plot2DUiConfigurationEntry.DataSeries">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.Plot2DUiConfigurationEntry.Groups">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.Plot2DUiConfigurationEntry.Name">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.Plot2DUiConfigurationEntry.XaxisLabel">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.Plot2DUiConfigurationEntry.XaxisScale">
+            <summary>Value model for an enum value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.Plot2DUiConfigurationEntry.YaxisLabel">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.Plot2DUiConfigurationEntry.YaxisScale">
+            <summary>Value model for an enum value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PolymorphicCompoundTypeCheck.CompoundValue">
+            <summary>Value model for a concrete compound value. Resolves to an object JSON node. Note that the serialized representation o...</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.PolymorphicCompoundTypeCheck.TargetTypeValue">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealComparisonEqual.OperandA">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealComparisonEqual.OperandB">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealComparisonGreaterThan.OperandA">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealComparisonGreaterThan.OperandB">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealComparisonGreaterThanOrEqual.OperandA">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealComparisonGreaterThanOrEqual.OperandB">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealComparisonLessThan.OperandA">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealComparisonLessThan.OperandB">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealComparisonLessThanOrEqual.OperandA">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealComparisonLessThanOrEqual.OperandB">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealComparisonNotEqual.OperandA">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealComparisonNotEqual.OperandB">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionAbs.Argument">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionACos.Argument">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionASin.Argument">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionATan.Argument">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionATan2.Argument1">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionATan2.Argument2">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionCbrt.Argument">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionCos.Argument">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionExp.Argument">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionLog.Argument2">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionLog10.Argument">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionMax.Argument1">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionMax.Argument2">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionMin.Argument1">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionMin.Argument2">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionPow.Argument1">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionPow.Argument2">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionSin.Argument">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionSqrt.Argument">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealFunctionTan.Argument">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealOperationDiv.OperandA">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealOperationDiv.OperandB">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealOperationMinus.OperandA">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealOperationMinus.OperandB">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealOperationPlus.OperandB">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealOperationTimes.OperandA">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealOperationTimes.OperandB">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealSequenceGenerator.First">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealSequenceGenerator.Increment">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealSequenceGenerator.Length">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealToDimensionalScalarValueConversion.RealValue">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealToDimensionalScalarValueConversion.Unit">
+            <summary>Value model for a measurement unit value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealToIntegerConversion.Argument">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealToIntegerConversion.RealToIntegerConversionType">
+            <summary>Real value conversion to integer value strategies.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.RealToStringValueConversion.RealValue">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ScalingEstimationValueModel.Memory">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ScalingEstimationValueModel.SpeedUp">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ScalingEstimationValueModel.Storage">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.SchemaElement">
+            <summary>Base abstract class for all schema elements. It captures attributes which are shared between all schema elements.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.SerializableDataMap">
+            <summary>Data map provides the mapping of each data - according to the data interface of a method or a workflow - and each parameter value combination to the data identifiers.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.SliderUiConfigurationEntry.MaximumValue">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.SliderUiConfigurationEntry.MinimumValue">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.SliderUiConfigurationEntry.StepSize">
+            <summary>Value model for a 64-bit double precision floating point number. Resolves to a double JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringComparisonEqual.OperandA">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringComparisonEqual.OperandB">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringComparisonNotEqual.OperandA">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringComparisonNotEqual.OperandB">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringContainsFunction.String">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringContainsFunction.SubString">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringEndsWithFunction.Postfix">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringEndsWithFunction.String">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringLengthFunction.String">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringLowerCaseFunction.String">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringOperationPlus.OperandA">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringOperationPlus.OperandB">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringStartsWithFunction.Prefix">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringStartsWithFunction.String">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringSubStringFunction.From">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringSubStringFunction.To">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringToIntegerValueConversion.StringValue">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringToRealValueConversion.StringValue">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.StringUpperCaseFunction.String">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.UnitProfileDimension">
+            <summary>A profile of measurement units used for a particular dimension, containing a default unit and optionally additional units.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.UnitProfilesDimension">
+            <summary>Holds unit profiles for a given quantity: one for the metric system, and an optional profile for the US customary system.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.Value">
+            <summary>Value interface is the root of the value model type hierarchy. Value models store the computation model of values. The models are defined by the developer, for convenience through a DSL composed of receiver and extension functions and other Kotlin language constructs. When the build runs the definition of the value model, it gets serialized into a JSON representation and that is the artifact of the build. These JSONs are persisted into the database and loaded by the workflow engine for the evaluation of the values. Once values are computed they get stored as data and used by methods or clients to show data to the user. Value models and data models adhere to the same schema defined by the developer in DSSL, just they have a different implementation due to their different roles. Below we define the central repository of value models. These are all part of the framework, available to the workflow engine as well. They provide atomic types and composition mechanisms via containers and the compound value model class. These are in sync with the building blocks in DSSL. User defined types via DSSL schemas are based on the compound value model. The generated value models are available only at build time to the user to define the value computation logic in a type-safe way, meanwhile at runtime in the workflow engine only the compound value model is present. The single value resolution function of this interface is the one used by the workflow engine to execute the value computation. All value models implement this in their own way. The result is always a JSON node, which can be either a single node or an entire tree of nodes behind it. Value model types below are organized into groups based on their parent type, essentially following the hierarchy in a flattened way. The type names - which get into the serialized JSON representation - also follow this structure, where levels are separated with a colon (`:`). By convention names composed of multiple words are presented with snake-case and these rules are followed as a naming convention: * `operation` for operators (both unary and binary, e.g. plus, minus, not...), * `comparison` for comparators (equal, not equal, less than), * `function` for the general case.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListDataSeriesValue">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListEnumValue">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionAll.IteratorReference">
+            <summary>Iterator reference for processing collections.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionAll.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionAny.Criteria">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionAny.IteratorReference">
+            <summary>Iterator reference for processing collections.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionAny.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionDrop.Count">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionDrop.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionDropLast.Count">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionDropLast.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionFilter.IteratorReference">
+            <summary>Iterator reference for processing collections.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionFilter.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionFind.IteratorReference">
+            <summary>Iterator reference for processing collections.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionFind.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionFirst.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionGet.Index">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionGet.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionIntegerSum.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionIsEmpty.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionIsNotEmpty.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionLast.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionMap.IteratorReference">
+            <summary>Iterator reference for processing collections.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionMap.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionNone.IteratorReference">
+            <summary>Iterator reference for processing collections.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionNone.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionRealSum.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionSize.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionSubList.From">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionSubList.To">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionSubList.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionTake.Count">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionTake.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionTakeLast.Count">
+            <summary>Value model for a 64-bit signed integer value. Resolves to a long JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListFunctionTakeLast.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListIntegerValue">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListOperationPlus.OperandA">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListOperationPlus.OperandB">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListOperationTimes.OperandA">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListOperationTimes.OperandB">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListRealValue">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListScalingPointValueModel">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListStringValue">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListTimeByArchValueModel">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListTimeByGpuArchAndModelValueModel">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListTimeByGpuArchValueModel">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListToStringValueConversion.Separator">
+            <summary>Value model for a string value. Resolves to a text JSON node.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListToStringValueConversion.ValueList">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.ValueListValue">
+            <summary>Value model for a list of values. Resolves to a JSON array.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.WorkflowsModels.ValueReference">
+            <summary>Reference to a value which can be resolved using a particular context.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.VisibilityUiConfigurationEntry.VisibleWhen">
+            <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
+        </member>
         <member name="M:SimScale.Sdk.V1.Resources.AiModels.CreatePrediction(SimScale.Sdk.V1.Models.CreateAiPredictionRequest)">
             <summary>Generate an AI prediction for a simulation based on an AI model</summary>
         </member>
@@ -7080,6 +8361,108 @@
         </member>
         <member name="M:SimScale.Sdk.V1.Resources.Cads.RenameCadState(System.Guid,System.Guid,SimScale.Sdk.V1.Models.RenameCadRequest)">
             <summary>Rename the CAD Rename the CAD. This operation creates a new CAD state.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetComponentGroupMetadata(System.String,System.String)">
+            <summary>Read the metadata of a component group.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetComponentMetadata(System.String,System.String)">
+            <summary>Read an overview of a component.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetComponentVersionDependencies(System.String)">
+            <summary>List the dependencies of a component version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetComponentVersionDependents(System.String)">
+            <summary>List the dependents of a component version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetComponentVersionMetadata(System.String)">
+            <summary>Read the metadata of a component version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetDataTypeFileOperations(System.String)">
+            <summary>Read the file-operations description of a data type version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetDataTypeMetadataSchema(System.String,System.Nullable{System.Boolean})">
+            <summary>Read the metadata schema of a data type version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetDataTypeMetadataSchemaValidationRules(System.String)">
+            <summary>Read the metadata schema validation rules of a data type version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetDataTypeSchema(System.String,System.Nullable{System.Boolean})">
+            <summary>Read the data schema of a data type version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetDataTypeSchemaValidationRules(System.String)">
+            <summary>Read the data schema validation rules of a data type version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetDataTypeUiSchema(System.String)">
+            <summary>Read the UI schema of a data type version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetMethodConfigurationSchema(System.String,System.Nullable{System.Boolean})">
+            <summary>Read the configuration schema of a method version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetMethodConfigurationSchemaValidationRules(System.String)">
+            <summary>Read the configuration schema validation rules of a method version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetMethodDataInterface(System.String)">
+            <summary>Read the data interface of a method version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetMethodResourceEstimation(System.String)">
+            <summary>Read the resource estimation model of a method version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetOrganizationComponentGroupMetadata(System.String)">
+            <summary>Read the metadata of the organization component group.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetWorkflowTypeConfigurationSchema(System.String,System.Nullable{System.Boolean})">
+            <summary>Read the configuration schema of a workflow type version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetWorkflowTypeConfigurationSchemaValidationRules(System.String)">
+            <summary>Read the configuration schema validation rules of a workflow type version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetWorkflowTypeDataInterface(System.String)">
+            <summary>Read the data interface of a workflow type version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetWorkflowTypeUiConfiguration(System.String)">
+            <summary>Read the UI configuration of a workflow type version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.GetWorkflowTypeWorkflowDefinition(System.String)">
+            <summary>Read the workflow definition of a workflow type version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.ListComponentSubgroups(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>List the subgroups of a component group.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.ListComponentVersions(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>List the versions of a component.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.ComponentRegistry.ListComponents(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>List the components in a component group.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.CancelUploadSessionAppend(System.String,System.String,System.String)">
+            <summary>Cancel an append operation.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.CreateUploadSession(SimScale.Sdk.V1.Models.DataRepositoryModels.CreateUploadSessionRequest,System.String)">
+            <summary>Initialize an upload session backed by pre-signed URLs.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.DeleteUploadSession(System.String,System.String)">
+            <summary>Delete an initialized upload session.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.DownloadData(System.String,System.String)">
+            <summary>Download an existing data object. Streams the bytes of an internally-stored data object to the response body. The original `Content-Type` recorded at upload time is replayed on the response, sanitized against an allowlist for browser safety.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.FinalizeUploadSession(System.String,System.String)">
+            <summary>Finalize an upload session and register it as data.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.FinishUploadSessionAppend(System.String,System.String,System.String)">
+            <summary>Finish an append operation after the chunk was uploaded through its pre-signed URL.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.GetDataInfo(System.String)">
+            <summary>Read the metadata of a data object.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.ListData(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>List data objects in a project.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.StartUploadSessionAppend(System.String,SimScale.Sdk.V1.Models.DataRepositoryModels.StartUploadSessionAppendRequest,System.String)">
+            <summary>Start appending a chunk to an initialized upload session.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.UploadData(System.IO.Stream,System.String,System.String,System.String)">
+            <summary>Upload a new data object.</summary>
         </member>
         <member name="M:SimScale.Sdk.V1.Resources.Export.CreateExport(System.String,SimScale.Sdk.V1.Models.CreateExportRequest)">
             <summary>Trigger an export for a simulation result</summary>
@@ -7312,6 +8695,54 @@
         <member name="M:SimScale.Sdk.V1.Resources.Wind.GetWindData(System.String,System.String)">
             <summary>Get wind condition for given coordinates</summary>
         </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRepository.CreateWorkflow(SimScale.Sdk.V1.Models.WorkflowRepositoryModels.CreateWorkflowRequest)">
+            <summary>Create a new workflow with its initial version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRepository.ListWorkflowVersions(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>List the versions of a workflow.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRepository.ListWorkflows(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>List workflows in a project.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRepository.ReadWorkflow(System.String)">
+            <summary>Read a workflow at its latest version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRepository.ReadWorkflowVersion(System.String,System.Nullable{System.Boolean})">
+            <summary>Read a specific workflow version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRepository.UpdateWorkflow(System.String,SimScale.Sdk.V1.Models.WorkflowRepositoryModels.UpdateWorkflowRequest)">
+            <summary>Update a workflow by creating a new version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRunner.CancelWorkflowRun(System.String)">
+            <summary>Cancel a workflow run.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRunner.GetMethodRunResourceUsageReport(System.String)">
+            <summary>Read a method run's resource-usage report.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRunner.GetOperationRun(System.String)">
+            <summary>Read an operation run.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRunner.GetWorkflowRun(System.String)">
+            <summary>Read a workflow run.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRunner.GetWorkflowRunProgress(System.String)">
+            <summary>Read the progress of a workflow run.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRunner.InitializeWorkflowRun(SimScale.Sdk.V1.Models.WorkflowRunnerModels.InitializeWorkflowRunRequest)">
+            <summary>Initialize a workflow run from a workflow version.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRunner.ListWorkflowRunsByWorkflow(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>List the workflow runs of a workflow.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRunner.PauseWorkflowRun(System.String)">
+            <summary>Pause a running workflow run.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRunner.ResumeWorkflowRun(System.String)">
+            <summary>Resume a paused workflow run.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.WorkflowRunner.StartWorkflowRun(System.String)">
+            <summary>Start a workflow run.</summary>
+        </member>
         <member name="T:SimScale.Sdk.V1.SdkCode">
              <summary>
              Generates C# SDK v1 code from a simulation/meshing spec.
@@ -7376,6 +8807,29 @@
         <member name="M:SimScale.Sdk.V1.SimScaleSDK.Download(System.String,System.String)">
             <summary>
             Download a file from a URL to a local path.
+            </summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.SimScaleSDK.UploadToDataRepository(System.String,System.String,System.String,System.String,System.Int64)">
+            <summary>
+            Upload a file to data-repository and return its DataId.
+            </summary>
+            <param name="filepath">Path to the file to upload.</param>
+            <param name="projectId">Project where the data will be stored.</param>
+            <param name="dataType">Workflow data type reference for the uploaded data.</param>
+            <param name="contentType">Content type stored with the uploaded data.</param>
+            <param name="chunkSize">Maximum append size in bytes. Defaults to 2,000,000,000 bytes (2 GB), matching the direct upload limit.</param>
+        </member>
+        <member name="M:SimScale.Sdk.V1.SimScaleSDK.CreateNonParametricWorkflowDataMap(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Create a workflow data map for workflows without parameter values.
+            Workflow data maps support parameter-value combinations. For non-parametric
+            data there is one combination with empty parameter values; its UUID only
+            links both sections of this serialized data map.
+            </summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.SimScaleSDK.GetNonParametricWorkflowDataId(System.Nullable{System.Text.Json.JsonElement},System.String)">
+            <summary>
+            Read a data ID from a workflow data map without parameter values.
             </summary>
         </member>
     </members>

@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class Contact : OneOf_ThermalMechanicalConnectionGroups, OneOf_StaticAnalysisConnectionGroups, OneOf_DynamicAnalysisConnectionGroups
+public class Contact : OneOf_StaticAnalysisConnectionGroups, OneOf_ThermalMechanicalConnectionGroups, OneOf_DynamicAnalysisConnectionGroups
 {
     /// <summary>Schema name: Contact</summary>
     [JsonPropertyName("type")]

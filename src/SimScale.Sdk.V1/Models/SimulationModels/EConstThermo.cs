@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>The Thermo models are used to calculate the specific heat at constant pressure (Cp) for the fluid. The available models are:hConst: This model assumes a constant value for specific heat at fixed pressure (Cp). eConst: This model assumes a constant value for the specific heat at fixed volume (Cv).</summary>
-public class EConstThermo : OneOf_ConstTransportThermo, OneOf_SutherlandTransportThermo
+public class EConstThermo : OneOf_SutherlandTransportThermo, OneOf_ConstTransportThermo
 {
     /// <summary>The Thermo models are used to calculate the specific heat at constant pressure (Cp) for the fluid. The available mode...</summary>
     [JsonPropertyName("type")]

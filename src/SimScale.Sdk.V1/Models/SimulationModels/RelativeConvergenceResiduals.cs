@@ -17,6 +17,7 @@ public class RelativeConvergenceResiduals : OneOf_ResidualsConvergenceMethodConv
     [JsonPropertyName("relativeMomentTolerance")]
     public double? RelativeMomentTolerance { get; set; }
 
+    /// <summary>Auto switch method: Automatically toggles the convergence criteria between residual, displacement, or energy methods...</summary>
     [JsonPropertyName("relativeResidualAutoSwitch")]
     public bool? RelativeResidualAutoSwitch { get; set; }
 

@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class TotalTBC : OneOf_CustomFluidBCTemperature, OneOf_VelocityInletBCTemperature, OneOf_PressureInletBCTemperature, OneOf_WallBCTemperature
+public class TotalTBC : OneOf_CustomFluidBCTemperature, OneOf_WallBCTemperature, OneOf_PressureInletBCTemperature, OneOf_VelocityInletBCTemperature
 {
     /// <summary>Schema name: TotalTBC</summary>
     [JsonPropertyName("type")]

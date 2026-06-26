@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This is a force boundary condition representing an equal point force on each node of the assignment. The total force applied on the assignment is calculated as the user defined forces times the number of nodes in the assignment.Important remarks: Currently, it only works on uploaded meshesAs the total load is depending on the number of nodes, and thus the mesh fineness, it is recommended only for loads on single nodes.In most cases point loads are unphysical and distributed loads should be used instead.</summary>
-public class NodalLoadBC : OneOf_HarmonicAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
+public class NodalLoadBC : OneOf_HarmonicAnalysisBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
 {
     /// <summary>This is a force boundary condition representing an equal point force on each node of the assignment. The total force...</summary>
     [JsonPropertyName("type")]

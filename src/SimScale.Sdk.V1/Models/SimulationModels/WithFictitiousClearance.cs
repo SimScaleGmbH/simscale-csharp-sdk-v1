@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class WithFictitiousClearance : OneOf_FrictionlessContactFictitiousClearance, OneOf_FrictionContactFictitiousClearance
+public class WithFictitiousClearance : OneOf_FrictionContactFictitiousClearance, OneOf_FrictionlessContactFictitiousClearance
 {
     /// <summary>Schema name: WithFictitiousClearance</summary>
     [JsonPropertyName("type")]

@@ -16,4 +16,8 @@ public class FacePairs
     [JsonRequired]
     public required string Tool { get; set; }
 
+    [JsonPropertyName("distance")]
+    [JsonRequired]
+    public required Length Distance { get; set; }
+
 }

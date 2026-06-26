@@ -9,4 +9,7 @@ public class ElectromagneticAdvancedConcepts
     [JsonPropertyName("motionAnalysis")]
     public List<PredefinedRotationalMotion>? MotionAnalysis { get; set; }
 
+    [JsonPropertyName("circuit")]
+    public ElectromagneticCircuit? Circuit { get; set; }
+
 }

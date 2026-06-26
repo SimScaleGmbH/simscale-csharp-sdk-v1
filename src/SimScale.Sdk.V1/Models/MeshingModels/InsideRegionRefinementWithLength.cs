@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class InsideRegionRefinementWithLength : OneOf_RegionRefinementEBMRefinement, OneOf_RegionRefinementWithLengthRefinement
+public class InsideRegionRefinementWithLength : OneOf_RegionRefinementWithLengthRefinement, OneOf_RegionRefinementEBMRefinement
 {
     /// <summary>Schema name: InsideRegionRefinementWithLength</summary>
     [JsonPropertyName("type")]

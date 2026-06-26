@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class OffPositionTolerance : OneOf_SlidingContactPositionTolerance, OneOf_BondedContactPositionTolerance, OneOf_MarcBondedContactConnectionPositionTolerance, OneOf_MarcBondedAndTouchingContactConnectionPositionTolerance
+public class OffPositionTolerance : OneOf_MarcBondedContactConnectionPositionTolerance, OneOf_SlidingContactPositionTolerance, OneOf_BondedContactPositionTolerance, OneOf_MarcBondedAndTouchingContactConnectionPositionTolerance
 {
     /// <summary>Schema name: OffPositionTolerance</summary>
     [JsonPropertyName("type")]

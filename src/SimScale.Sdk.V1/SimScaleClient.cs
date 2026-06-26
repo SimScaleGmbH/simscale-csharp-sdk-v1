@@ -57,27 +57,46 @@ public class SimScaleClient : IDisposable
     }
 
     public T Request<T>(HttpMethod method, string path, object? body = null,
+        Stream? binaryBody = null,
+        string? contentType = null,
         Dictionary<string, object?>? queryParams = null)
     {
-        var json = SendRequest(method, path, body, queryParams);
+        using var response = SendRequest(method, path, body, binaryBody, contentType, queryParams);
+        var json = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
         return JsonSerializer.Deserialize<T>(json, JsonOptions)!;
     }
 
     public void RequestVoid(HttpMethod method, string path, object? body = null,
+        Stream? binaryBody = null,
+        string? contentType = null,
         Dictionary<string, object?>? queryParams = null)
     {
-        SendRequest(method, path, body, queryParams);
+        using var response = SendRequest(method, path, body, binaryBody, contentType, queryParams);
+    }
+
+    public byte[] RequestBytes(HttpMethod method, string path, object? body = null,
+        Stream? binaryBody = null,
+        string? contentType = null,
+        Dictionary<string, object?>? queryParams = null)
+    {
+        using var response = SendRequest(method, path, body, binaryBody, contentType, queryParams);
+        return response.Content.ReadAsByteArrayAsync().GetAwaiter().GetResult();
     }
 
     public PaginatedResponse<T> RequestPaginated<T>(HttpMethod method, string path, object? body = null,
+        Stream? binaryBody = null,
+        string? contentType = null,
         Dictionary<string, object?>? queryParams = null)
     {
-        var json = SendRequest(method, path, body, queryParams);
+        using var response = SendRequest(method, path, body, binaryBody, contentType, queryParams);
+        var json = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
         using var doc = JsonDocument.Parse(json);
         return new PaginatedResponse<T>(doc.RootElement, JsonOptions);
     }
 
-    private string SendRequest(HttpMethod method, string path, object? body,
+    private HttpResponseMessage SendRequest(HttpMethod method, string path, object? body,
+        Stream? binaryBody,
+        string? contentType,
         Dictionary<string, object?>? queryParams)
     {
         var url = path.TrimStart('/');
@@ -102,20 +121,32 @@ public class SimScaleClient : IDisposable
         string? jsonBody = null;
         if (body != null)
             jsonBody = JsonSerializer.Serialize(body, body.GetType(), JsonOptions);
+        if (jsonBody != null && binaryBody != null)
+            throw new ArgumentException("body and binaryBody cannot be used together");
 
-        using var response = SendWithRetry(method, () =>
+        var response = SendWithRetry(method, () =>
         {
+            if (binaryBody != null && binaryBody.CanSeek)
+                binaryBody.Position = 0;
             var request = new HttpRequestMessage(method, url);
             if (jsonBody != null)
                 request.Content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+            if (binaryBody != null)
+            {
+                request.Content = new StreamContent(binaryBody);
+                if (!string.IsNullOrWhiteSpace(contentType))
+                    request.Content.Headers.ContentType = new MediaTypeHeaderValue(contentType);
+            }
             return _http.Send(request);
         });
-        var responseBody = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-
         if (!response.IsSuccessStatusCode)
+        {
+            var responseBody = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            response.Dispose();
             throw new SimScaleAPIError((int)response.StatusCode, responseBody, response.RequestMessage?.RequestUri?.ToString());
+        }
 
-        return responseBody;
+        return response;
     }
 
     /// <summary>

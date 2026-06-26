@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class SurfaceRefinementSimerics : OneOf_ManualSimericsMeshSettingsRefinements, OneOf_AutomaticSimericsMeshSettingsRefinements
+public class SurfaceRefinementSimerics : OneOf_AutomaticSimericsMeshSettingsRefinements, OneOf_ManualSimericsMeshSettingsRefinements
 {
     /// <summary>Schema name: SurfaceRefinementSimerics</summary>
     [JsonPropertyName("type")]

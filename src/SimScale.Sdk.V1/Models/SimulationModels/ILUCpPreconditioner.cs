@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Crout's version of the incomplete lower-upper (ILU) algorithm with arbitrary level of fill-in.</summary>
-public class ILUCpPreconditioner : OneOf_PBICGStabSolverPreconditioner, OneOf_PCGSolverPreconditioner, OneOf_PBICGSolverPreconditioner
+public class ILUCpPreconditioner : OneOf_PCGSolverPreconditioner, OneOf_PBICGStabSolverPreconditioner, OneOf_PBICGSolverPreconditioner
 {
     /// <summary>Crout's version of the incomplete lower-upper (ILU) algorithm with arbitrary level of fill-in. Schema name: ILUCpPrec...</summary>
     [JsonPropertyName("type")]

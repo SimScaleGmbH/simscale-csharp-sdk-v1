@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This boundary condition allows the user to choose conditions for each physical variable separately. It provides full flexibility over the choice of boundary conditions to make advanced customization possible.</summary>
-public class CustomFluidBC : OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_MultiphaseBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_IncompressibleBoundaryConditions
+public class CustomFluidBC : OneOf_MultiphaseBoundaryConditions, OneOf_IncompressibleBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions
 {
     /// <summary>This boundary condition allows the user to choose conditions for each physical variable separately. It provides full...</summary>
     [JsonPropertyName("type")]

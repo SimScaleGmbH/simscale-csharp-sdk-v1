@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class GAMGSolver : OneOf_PCGSolverPreconditioner, OneOf_FluidSolversDensitySolver, OneOf_FluidSolversDensityFinalSolver, OneOf_FluidSolversPressureSolver, OneOf_FluidSolversPressureFinalSolver, OneOf_FluidSolversPressureRghSolver, OneOf_FluidSolversPressureRghFinalSolver, OneOf_FluidSolversSolidEnthalpySolver, OneOf_FluidSolversSolidEnthalpyFinalSolver, OneOf_FluidSolversVoltageSolver
+public class GAMGSolver : OneOf_FluidSolversDensitySolver, OneOf_FluidSolversDensityFinalSolver, OneOf_FluidSolversPressureSolver, OneOf_FluidSolversPressureFinalSolver, OneOf_FluidSolversPressureRghSolver, OneOf_FluidSolversPressureRghFinalSolver, OneOf_FluidSolversSolidEnthalpySolver, OneOf_FluidSolversSolidEnthalpyFinalSolver, OneOf_FluidSolversVoltageSolver, OneOf_PCGSolverPreconditioner
 {
     /// <summary>Schema name: GAMGSolver</summary>
     [JsonPropertyName("type")]

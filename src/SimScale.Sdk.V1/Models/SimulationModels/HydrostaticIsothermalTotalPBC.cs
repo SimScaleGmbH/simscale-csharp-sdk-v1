@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class HydrostaticIsothermalTotalPBC : OneOf_PressureInletBCPressureRgh, OneOf_NaturalConvectionInletOutletBCPressureRgh
+public class HydrostaticIsothermalTotalPBC : OneOf_NaturalConvectionInletOutletBCPressureRgh, OneOf_PressureInletBCPressureRgh
 {
     /// <summary>Schema name: HydrostaticIsothermalTotalPBC</summary>
     [JsonPropertyName("type")]

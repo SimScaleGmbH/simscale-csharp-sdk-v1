@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This is a surface load boundary condition representing a distributed load on the selection. It is applied as surface traction in the global coordinate system.Important remarks: The applied total force depends on the surface area of the selectionLearn more.</summary>
-public class SurfaceLoadBC : OneOf_HarmonicAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
+public class SurfaceLoadBC : OneOf_HarmonicAnalysisBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
 {
     /// <summary>This is a surface load boundary condition representing a distributed load on the selection. It is applied as surface...</summary>
     [JsonPropertyName("type")]

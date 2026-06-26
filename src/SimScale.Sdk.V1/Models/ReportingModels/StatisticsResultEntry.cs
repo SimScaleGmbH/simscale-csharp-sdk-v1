@@ -4,7 +4,6 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.ReportingModels;
 
-/// <summary>Bulk statistical values computed for a single part, part group, or cutting plane. Each numeric metric is an object with a 'value' and a 'unit' field. Integral metrics carry composite units; all others carry the plain scalar field unit.</summary>
 public class StatisticsResultEntry
 {
     [JsonPropertyName("elementMin")]
@@ -48,5 +47,15 @@ public class StatisticsResultEntry
 
     [JsonPropertyName("centroid")]
     public StatisticsCentroidMetric? Centroid { get; set; }
+
+    [JsonPropertyName("boundingBoxMin")]
+    public StatisticsCentroidMetric? BoundingBoxMin { get; set; }
+
+    [JsonPropertyName("boundingBoxMax")]
+    public StatisticsCentroidMetric? BoundingBoxMax { get; set; }
+
+    /// <summary>For a cutting plane, the per-region breakdown: one entry per distinct area produced by the cut (one per intersected p...</summary>
+    [JsonPropertyName("regions")]
+    public List<StatisticsCuttingPlaneRegionEntry>? Regions { get; set; }
 
 }

@@ -10,6 +10,8 @@ public partial class SimScaleSDK : IDisposable
     public CadFeatures CadFeatures { get; }
     public CadImports CadImports { get; }
     public Cads Cads { get; }
+    public ComponentRegistry ComponentRegistry { get; }
+    public DataRepository DataRepository { get; }
     public Export Export { get; }
     public Folders Folders { get; }
     public Materials Materials { get; }
@@ -27,6 +29,8 @@ public partial class SimScaleSDK : IDisposable
     public TableImports TableImports { get; }
     public Users Users { get; }
     public Wind Wind { get; }
+    public WorkflowRepository WorkflowRepository { get; }
+    public WorkflowRunner WorkflowRunner { get; }
 
     public SimScaleSDK(string? apiKey = null, string? serverUrl = null)
     {
@@ -40,6 +44,8 @@ public partial class SimScaleSDK : IDisposable
         CadFeatures = new CadFeatures(_client);
         CadImports = new CadImports(_client);
         Cads = new Cads(_client);
+        ComponentRegistry = new ComponentRegistry(_client);
+        DataRepository = new DataRepository(_client);
         Export = new Export(_client);
         Folders = new Folders(_client);
         Materials = new Materials(_client);
@@ -57,6 +63,8 @@ public partial class SimScaleSDK : IDisposable
         TableImports = new TableImports(_client);
         Users = new Users(_client);
         Wind = new Wind(_client);
+        WorkflowRepository = new WorkflowRepository(_client);
+        WorkflowRunner = new WorkflowRunner(_client);
     }
 
     public SimScaleClient Client => _client;

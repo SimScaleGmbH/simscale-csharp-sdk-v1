@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>The rotating motion constraint applies a predefined rigid body rotation to the assigned entities. The rotation axis, the base point, and the rotation angle needs to be specified. Each component can be defined with a formula or table input.Important remarks: If a component of the rotation axis is input via formula or table, then ensure that the length of the axis vector is always positive.If a continuous, transient rotation is required, then the rotation angle has to be given either as a formula or table value.Learn more.</summary>
-public class RotatingMotionBC : OneOf_ThermalMechanicalBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
+public class RotatingMotionBC : OneOf_StaticAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
 {
     /// <summary>The rotating motion constraint applies a predefined rigid body rotation to the assigned entities. The rotation axis,...</summary>
     [JsonPropertyName("type")]

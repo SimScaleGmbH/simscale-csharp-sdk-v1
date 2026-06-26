@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class VolumeCustomSizing : OneOf_SimmetrixMeshingSolidRefinements, OneOf_SimmetrixMeshingFluidRefinements, OneOf_SimmetrixMeshingElectromagneticsRefinements
+public class VolumeCustomSizing : OneOf_SimmetrixMeshingFluidRefinements, OneOf_SimmetrixMeshingSolidRefinements, OneOf_SimmetrixMeshingElectromagneticsRefinements
 {
     /// <summary>Schema name: VolumeCustomSizing</summary>
     [JsonPropertyName("type")]

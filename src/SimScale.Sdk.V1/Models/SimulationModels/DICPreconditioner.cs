@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Diagonal incomplete Cholesky algorithm for symmetric matrices without fill-in.</summary>
-public class DICPreconditioner : OneOf_PBICGStabSolverPreconditioner, OneOf_PCGSolverPreconditioner
+public class DICPreconditioner : OneOf_PCGSolverPreconditioner, OneOf_PBICGStabSolverPreconditioner
 {
     /// <summary>Diagonal incomplete Cholesky algorithm for symmetric matrices without fill-in. Schema name: DICPreconditioner</summary>
     [JsonPropertyName("type")]

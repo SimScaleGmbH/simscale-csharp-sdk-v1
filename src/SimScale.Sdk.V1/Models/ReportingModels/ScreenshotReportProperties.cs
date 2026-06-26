@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.ReportingModels;
 
-public class ScreenshotReportProperties : ReportProperties
+public class ScreenshotReportProperties : ReportProperties, ReportPropertiesPublic
 {
     [JsonPropertyName("reportType")]
     public string ReportType { get; set; } = "SCREENSHOT";

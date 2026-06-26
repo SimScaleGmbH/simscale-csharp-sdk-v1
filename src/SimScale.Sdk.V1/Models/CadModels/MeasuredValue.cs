@@ -23,7 +23,7 @@ public class MeasuredValue
     [JsonPropertyName("vectorValue")]
     public Vector? VectorValue { get; set; }
 
-    [JsonPropertyName("hitLine")]
-    public PointPair? HitLine { get; set; }
+    [JsonPropertyName("hintLine")]
+    public PointPair? HintLine { get; set; }
 
 }

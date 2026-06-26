@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class SimmetrixThinSectionMeshRefinement : OneOf_SimmetrixMeshingSolidRefinements, OneOf_SimmetrixMeshingFluidRefinements
+public class SimmetrixThinSectionMeshRefinement : OneOf_SimmetrixMeshingFluidRefinements, OneOf_SimmetrixMeshingSolidRefinements
 {
     /// <summary>Schema name: SimmetrixThinSectionMeshRefinement</summary>
     [JsonPropertyName("type")]

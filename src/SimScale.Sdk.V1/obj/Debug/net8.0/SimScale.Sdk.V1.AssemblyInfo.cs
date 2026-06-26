@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SimScale.Sdk.V1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.1.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.1.0+63af1ba9dd28f0a84ebd53ce3a9cc4e42d17f997")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.1.0+a59da8fc3491c335e58beac8b2931078ffbcc1b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("SimScale.Sdk.V1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SimScale.Sdk.V1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.1.0.0")]

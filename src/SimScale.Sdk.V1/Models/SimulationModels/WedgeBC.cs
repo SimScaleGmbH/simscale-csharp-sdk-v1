@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This boundary condition is applied to the front and back faces of an axisymmetric system (eg. cylinder). Note that the face elements of the mesh need to be congruent on both the faces. Works for uploaded 2D meshes only. Learn more.</summary>
-public class WedgeBC : OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_MultiphaseBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_IncompressibleBoundaryConditions
+public class WedgeBC : OneOf_MultiphaseBoundaryConditions, OneOf_IncompressibleBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions
 {
     /// <summary>This boundary condition is applied to the front and back faces of an axisymmetric system (eg. cylinder). Note that th...</summary>
     [JsonPropertyName("type")]

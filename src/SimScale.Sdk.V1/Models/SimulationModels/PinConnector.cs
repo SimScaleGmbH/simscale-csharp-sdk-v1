@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Connect multiple bodies via a virtual pin Usage: Define a separate pin connector item for each virtual pinAssign only cylindrical surfacesBehavior:Option to connect bodies to bodies or bodies to the ground via virtual pinsBodies freely rotate relative to one another about the virtual pin axisUsers have full control over axial translation and rotation of the connection with the ability to define torsional and axial spring stiffness</summary>
-public class PinConnector : OneOf_HarmonicAnalysisConnectors, OneOf_StaticAnalysisConnectors, OneOf_DynamicAnalysisConnectors, OneOf_FrequencyAnalysisConnectors
+public class PinConnector : OneOf_HarmonicAnalysisConnectors, OneOf_StaticAnalysisConnectors, OneOf_FrequencyAnalysisConnectors, OneOf_DynamicAnalysisConnectors
 {
     /// <summary>Connect multiple bodies via a virtual pin Usage: Define a separate pin connector item for each virtual pinAssign only...</summary>
     [JsonPropertyName("type")]

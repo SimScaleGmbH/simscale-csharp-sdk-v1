@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>The cyclic symmetry constraint enables to model only a sector of a 360° cyclic periodic structure and reduces the computation time and memory consumption considerably. The user defines the center and axis of the cyclic symmetry as well as the sector angle. The master and slave surfaces define the cyclic periodicity boundaries. Important remarks: All DOFs of the slave nodes will be constrained, adding an additional constraint on those nodes may lead to an overconstrained system.This is a linear constraint, so no large rotations or large deformations are allowed in the proximity of cyclic symmetry boundaries. Learn more.</summary>
-public class CyclicSymmetryBC : OneOf_ThermalMechanicalBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions, OneOf_HeatTransferBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
+public class CyclicSymmetryBC : OneOf_HeatTransferBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
 {
     /// <summary>The cyclic symmetry constraint enables to model only a sector of a 360° cyclic periodic structure and reduces the com...</summary>
     [JsonPropertyName("type")]
