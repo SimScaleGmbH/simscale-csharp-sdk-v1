@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -10,6 +11,8 @@ public class SimScaleClient : IDisposable
     private readonly HttpClient _http;
     private readonly int _maxRetries;
     private readonly double _retryBackoff;
+    private readonly double _retryAfterCap;
+    private readonly RateLimiter _rateLimiter;
 
     private static readonly HashSet<int> RetriableStatuses = [408, 429, 500, 502, 503, 504];
     private static readonly HashSet<HttpMethod> IdempotentMethods =
@@ -42,18 +45,41 @@ public class SimScaleClient : IDisposable
         }
     }
 
-    public SimScaleClient(string apiKey, string serverUrl, int maxRetries = 5, double retryBackoff = 0.2)
+    /// <param name="apiKey">SimScale API key sent as the X-API-KEY header.</param>
+    /// <param name="serverUrl">Base URL for the API (scheme + host, no trailing path).</param>
+    /// <param name="timeout">Per-request read timeout, seconds (default 60). Lower it for faster failure on quick calls.</param>
+    /// <param name="maxRetries">Retries on network errors / 5xx (idempotent) and 429 (any method).</param>
+    /// <param name="retryBackoff">Base for exponential backoff, seconds.</param>
+    /// <param name="retryAfterCap">Upper bound on a server Retry-After sleep, seconds.</param>
+    /// <param name="maxConnectionsPerServer">Connection-pool cap.</param>
+    /// <param name="maxRequestsPerSecond">Optional client-side rate limiter (paces outbound requests); null disables it.</param>
+    public SimScaleClient(
+        string apiKey,
+        string serverUrl,
+        double timeout = 60.0,
+        int maxRetries = 5,
+        double retryBackoff = 0.2,
+        double retryAfterCap = 60.0,
+        int maxConnectionsPerServer = 100,
+        double? maxRequestsPerSecond = null)
     {
-        _http = new HttpClient
+        var handler = new SocketsHttpHandler
+        {
+            MaxConnectionsPerServer = maxConnectionsPerServer,
+            PooledConnectionLifetime = TimeSpan.FromMinutes(5),
+        };
+        _http = new HttpClient(handler, disposeHandler: true)
         {
             BaseAddress = new Uri(serverUrl.TrimEnd('/') + "/"),
-            Timeout = TimeSpan.FromSeconds(30),
+            Timeout = TimeSpan.FromSeconds(timeout),
         };
         _http.DefaultRequestHeaders.Add("X-API-KEY", apiKey);
         _http.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent);
         _http.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         _maxRetries = maxRetries;
         _retryBackoff = retryBackoff;
+        _retryAfterCap = retryAfterCap;
+        _rateLimiter = new RateLimiter(maxRequestsPerSecond);
     }
 
     public T Request<T>(HttpMethod method, string path, object? body = null,
@@ -124,7 +150,7 @@ public class SimScaleClient : IDisposable
         if (jsonBody != null && binaryBody != null)
             throw new ArgumentException("body and binaryBody cannot be used together");
 
-        var response = SendWithRetry(method, () =>
+        var response = SendWithRetry(method, url, () =>
         {
             if (binaryBody != null && binaryBody.CanSeek)
                 binaryBody.Position = 0;
@@ -152,13 +178,19 @@ public class SimScaleClient : IDisposable
     /// <summary>
     /// Invoke <paramref name="send"/> with retries on transient failures.
     /// Retries network errors and 5xx responses for idempotent methods, and 429
-    /// regardless of method. Honors Retry-After on 429 when present.
+    /// regardless of method. Honors Retry-After on 429 when present, capped at
+    /// retryAfterCap. Gated by the client-side rate limiter. Fails loud: a client
+    /// timeout that exhausts retries is thrown as SimScaleTimeoutException with
+    /// context (never swallowed), and every retry is traced so a throttled/slow
+    /// call is visible rather than looking like a hang.
     /// </summary>
-    private HttpResponseMessage SendWithRetry(HttpMethod method, Func<HttpResponseMessage> send)
+    private HttpResponseMessage SendWithRetry(HttpMethod method, string url, Func<HttpResponseMessage> send)
     {
+        var start = Stopwatch.GetTimestamp();
         Exception? lastExc = null;
         for (var attempt = 0; attempt <= _maxRetries; attempt++)
         {
+            _rateLimiter.Acquire();
             HttpResponseMessage resp;
             try
             {
@@ -168,8 +200,23 @@ public class SimScaleClient : IDisposable
             {
                 lastExc = e;
                 if (attempt >= _maxRetries || !IdempotentMethods.Contains(method))
+                {
+                    // A TaskCanceledException here is an HttpClient.Timeout (no external
+                    // cancellation token is used) — surface it as a typed, contextful
+                    // error rather than a bare cancellation that reads like a hang.
+                    if (e is TaskCanceledException)
+                    {
+                        var elapsed = (Stopwatch.GetTimestamp() - start) / (double)Stopwatch.Frequency;
+                        // Report the absolute URL (like the Python SDK and SimScaleAPIError),
+                        // not the relative request path.
+                        var absoluteUrl = _http.BaseAddress is { } baseAddr ? new Uri(baseAddr, url).ToString() : url;
+                        throw new SimScaleTimeoutException(method.Method, absoluteUrl, elapsed, attempt + 1, e);
+                    }
                     throw;
-                Thread.Sleep(BackoffDelay(attempt));
+                }
+                var backoff = BackoffDelay(attempt);
+                Trace.TraceWarning($"{method.Method} {url} failed ({e.GetType().Name}); retry {attempt + 1}/{_maxRetries} in {backoff.TotalSeconds:0.0}s");
+                Thread.Sleep(backoff);
                 continue;
             }
 
@@ -180,6 +227,7 @@ public class SimScaleClient : IDisposable
             {
                 var delay = RetryDelay(attempt, resp);
                 resp.Dispose();
+                Trace.TraceWarning($"{method.Method} {url} got HTTP {status}; retry {attempt + 1}/{_maxRetries} in {delay.TotalSeconds:0.0}s");
                 Thread.Sleep(delay);
                 continue;
             }
@@ -191,12 +239,45 @@ public class SimScaleClient : IDisposable
     private TimeSpan RetryDelay(int attempt, HttpResponseMessage resp)
     {
         if ((int)resp.StatusCode == 429 && resp.Headers.RetryAfter?.Delta is { } delta)
-            return delta;
+        {
+            // Cap the server-provided delay so a large Retry-After doesn't stall
+            // the caller for minutes and read as a hang.
+            var cap = TimeSpan.FromSeconds(_retryAfterCap);
+            return delta < cap ? delta : cap;
+        }
         return BackoffDelay(attempt);
     }
 
     private TimeSpan BackoffDelay(int attempt)
         => TimeSpan.FromSeconds(_retryBackoff * Math.Pow(2, attempt));
+
+    /// <summary>Thread-safe rate limiter spacing outbound requests to at most the given rate. No-op when rate is null.</summary>
+    private sealed class RateLimiter
+    {
+        private readonly double? _minIntervalSeconds;
+        private long _nextTicks;
+        private readonly object _lock = new();
+
+        public RateLimiter(double? ratePerSecond)
+        {
+            _minIntervalSeconds = ratePerSecond.HasValue && ratePerSecond.Value > 0 ? 1.0 / ratePerSecond.Value : (double?)null;
+            _nextTicks = Stopwatch.GetTimestamp();
+        }
+
+        public void Acquire()
+        {
+            if (_minIntervalSeconds is not { } interval) return;
+            double waitSeconds;
+            lock (_lock)
+            {
+                var now = Stopwatch.GetTimestamp();
+                var next = Math.Max(now, _nextTicks);
+                waitSeconds = (next - now) / (double)Stopwatch.Frequency;
+                _nextTicks = next + (long)(interval * Stopwatch.Frequency);
+            }
+            if (waitSeconds > 0) Thread.Sleep(TimeSpan.FromSeconds(waitSeconds));
+        }
+    }
 
     public void Dispose() => _http.Dispose();
 }

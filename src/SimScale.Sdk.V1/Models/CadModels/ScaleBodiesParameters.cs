@@ -6,7 +6,7 @@ namespace SimScale.Sdk.V1.Models.CadModels;
 
 public class ScaleBodiesParameters
 {
-    /// <summary>Scaling factor.</summary>
+    /// <summary>Scaling factor. Must be greater than zero.</summary>
     [JsonPropertyName("factor")]
     [JsonRequired]
     public required double Factor { get; set; }

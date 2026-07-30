@@ -28,8 +28,7 @@ public class Project
 
     /// <summary>A meaningful description of the project.</summary>
     [JsonPropertyName("description")]
-    [JsonRequired]
-    public required string Description { get; set; }
+    public string? Description { get; set; }
 
     /// <summary>The measurement system of the project. Can't be modified.</summary>
     [JsonPropertyName("measurementSystem")]

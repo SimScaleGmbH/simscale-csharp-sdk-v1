@@ -46,6 +46,12 @@ public class StatisticsBulkValues
     [JsonPropertyName("volumeElementMax")]
     public StatisticsMetric? VolumeElementMax { get; set; }
 
+    [JsonPropertyName("massFlowRate")]
+    public StatisticsMetric? MassFlowRate { get; set; }
+
+    [JsonPropertyName("volumetricFlowRate")]
+    public StatisticsMetric? VolumetricFlowRate { get; set; }
+
     [JsonPropertyName("centroid")]
     public StatisticsCentroidMetric? Centroid { get; set; }
 

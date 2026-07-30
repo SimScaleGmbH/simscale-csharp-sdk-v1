@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class AdiabaticTBC : OneOf_CustomFluidBCTemperature, OneOf_WallBCTemperature
+public class AdiabaticTBC : OneOf_WallBCTemperature, OneOf_CustomFluidBCTemperature
 {
     /// <summary>Schema name: AdiabaticTBC</summary>
     [JsonPropertyName("type")]

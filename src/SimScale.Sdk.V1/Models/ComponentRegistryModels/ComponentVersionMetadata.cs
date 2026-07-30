@@ -23,6 +23,9 @@ public class ComponentVersionMetadata
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("releaseNotes")]
+    public string? ReleaseNotes { get; set; }
+
     /// <summary>Possible states of a component version.</summary>
     [JsonPropertyName("state")]
     public string? State { get; set; }

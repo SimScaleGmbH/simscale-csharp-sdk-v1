@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Diagonal incomplete lower-upper (ILU) algorithm for non-symmetric matrices without fill-in.</summary>
-public class DILUPreconditioner : OneOf_PBICGStabSolverPreconditioner, OneOf_PBICGSolverPreconditioner
+public class DILUPreconditioner : OneOf_PBICGSolverPreconditioner, OneOf_PBICGStabSolverPreconditioner
 {
     /// <summary>Diagonal incomplete lower-upper (ILU) algorithm for non-symmetric matrices without fill-in. Schema name: DILUPrecondi...</summary>
     [JsonPropertyName("type")]

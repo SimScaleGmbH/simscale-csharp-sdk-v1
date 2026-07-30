@@ -7,7 +7,7 @@ namespace SimScale.Sdk.V1.Models.CadModels;
 /// <summary>Translation method.</summary>
 public class TranslateGroupParameter
 {
-    /// <summary>Defines the parameter set used to define the extrusion. It can be either: - `translate_vector`, in which case the tra...</summary>
+    /// <summary>Defines how the translation is specified. It can be either: - `translate_vector`, in which case the translation dista...</summary>
     [JsonPropertyName("selected")]
     [JsonRequired]
     public required string Selected { get; set; }

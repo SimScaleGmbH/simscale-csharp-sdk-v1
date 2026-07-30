@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This boundary condition imposes a known velocity-based constraint at an outlet.</summary>
-public class VelocityOutletBC : OneOf_EmbeddedBoundaryBoundaryConditions, OneOf_SimericsAnalysisBoundaryConditions, OneOf_CoupledConjugateHeatTransferBoundaryConditions, OneOf_MultiphaseBoundaryConditions, OneOf_IncompressibleBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions
+public class VelocityOutletBC : OneOf_SimericsAnalysisBoundaryConditions, OneOf_EmbeddedBoundaryBoundaryConditions, OneOf_MultiphaseBoundaryConditions, OneOf_IncompressibleBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_CoupledConjugateHeatTransferBoundaryConditions
 {
     /// <summary>This boundary condition imposes a known velocity-based constraint at an outlet. Schema name: VelocityOutletBC</summary>
     [JsonPropertyName("type")]

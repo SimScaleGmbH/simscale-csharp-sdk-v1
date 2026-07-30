@@ -14,7 +14,7 @@ public class SubtractBodiesParameters
     [JsonPropertyName("tools")]
     public List<string>? Tools { get; set; }
 
-    /// <summary>Controls the result. If `keep`, both parts if the target bodies are kept after the subtraction; otherwise, if `discar...</summary>
+    /// <summary>Controls whether the tool bodies are retained after the subtraction. If `keep`, the tool bodies are kept alongside th...</summary>
     [JsonPropertyName("keep_tools")]
     [JsonRequired]
     public required string KeepTools { get; set; }

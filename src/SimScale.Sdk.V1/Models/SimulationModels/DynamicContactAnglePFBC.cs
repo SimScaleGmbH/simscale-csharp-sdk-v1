@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class DynamicContactAnglePFBC : OneOf_CustomFluidBCPhaseFraction, OneOf_WallBCPhaseFraction
+public class DynamicContactAnglePFBC : OneOf_WallBCPhaseFraction, OneOf_CustomFluidBCPhaseFraction
 {
     /// <summary>Schema name: DynamicContactAnglePFBC</summary>
     [JsonPropertyName("type")]

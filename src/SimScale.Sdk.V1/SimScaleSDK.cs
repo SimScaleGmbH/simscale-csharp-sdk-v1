@@ -32,14 +32,25 @@ public partial class SimScaleSDK : IDisposable
     public WorkflowRepository WorkflowRepository { get; }
     public WorkflowRunner WorkflowRunner { get; }
 
-    public SimScaleSDK(string? apiKey = null, string? serverUrl = null)
+    public SimScaleSDK(
+        string? apiKey = null,
+        string? serverUrl = null,
+        double timeout = 60.0,
+        int maxRetries = 5,
+        int maxConnectionsPerServer = 100,
+        double? maxRequestsPerSecond = null)
     {
         var resolvedKey = apiKey ?? Environment.GetEnvironmentVariable("SIMSCALE_API_KEY");
         if (string.IsNullOrEmpty(resolvedKey))
             throw new InvalidOperationException("api_key must be provided or SIMSCALE_API_KEY environment variable must be set");
         var resolvedUrl = (serverUrl ?? Environment.GetEnvironmentVariable("SIMSCALE_API_URL") ?? "https://api.simscale.com")
             .TrimEnd('/') + "/v1";
-        _client = new SimScaleClient(resolvedKey, resolvedUrl);
+        _client = new SimScaleClient(
+            resolvedKey, resolvedUrl,
+            timeout: timeout,
+            maxRetries: maxRetries,
+            maxConnectionsPerServer: maxConnectionsPerServer,
+            maxRequestsPerSecond: maxRequestsPerSecond);
         AiModels = new AiModels(_client);
         CadFeatures = new CadFeatures(_client);
         CadImports = new CadImports(_client);

@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class PredefinedRotationalMotion
+public class PredefinedRotationalMotion : OneOf_ElectromagneticAdvancedConceptsMotionAnalysis
 {
     /// <summary>Schema name: PredefinedRotationalMotion</summary>
     [JsonPropertyName("type")]

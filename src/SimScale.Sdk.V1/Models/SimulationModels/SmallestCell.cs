@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class SmallestCell : OneOf_PacefishAutomeshAutomaticGapClosing, OneOf_WindComfortMeshAutomaticGapClosing
+public class SmallestCell : OneOf_WindComfortMeshAutomaticGapClosing, OneOf_PacefishAutomeshAutomaticGapClosing
 {
     /// <summary>Schema name: SmallestCell</summary>
     [JsonPropertyName("type")]

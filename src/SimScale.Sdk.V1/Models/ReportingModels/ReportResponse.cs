@@ -55,6 +55,9 @@ public class ReportResponse
     [JsonPropertyName("statisticsResult")]
     public Dictionary<string, StatisticsResultEntry>? StatisticsResult { get; set; }
 
+    [JsonPropertyName("minMaxResult")]
+    public GlobalMinMaxResult? MinMaxResult { get; set; }
+
     [JsonPropertyName("failureReason")]
     public JsonElement? FailureReason { get; set; }
 

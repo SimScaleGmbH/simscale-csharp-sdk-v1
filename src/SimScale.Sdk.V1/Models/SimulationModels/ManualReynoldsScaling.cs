@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class ManualReynoldsScaling : OneOf_PacefishAutomeshReynoldsScalingType, OneOf_WindComfortMeshReynoldsScalingType
+public class ManualReynoldsScaling : OneOf_WindComfortMeshReynoldsScalingType, OneOf_PacefishAutomeshReynoldsScalingType
 {
     /// <summary>Schema name: ManualReynoldsScaling</summary>
     [JsonPropertyName("type")]

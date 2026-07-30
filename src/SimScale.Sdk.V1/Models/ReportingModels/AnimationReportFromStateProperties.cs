@@ -17,4 +17,10 @@ public class AnimationReportFromStateProperties : ReportFromStateProperties
     [JsonRequired]
     public required OneOfAnimationOutputSettings OutputSettings { get; set; }
 
+    [JsonPropertyName("cameraOverride")]
+    public OneOfCameraSettings? CameraOverride { get; set; }
+
+    [JsonPropertyName("stateOverrides")]
+    public StateOverrides? StateOverrides { get; set; }
+
 }

@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class CubeRootVolLesDelta : OneOf_PrandtlLesDeltaDeltaCoefficient, OneOf_FluidModelDeltaCoefficient
+public class CubeRootVolLesDelta : OneOf_FluidModelDeltaCoefficient, OneOf_PrandtlLesDeltaDeltaCoefficient
 {
     /// <summary>Schema name: CubeRootVolLesDelta</summary>
     [JsonPropertyName("type")]

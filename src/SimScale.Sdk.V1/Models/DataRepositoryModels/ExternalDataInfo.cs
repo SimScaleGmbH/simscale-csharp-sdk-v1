@@ -38,6 +38,9 @@ public class ExternalDataInfo : DataInfo
     [JsonPropertyName("origin")]
     public string? Origin { get; set; }
 
+    [JsonPropertyName("originalFileName")]
+    public string? OriginalFileName { get; set; }
+
     [JsonPropertyName("projectId")]
     public string? ProjectId { get; set; }
 

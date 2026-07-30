@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class RelativeConvergenceCriteria : OneOf_NewtonKrylovResolutionTypeConvergenceCriteria, OneOf_NewtonResolutionTypeConvergenceCriteria
+public class RelativeConvergenceCriteria : OneOf_NewtonResolutionTypeConvergenceCriteria, OneOf_NewtonKrylovResolutionTypeConvergenceCriteria
 {
     /// <summary>Schema name: RelativeConvergenceCriteria</summary>
     [JsonPropertyName("type")]

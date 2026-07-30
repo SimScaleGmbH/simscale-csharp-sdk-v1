@@ -14,4 +14,7 @@ public class CreateUploadSessionRequest
     [JsonPropertyName("dataType")]
     public string? DataType { get; set; }
 
+    [JsonPropertyName("originalFileName")]
+    public string? OriginalFileName { get; set; }
+
 }

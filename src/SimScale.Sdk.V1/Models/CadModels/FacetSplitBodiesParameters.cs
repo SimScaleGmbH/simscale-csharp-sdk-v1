@@ -6,7 +6,7 @@ namespace SimScale.Sdk.V1.Models.CadModels;
 
 public class FacetSplitBodiesParameters
 {
-    /// <summary>Maximum split angle.</summary>
+    /// <summary>Maximum split angle, in degrees.</summary>
     [JsonPropertyName("angle")]
     [JsonRequired]
     public required double Angle { get; set; }

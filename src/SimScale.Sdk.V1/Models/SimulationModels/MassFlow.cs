@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Defines the mass flow rate per each face of the assignment.</summary>
-public class MassFlow : OneOf_FlowRateMeanInletVBCFlowRate, OneOf_FlowRateStableOutletVBCFlowRate, OneOf_FlowRateInletVBCFlowRate, OneOf_FlowRateMeanOutletVBCFlowRate, OneOf_FlowRateOutletVBCFlowRate
+public class MassFlow : OneOf_FlowRateStableOutletVBCFlowRate, OneOf_FlowRateOutletVBCFlowRate, OneOf_FlowRateMeanInletVBCFlowRate, OneOf_FlowRateInletVBCFlowRate, OneOf_FlowRateMeanOutletVBCFlowRate
 {
     /// <summary>Defines the mass flow rate per each face of the assignment. Schema name: MassFlow</summary>
     [JsonPropertyName("type")]

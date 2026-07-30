@@ -60,6 +60,23 @@ export SIMSCALE_API_KEY="your-api-key"
 
 On Windows, use `set SIMSCALE_API_KEY=your-api-key` (CMD) or `$env:SIMSCALE_API_KEY="your-api-key"` (PowerShell).
 
+### HTTP client, retries, and lifecycle
+
+Construct one `SimScaleSDK` per process and reuse it (don't create one per call). It owns a pooled `HttpClient`. `SimScaleSDK` is `IDisposable`, so a `using` scope works for short-lived usage. Tune it via constructor arguments:
+
+| Argument | Default | Description |
+|---|---|---|
+| `timeout` | `60.0` | Per-request timeout, seconds. Lower it for faster failure on quick calls; raise it for long-running requests. |
+| `maxRetries` | `5` | Retries on network errors / 5xx (idempotent methods) and 429 (any method). |
+| `maxConnectionsPerServer` | `100` | Connection-pool cap. |
+| `maxRequestsPerSecond` | `null` | Optional client-side rate limiter (paces outbound requests); `null` disables it. |
+
+```csharp
+using var sdk = new SimScaleSDK(timeout: 90, maxRequestsPerSecond: 10);
+```
+
+Failures are surfaced, never silent: a request that exhausts its retries on a client timeout throws `SimScaleTimeoutException` (with method, URL, elapsed and attempt count); each retry is emitted via `System.Diagnostics.Trace`.
+
 ## SDK Structure
 
 All API resources are accessed as properties on the `SimScaleSDK` object:

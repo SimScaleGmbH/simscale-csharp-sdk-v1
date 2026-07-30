@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class NoSlipVBC : OneOf_CustomFluidBCVelocity, OneOf_WallBCVelocity
+public class NoSlipVBC : OneOf_WallBCVelocity, OneOf_CustomFluidBCVelocity
 {
     /// <summary>Schema name: NoSlipVBC</summary>
     [JsonPropertyName("type")]

@@ -10,7 +10,7 @@ public class DeleteFaceV2Parameters
     [JsonPropertyName("faces")]
     public List<string>? Faces { get; set; }
 
-    /// <summary>The available healing actions are: - `cap`: to replace deleted faces with a new face, - `shrink` to extend the neighb...</summary>
+    /// <summary>The available healing actions are: - `cap`: to replace deleted faces with a new face, - `shrink`: to close (shrink aw...</summary>
     [JsonPropertyName("heal_action")]
     [JsonRequired]
     public required string HealAction { get; set; }

@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class RelativeCurvature : OneOf_AutomaticMeshSizingSimmetrixCurvature, OneOf_RegionRefinementWithLengthCurvature, OneOf_ManualMeshSizingSimmetrixCurvature, OneOf_DistanceVolumeCustomSizingCurvature, OneOf_SimmetrixLocalSizingRefinementCurvature, OneOf_CustomMeshSizingSimmetrixCurvature
+public class RelativeCurvature : OneOf_DistanceVolumeCustomSizingCurvature, OneOf_ManualMeshSizingSimmetrixCurvature, OneOf_RegionRefinementWithLengthCurvature, OneOf_AutomaticMeshSizingSimmetrixCurvature, OneOf_CustomMeshSizingSimmetrixCurvature, OneOf_SimmetrixLocalSizingRefinementCurvature
 {
     /// <summary>Schema name: RelativeCurvature</summary>
     [JsonPropertyName("type")]

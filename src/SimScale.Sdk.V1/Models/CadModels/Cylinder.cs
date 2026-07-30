@@ -15,10 +15,12 @@ public class Cylinder
     [JsonRequired]
     public required Vector Axis { get; set; }
 
+    /// <summary>Radius of the cylinder. Uses the sibling `unit` field.</summary>
     [JsonPropertyName("radius")]
     [JsonRequired]
     public required double Radius { get; set; }
 
+    /// <summary>Height of the cylinder. Uses the sibling `unit` field.</summary>
     [JsonPropertyName("height")]
     [JsonRequired]
     public required double Height { get; set; }

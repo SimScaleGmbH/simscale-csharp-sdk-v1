@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class SmoothLesDelta : OneOf_PrandtlLesDeltaDeltaCoefficient, OneOf_FluidModelDeltaCoefficient
+public class SmoothLesDelta : OneOf_FluidModelDeltaCoefficient, OneOf_PrandtlLesDeltaDeltaCoefficient
 {
     /// <summary>Schema name: SmoothLesDelta</summary>
     [JsonPropertyName("type")]

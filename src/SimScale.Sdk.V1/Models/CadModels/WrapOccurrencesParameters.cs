@@ -10,12 +10,12 @@ public class WrapOccurrencesParameters
     [JsonPropertyName("occurrences")]
     public List<string>? Occurrences { get; set; }
 
-    /// <summary>Defines the behavior of the wrapper. It can be either: - `features`: to try preserve the edges of the selected volume...</summary>
+    /// <summary>Defines the behavior of the wrapper. It can be either: - `features` (shown in the UI as "Snap to edges"): to try to p...</summary>
     [JsonPropertyName("wrap_type")]
     [JsonRequired]
     public required string WrapType { get; set; }
 
-    /// <summary>Resolution of the wrapper, the higher the resolution, the closer the result would be to the selected volumes. This va...</summary>
+    /// <summary>Resolution of the wrapper, the higher the resolution, the closer the result would be to the selected volumes. Must be...</summary>
     [JsonPropertyName("resolution")]
     [JsonRequired]
     public required double Resolution { get; set; }
@@ -34,7 +34,7 @@ public class WrapOccurrencesParameters
     [JsonRequired]
     public required WrapTunnelDetectionParameter TunnelDetection { get; set; }
 
-    /// <summary>Controls the result. If `true`, each body will be replaced singularly; otherwise all bodies will be replaced by a sin...</summary>
+    /// <summary>Controls the result. If `true`, each body is wrapped individually; otherwise, one wrap body encloses all selected bod...</summary>
     [JsonPropertyName("replace_each")]
     [JsonRequired]
     public required bool ReplaceEach { get; set; }

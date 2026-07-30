@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class CartesianOrientation : OneOf_DirectionalMaterialStructureOrientation, OneOf_FixedCoeffMediumOrientation, OneOf_ConstAnIsoTransportOrientation, OneOf_DarcyForchheimerMediumOrientation
+public class CartesianOrientation : OneOf_DarcyForchheimerMediumOrientation, OneOf_FixedCoeffMediumOrientation, OneOf_ConstAnIsoTransportOrientation, OneOf_DirectionalMaterialStructureOrientation
 {
     /// <summary>Schema name: CartesianOrientation</summary>
     [JsonPropertyName("type")]

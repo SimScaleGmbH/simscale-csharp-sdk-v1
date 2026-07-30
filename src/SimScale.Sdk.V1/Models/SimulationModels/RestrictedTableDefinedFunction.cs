@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class RestrictedTableDefinedFunction : OneOf_RestrictedDimensionalFunction_FrequencyValue, OneOf_RestrictedDimensionalFunction_TimeValue
+public class RestrictedTableDefinedFunction : OneOf_RestrictedDimensionalFunction_TimeValue, OneOf_RestrictedDimensionalFunction_FrequencyValue
 {
     /// <summary>Schema name: RestrictedTableDefinedFunction</summary>
     [JsonPropertyName("type")]

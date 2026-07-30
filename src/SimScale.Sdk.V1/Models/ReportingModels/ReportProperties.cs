@@ -14,6 +14,7 @@ internal class ReportPropertiesConverter : JsonConverter<ReportProperties>
         ["ANIMATION"] = typeof(AnimationReportProperties),
         ["SCREENSHOT"] = typeof(ScreenshotReportProperties),
         ["STATISTICS"] = typeof(StatisticsReportProperties),
+        ["STATISTICS_GLOBAL_MIN_MAX"] = typeof(StatisticsGlobalMinMaxReportProperties),
     };
 
     public override ReportProperties? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

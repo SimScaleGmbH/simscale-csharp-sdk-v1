@@ -20,6 +20,9 @@ public class ScreenshotReportFromStateProperties : ReportFromStateProperties
     [JsonPropertyName("cameraOverride")]
     public OneOfCameraSettings? CameraOverride { get; set; }
 
+    [JsonPropertyName("stateOverrides")]
+    public StateOverrides? StateOverrides { get; set; }
+
     /// <summary>When false, the rendered screenshot is not registered back into the project (ephemeral). Defaults to true.</summary>
     [JsonPropertyName("persist")]
     public bool? Persist { get; set; }

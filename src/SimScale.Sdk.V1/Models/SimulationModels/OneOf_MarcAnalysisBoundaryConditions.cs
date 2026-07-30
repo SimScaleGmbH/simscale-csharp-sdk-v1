@@ -17,6 +17,10 @@ internal class OneOf_MarcAnalysisBoundaryConditionsConverter : JsonConverter<One
         ["POINT_DISPLACEMENT"] = typeof(PointDisplacementBCMarc),
         ["POINT_LOAD"] = typeof(PointLoadBCMarc),
         ["TEMPERATURE"] = typeof(TemperatureBCMarc),
+        ["CONVECTION_RADIATION"] = typeof(ConvectionRadiationBCMarc),
+        ["SURFACE_HEAT_FLUX"] = typeof(SurfaceHeatFluxBCMarc),
+        ["VOLUME_HEAT_FLUX"] = typeof(VolumeHeatFluxBCMarc),
+        ["BOLT_PRELOAD"] = typeof(BoltPreloadBCMarc),
     };
 
     public override OneOf_MarcAnalysisBoundaryConditions? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

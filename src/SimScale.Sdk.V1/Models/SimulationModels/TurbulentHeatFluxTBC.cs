@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class TurbulentHeatFluxTBC : OneOf_CustomFluidBCTemperature, OneOf_WallBCTemperature
+public class TurbulentHeatFluxTBC : OneOf_WallBCTemperature, OneOf_CustomFluidBCTemperature
 {
     /// <summary>Schema name: TurbulentHeatFluxTBC</summary>
     [JsonPropertyName("type")]

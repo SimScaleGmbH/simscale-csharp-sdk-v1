@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class AutomaticMeshSizingSimmetrix : OneOf_SimmetrixMeshingFluidSizing, OneOf_SimmetrixMeshingSolidSizing, OneOf_SurfaceCustomSizingSizing, OneOf_InsideVolumeCustomSizingSizing, OneOf_SimmetrixMeshingElectromagneticsSizing
+public class AutomaticMeshSizingSimmetrix : OneOf_SurfaceCustomSizingSizing, OneOf_SimmetrixMeshingSolidSizing, OneOf_SimmetrixMeshingFluidSizing, OneOf_SimmetrixMeshingElectromagneticsSizing, OneOf_InsideVolumeCustomSizingSizing
 {
     /// <summary>Schema name: AutomaticMeshSizingSimmetrix</summary>
     [JsonPropertyName("type")]

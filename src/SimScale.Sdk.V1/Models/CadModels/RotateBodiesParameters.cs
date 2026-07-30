@@ -19,7 +19,7 @@ public class RotateBodiesParameters
     [JsonRequired]
     public required double Angle { get; set; }
 
-    /// <summary>If this option is selected, the operation will create new bodies instead of modifying the selected ones.</summary>
+    /// <summary>If true, the operation creates new bodies instead of modifying the selected ones; if false, the selected bodies are m...</summary>
     [JsonPropertyName("copy_bodies")]
     [JsonRequired]
     public required bool CopyBodies { get; set; }

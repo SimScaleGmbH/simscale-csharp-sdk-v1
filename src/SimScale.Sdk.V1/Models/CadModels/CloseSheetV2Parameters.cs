@@ -10,7 +10,7 @@ public class CloseSheetV2Parameters
     [JsonPropertyName("occurrences")]
     public List<string>? Occurrences { get; set; }
 
-    /// <summary>The `cap` healing option creates a surface to cover the existing holes. The `grow` healing option extends the faces a...</summary>
+    /// <summary>The `cap` healing option creates a surface to cover the existing holes. The `grow_from_child` healing option extends...</summary>
     [JsonPropertyName("heal_option")]
     [JsonRequired]
     public required string HealOption { get; set; }
