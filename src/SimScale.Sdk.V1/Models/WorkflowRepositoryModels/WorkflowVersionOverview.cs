@@ -19,6 +19,10 @@ public class WorkflowVersionOverview
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    /// <summary>The operation through which the workflow version came into existence.</summary>
+    [JsonPropertyName("origin")]
+    public string? Origin { get; set; }
+
     /// <summary>Workflow version identifier. It is a string composed of the type identifier and a UUID: `workflow.version:[UUID]`.</summary>
     [JsonPropertyName("parentWorkflowVersionId")]
     public string? ParentWorkflowVersionId { get; set; }

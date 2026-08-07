@@ -150,6 +150,7 @@ public partial class SimScaleSDK
             {
                 DataType = dataType,
                 ContentType = contentType,
+                OriginalFileName = fileInfo.Name,
             },
             projectId);
         var storageId = uploadSession.StorageId

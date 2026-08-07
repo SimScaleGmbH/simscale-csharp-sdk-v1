@@ -89,6 +89,10 @@ public class SimScaleClient : IDisposable
     {
         using var response = SendRequest(method, path, body, binaryBody, contentType, queryParams);
         var json = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+        // 204, or any 2xx with an empty body, carries no value to deserialize. Endpoints that
+        // document a 204 alongside a body generate a nullable return type for exactly this case.
+        if (string.IsNullOrEmpty(json))
+            return default!;
         return JsonSerializer.Deserialize<T>(json, JsonOptions)!;
     }
 

@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Phase fraction values are automatically computed.</summary>
-public class OutletFlowDrivenPF : OneOf_VelocityOutletBCPhaseFractionsV2, OneOf_PressureOutletBCPhaseFractionsV2
+public class OutletFlowDrivenPF : OneOf_PressureOutletBCPhaseFractionsV2, OneOf_VelocityOutletBCPhaseFractionsV2
 {
     /// <summary>Phase fraction values are automatically computed. Schema name: OutletFlowDrivenPF</summary>
     [JsonPropertyName("type")]

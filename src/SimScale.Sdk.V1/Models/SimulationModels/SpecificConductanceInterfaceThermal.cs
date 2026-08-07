@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class SpecificConductanceInterfaceThermal : OneOf_RegionInterfaceInterfaceThermal, OneOf_ContactConductanceLayerInterfaceThermal
+public class SpecificConductanceInterfaceThermal : OneOf_ContactConductanceLayerInterfaceThermal, OneOf_RegionInterfaceInterfaceThermal
 {
     /// <summary>Schema name: SpecificConductanceInterfaceThermal</summary>
     [JsonPropertyName("type")]

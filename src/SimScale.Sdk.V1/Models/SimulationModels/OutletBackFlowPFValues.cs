@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>It specifies the phase fraction values of the back flow. If there is no back flow, the values are ignored.</summary>
-public class OutletBackFlowPFValues : OneOf_VelocityOutletBCPhaseFractionsV2, OneOf_PressureOutletBCPhaseFractionsV2
+public class OutletBackFlowPFValues : OneOf_PressureOutletBCPhaseFractionsV2, OneOf_VelocityOutletBCPhaseFractionsV2
 {
     /// <summary>It specifies the phase fraction values of the back flow. If there is no back flow, the values are ignored. Schema nam...</summary>
     [JsonPropertyName("type")]

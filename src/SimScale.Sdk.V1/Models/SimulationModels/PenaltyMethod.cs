@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class PenaltyMethod : OneOf_FrictionContactContactSolutionMethod, OneOf_FrictionlessContactContactSolutionMethod
+public class PenaltyMethod : OneOf_FrictionlessContactContactSolutionMethod, OneOf_FrictionContactContactSolutionMethod
 {
     /// <summary>Schema name: PenaltyMethod</summary>
     [JsonPropertyName("type")]

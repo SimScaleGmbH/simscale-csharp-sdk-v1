@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class CenterFrequency : OneOf_SolidSimulationControlEigenfrequencyScope, OneOf_ModalBaseControlEigenfrequencyScope
+public class CenterFrequency : OneOf_ModalBaseControlEigenfrequencyScope, OneOf_SolidSimulationControlEigenfrequencyScope
 {
     /// <summary>Schema name: CenterFrequency</summary>
     [JsonPropertyName("type")]

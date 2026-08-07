@@ -9,6 +9,9 @@ var exampleDir = Directory.GetCurrentDirectory();
 
 var inputFile = Path.Combine(exampleDir, "../fixtures/cube_with_results_ascii.vtu");
 const string InputContentType = "application/octet-stream";
+// Format of the uploaded data. VTK covers single-file VTU/VTM input; transient results
+// assembled from a PVD collection use "PVD", MED-format meshes use "MED".
+const string InputFormat = "VTK";
 
 const string WorkflowType = "simscale.ramps:mesh-and-result-import:1.3.1";
 const string InputDataType = "simscale.ramps:general-mesh-and-fields:1.0.0";
@@ -34,6 +37,12 @@ var inputDataId = sdk.UploadToDataRepository(
     InputDataType,
     contentType: InputContentType);
 Console.WriteLine($"inputDataId: {inputDataId}");
+
+// Declare the format of the uploaded data, so the conversion knows how to read it
+sdk.DataRepository.UpdateDomainSpecificMetadata(inputDataId, new DataRepositoryModels.DomainSpecificMetadata
+{
+    ["format"] = JsonSerializer.SerializeToElement(InputFormat),
+});
 
 // Create workflow
 var workflowId = sdk.WorkflowRepository.CreateWorkflow(

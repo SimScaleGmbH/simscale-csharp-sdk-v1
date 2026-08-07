@@ -1,0 +1,29 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+namespace SimScale.Sdk.V1.Models;
+
+public class GetAiPredictionResponse
+{
+    [JsonPropertyName("predictionId")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public Guid PredictionId { get; set; }
+
+    [JsonPropertyName("resultId")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public Guid ResultId { get; set; }
+
+    [JsonPropertyName("availableFields")]
+    public List<JsonElement>? AvailableFields { get; set; }
+
+    [JsonPropertyName("confidenceScore")]
+    public double? ConfidenceScore { get; set; }
+
+    [JsonPropertyName("globalOutputs")]
+    public List<JsonElement>? GlobalOutputs { get; set; }
+
+    /// <summary>RUNNING - Prediction is still in progress DONE - Prediction is done, the results are part of this response FAILED - P...</summary>
+    [JsonPropertyName("status")]
+    public string? Status { get; set; }
+
+}

@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class FirstMode : OneOf_SolidSimulationControlEigenfrequencyScope, OneOf_ModalBaseControlEigenfrequencyScope
+public class FirstMode : OneOf_ModalBaseControlEigenfrequencyScope, OneOf_SolidSimulationControlEigenfrequencyScope
 {
     /// <summary>Schema name: FirstMode</summary>
     [JsonPropertyName("type")]

@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Isotropic porous object where the same permeability and friction form coefficient are applied in all directions.</summary>
-public class IsotropicDarcyForchheimer : OneOf_GeneralDarcyForchheimerPacefishDarcyForchheimerType, OneOf_DirectionalDependencyDarcyForchheimerType
+public class IsotropicDarcyForchheimer : OneOf_DirectionalDependencyDarcyForchheimerType, OneOf_GeneralDarcyForchheimerPacefishDarcyForchheimerType
 {
     /// <summary>Isotropic porous object where the same permeability and friction form coefficient are applied in all directions. Sche...</summary>
     [JsonPropertyName("type")]

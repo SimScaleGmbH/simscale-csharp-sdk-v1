@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class TurbulentIntensityAndReferenceLengthTurbulence : OneOf_NaturalConvectionInletOutletBCTurbulence, OneOf_VelocityInletBCTurbulence, OneOf_PressureInletBCTurbulence, OneOf_FanBCTurbulence
+public class TurbulentIntensityAndReferenceLengthTurbulence : OneOf_FanBCTurbulence, OneOf_NaturalConvectionInletOutletBCTurbulence, OneOf_VelocityInletBCTurbulence, OneOf_PressureInletBCTurbulence
 {
     /// <summary>Schema name: TurbulentIntensityAndReferenceLengthTurbulence</summary>
     [JsonPropertyName("type")]

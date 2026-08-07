@@ -493,6 +493,9 @@
         <member name="T:SimScale.Sdk.V1.Models.ComputeResource">
             <summary>An interval with the estimated compute resources (CPUh or GPUh) required to run the simulation.</summary>
         </member>
+        <member name="P:SimScale.Sdk.V1.Models.CreateAsyncAiPredictionResponse.Status">
+            <summary>RUNNING - Prediction is in progress, poll GET /ai/predictions/{predictionId} for the results</summary>
+        </member>
         <member name="P:SimScale.Sdk.V1.Models.CreateExportRequest.ResultId">
             <summary>The result to be exported</summary>
         </member>
@@ -528,6 +531,9 @@
         </member>
         <member name="T:SimScale.Sdk.V1.Models.DataRepositoryModels.DataInfo">
             <summary>Information about one data entity. General metadata about the associated piece of business data.</summary>
+        </member>
+        <member name="T:SimScale.Sdk.V1.Models.DataRepositoryModels.DomainSpecificMetadata">
+            <summary>Domain-specific metadata of a data object. A free-form JSON object whose shape is defined by the metadata schema of the data type.</summary>
         </member>
         <member name="P:SimScale.Sdk.V1.Models.DataRepositoryModels.ExternalDataInfo.DataId">
             <summary>Data identifier. It is a string composed of the type identifier and a UUID: `data:[UUID]`.</summary>
@@ -654,6 +660,9 @@
         </member>
         <member name="P:SimScale.Sdk.V1.Models.GeometryPrimitiveResponse.GeometryPrimitiveId">
             <summary>The ID of the created geometry primitive.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.GetAiPredictionResponse.Status">
+            <summary>RUNNING - Prediction is still in progress DONE - Prediction is done, the results are part of this response FAILED - P...</summary>
         </member>
         <member name="P:SimScale.Sdk.V1.Models.GetExportResponse.Status">
             <summary>RUNNING - Export is still in progress DONE - Export is done and ready for download FAILED - Export failed, please ret...</summary>
@@ -7297,6 +7306,9 @@
         <member name="T:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.ReadWorkflowResponse">
             <summary>Workflow or workflow version reading response. Contains all properties available for the requested workflow or workflow version.</summary>
         </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.ReadWorkflowResponse.Origin">
+            <summary>The operation through which the workflow version came into existence.</summary>
+        </member>
         <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.ReadWorkflowResponse.ParentWorkflowVersionId">
             <summary>Workflow version identifier. It is a string composed of the type identifier and a UUID: `workflow.version:[UUID]`.</summary>
         </member>
@@ -7332,6 +7344,9 @@
         </member>
         <member name="T:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowVersionOverview">
             <summary>Workflow version overview data structure. Holds high-level information but skips details (for example data mapping and configuration) to keep the response size reasonably small.</summary>
+        </member>
+        <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowVersionOverview.Origin">
+            <summary>The operation through which the workflow version came into existence.</summary>
         </member>
         <member name="P:SimScale.Sdk.V1.Models.WorkflowRepositoryModels.WorkflowVersionOverview.ParentWorkflowVersionId">
             <summary>Workflow version identifier. It is a string composed of the type identifier and a UUID: `workflow.version:[UUID]`.</summary>
@@ -8392,8 +8407,11 @@
         <member name="P:SimScale.Sdk.V1.Models.WorkflowsModels.VisibilityUiConfigurationEntry.VisibleWhen">
             <summary>Value model of a boolean value. Resolves to a JSON boolean or null node.</summary>
         </member>
+        <member name="M:SimScale.Sdk.V1.Resources.AiModels.CreateAsyncPrediction(SimScale.Sdk.V1.Models.CreateAiPredictionRequest)">
+            <summary>Start an AI prediction for a simulation based on an AI model Starts the prediction and returns immediately, without waiting for the results. Poll GET /ai/predictions/{predictionId} for the status and the results.</summary>
+        </member>
         <member name="M:SimScale.Sdk.V1.Resources.AiModels.CreatePrediction(SimScale.Sdk.V1.Models.CreateAiPredictionRequest)">
-            <summary>Generate an AI prediction for a simulation based on an AI model</summary>
+            <summary>Generate an AI prediction for a simulation based on an AI model Waits for the prediction to finish and returns the results. Predictions that take longer than 50 seconds time out, use POST /v1/ai/predictions for those.</summary>
         </member>
         <member name="M:SimScale.Sdk.V1.Resources.AiModels.GetAiModel(System.Guid)">
             <summary>Get specific AI model belonging to the user</summary>
@@ -8403,6 +8421,9 @@
         </member>
         <member name="M:SimScale.Sdk.V1.Resources.AiModels.GetAvailableAiModel(System.Nullable{System.Guid},System.String)">
             <summary>Get all AI model belonging to the user that can be used to run a specific simulation</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.AiModels.GetPrediction(System.Guid)">
+            <summary>Get the status of an AI prediction, and its results if it is done</summary>
         </member>
         <member name="M:SimScale.Sdk.V1.Resources.CadFeatures.AddCadFeature(System.Guid,System.Guid,SimScale.Sdk.V1.Models.CadModels.CadFeatureRequest)">
             <summary>Add a feature to the CAD Adding a CAD feature that involves complex computation might take some time to complete. Please refer to the following steps to start a CAD feature generation and check its progress: 1. Trigger the CAD feature generation via `POST /cads/{cadId}/states/{cadStateId}/features` 2. Monitor progress via `GET /cads/{cadId}/features/progress`</summary>
@@ -8539,13 +8560,19 @@
         <member name="M:SimScale.Sdk.V1.Resources.DataRepository.GetDataInfo(System.String)">
             <summary>Read the metadata of a data object.</summary>
         </member>
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.GetDomainSpecificMetadata(System.String)">
+            <summary>Read the domain-specific metadata of a data object. Returns the domain-specific metadata attached to the data object, a free-form JSON object whose shape is defined by the metadata schema of the data type. Data with no metadata attached is reported as 204, which is distinct from metadata that was set to an empty object.</summary>
+        </member>
         <member name="M:SimScale.Sdk.V1.Resources.DataRepository.ListData(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
             <summary>List data objects in a project.</summary>
         </member>
         <member name="M:SimScale.Sdk.V1.Resources.DataRepository.StartUploadSessionAppend(System.String,SimScale.Sdk.V1.Models.DataRepositoryModels.StartUploadSessionAppendRequest,System.String)">
             <summary>Start appending a chunk to an initialized upload session.</summary>
         </member>
-        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.UploadData(System.IO.Stream,System.String,System.String,System.String)">
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.UpdateDomainSpecificMetadata(System.String,SimScale.Sdk.V1.Models.DataRepositoryModels.DomainSpecificMetadata)">
+            <summary>Update the domain-specific metadata of a data object. Replaces the domain-specific metadata attached to the data object with the request body. The metadata is a free-form JSON object; if the data type declares a metadata schema, the body is validated against it. Transient result data uploaded for result import is marked as PVD-formatted by setting `{"format": "PVD"}` here.</summary>
+        </member>
+        <member name="M:SimScale.Sdk.V1.Resources.DataRepository.UploadData(System.IO.Stream,System.String,System.String,System.String,System.String)">
             <summary>Upload a new data object.</summary>
         </member>
         <member name="M:SimScale.Sdk.V1.Resources.Export.CreateExport(System.String,SimScale.Sdk.V1.Models.CreateExportRequest)">

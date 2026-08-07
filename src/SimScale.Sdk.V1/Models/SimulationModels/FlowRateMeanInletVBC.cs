@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class FlowRateMeanInletVBC : OneOf_VelocityInletBCVelocity, OneOf_CustomFluidBCVelocity
+public class FlowRateMeanInletVBC : OneOf_CustomFluidBCVelocity, OneOf_VelocityInletBCVelocity
 {
     /// <summary>Schema name: FlowRateMeanInletVBC</summary>
     [JsonPropertyName("type")]

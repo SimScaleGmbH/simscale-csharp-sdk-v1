@@ -9,7 +9,15 @@ public class AiModels
 
     public AiModels(SimScaleClient client) => _client = client;
 
-    /// <summary>Generate an AI prediction for a simulation based on an AI model</summary>
+    /// <summary>Start an AI prediction for a simulation based on an AI model Starts the prediction and returns immediately, without waiting for the results. Poll GET /ai/predictions/{predictionId} for the status and the results.</summary>
+    public CreateAsyncAiPredictionResponse CreateAsyncPrediction(
+        CreateAiPredictionRequest body
+    )
+    {
+        return _client.Request<CreateAsyncAiPredictionResponse>(HttpMethod.Post, $"/ai/predictions", body);
+    }
+
+    /// <summary>Generate an AI prediction for a simulation based on an AI model Waits for the prediction to finish and returns the results. Predictions that take longer than 50 seconds time out, use POST /v1/ai/predictions for those.</summary>
     public CreateAiPredictionResponse CreatePrediction(
         CreateAiPredictionRequest body
     )
@@ -39,5 +47,13 @@ public class AiModels
     {
         return _client.Request<List<AvailableAiModel>>(HttpMethod.Get, $"/ai/available-models",
             queryParams: new Dictionary<string, object?> { ["simulationId"] = simulationId, ["projectId"] = projectId });
+    }
+
+    /// <summary>Get the status of an AI prediction, and its results if it is done</summary>
+    public GetAiPredictionResponse GetPrediction(
+        Guid predictionId
+    )
+    {
+        return _client.Request<GetAiPredictionResponse>(HttpMethod.Get, $"/ai/predictions/{predictionId}");
     }
 }

@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Select which stiffnes matrix should be used for computing the Jacobian of the Newton method. Choosing the tangent stiffnes matrix via tangent matrix allows a full Newton approach whereas the selection of the elastic matrix results in a quasi-Newton approach.</summary>
-public class ElasticJacobianMatrix : OneOf_NewtonResolutionTypeJacobianMatrix, OneOf_NewtonKrylovResolutionTypeJacobianMatrix
+public class ElasticJacobianMatrix : OneOf_NewtonKrylovResolutionTypeJacobianMatrix, OneOf_NewtonResolutionTypeJacobianMatrix
 {
     /// <summary>Select which stiffnes matrix should be used for computing the Jacobian of the Newton method. Choosing the tangent sti...</summary>
     [JsonPropertyName("type")]

@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This boundary condition imposes a known velocity-based constraint at an inlet.</summary>
-public class VelocityInletBC : OneOf_SimericsAnalysisBoundaryConditions, OneOf_EmbeddedBoundaryBoundaryConditions, OneOf_MultiphaseBoundaryConditions, OneOf_IncompressibleBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_FlowDomainBoundariesXMIN, OneOf_FlowDomainBoundariesXMAX, OneOf_FlowDomainBoundariesYMIN, OneOf_FlowDomainBoundariesYMAX, OneOf_FlowDomainBoundariesZMIN, OneOf_FlowDomainBoundariesZMAX, OneOf_CoupledConjugateHeatTransferBoundaryConditions
+public class VelocityInletBC : OneOf_IncompressibleBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_FlowDomainBoundariesXMIN, OneOf_FlowDomainBoundariesXMAX, OneOf_FlowDomainBoundariesYMIN, OneOf_FlowDomainBoundariesYMAX, OneOf_FlowDomainBoundariesZMIN, OneOf_FlowDomainBoundariesZMAX, OneOf_CoupledConjugateHeatTransferBoundaryConditions, OneOf_SimericsAnalysisBoundaryConditions, OneOf_EmbeddedBoundaryBoundaryConditions, OneOf_MultiphaseBoundaryConditions
 {
     /// <summary>This boundary condition imposes a known velocity-based constraint at an inlet. Schema name: VelocityInletBC</summary>
     [JsonPropertyName("type")]

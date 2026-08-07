@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class FrequencyRange : OneOf_SolidSimulationControlEigenfrequencyScope, OneOf_ModalBaseControlEigenfrequencyScope
+public class FrequencyRange : OneOf_ModalBaseControlEigenfrequencyScope, OneOf_SolidSimulationControlEigenfrequencyScope
 {
     /// <summary>Schema name: FrequencyRange</summary>
     [JsonPropertyName("type")]

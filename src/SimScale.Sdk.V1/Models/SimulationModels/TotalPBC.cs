@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class TotalPBC : OneOf_PressureInletBCPressure, OneOf_PressureInletBCPressureRgh, OneOf_PressureInletBCGaugePressure, OneOf_CustomFluidBCPressure, OneOf_CustomFluidBCPressureRgh, OneOf_CustomFluidBCGaugePressure, OneOf_CustomFluidBCGaugePressureRgh
+public class TotalPBC : OneOf_CustomFluidBCPressure, OneOf_CustomFluidBCPressureRgh, OneOf_CustomFluidBCGaugePressure, OneOf_CustomFluidBCGaugePressureRgh, OneOf_PressureInletBCPressure, OneOf_PressureInletBCPressureRgh, OneOf_PressureInletBCGaugePressure
 {
     /// <summary>Schema name: TotalPBC</summary>
     [JsonPropertyName("type")]

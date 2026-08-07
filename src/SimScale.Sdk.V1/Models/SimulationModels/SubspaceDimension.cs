@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class SubspaceDimension : OneOf_IRAMSorensenSubspaceSettings, OneOf_LanczosSubspaceSettings, OneOf_BatheWilsonSubspaceSettings
+public class SubspaceDimension : OneOf_LanczosSubspaceSettings, OneOf_BatheWilsonSubspaceSettings, OneOf_IRAMSorensenSubspaceSettings
 {
     /// <summary>Schema name: SubspaceDimension</summary>
     [JsonPropertyName("type")]

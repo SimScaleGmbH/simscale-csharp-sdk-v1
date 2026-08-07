@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class FreestreamVBC : OneOf_VelocityOutletBCVelocity, OneOf_VelocityInletBCVelocity, OneOf_CustomFluidBCVelocity
+public class FreestreamVBC : OneOf_CustomFluidBCVelocity, OneOf_VelocityOutletBCVelocity, OneOf_VelocityInletBCVelocity
 {
     /// <summary>Schema name: FreestreamVBC</summary>
     [JsonPropertyName("type")]

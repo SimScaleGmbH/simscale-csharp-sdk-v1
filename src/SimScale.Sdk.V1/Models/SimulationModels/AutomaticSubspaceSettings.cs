@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class AutomaticSubspaceSettings : OneOf_IRAMSorensenSubspaceSettings, OneOf_LanczosSubspaceSettings, OneOf_BatheWilsonSubspaceSettings
+public class AutomaticSubspaceSettings : OneOf_LanczosSubspaceSettings, OneOf_BatheWilsonSubspaceSettings, OneOf_IRAMSorensenSubspaceSettings
 {
     /// <summary>Schema name: AutomaticSubspaceSettings</summary>
     [JsonPropertyName("type")]

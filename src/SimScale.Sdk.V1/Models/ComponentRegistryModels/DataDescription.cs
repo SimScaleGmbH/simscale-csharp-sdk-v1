@@ -14,6 +14,9 @@ public class DataDescription
     [JsonPropertyName("dataTypeFilter")]
     public JsonElement? DataTypeFilter { get; set; }
 
+    [JsonPropertyName("dataValidationRuleSet")]
+    public JsonElement? DataValidationRuleSet { get; set; }
+
     [JsonPropertyName("doc")]
     public string? Doc { get; set; }
 

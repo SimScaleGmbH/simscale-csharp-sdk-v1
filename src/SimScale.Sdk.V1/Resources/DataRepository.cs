@@ -80,6 +80,14 @@ public class DataRepository
         return _client.Request<DataInfo>(HttpMethod.Get, $"/data-repository/data/{dataId}");
     }
 
+    /// <summary>Read the domain-specific metadata of a data object. Returns the domain-specific metadata attached to the data object, a free-form JSON object whose shape is defined by the metadata schema of the data type. Data with no metadata attached is reported as 204, which is distinct from metadata that was set to an empty object.</summary>
+    public DomainSpecificMetadata? GetDomainSpecificMetadata(
+        string dataId
+    )
+    {
+        return _client.Request<DomainSpecificMetadata>(HttpMethod.Get, $"/data-repository/data/{dataId}/domain-specific-metadata");
+    }
+
     /// <summary>List data objects in a project.</summary>
     public List<string> ListData(
         string projectId,
@@ -104,15 +112,25 @@ public class DataRepository
             queryParams: new Dictionary<string, object?> { ["projectId"] = projectId });
     }
 
+    /// <summary>Update the domain-specific metadata of a data object. Replaces the domain-specific metadata attached to the data object with the request body. The metadata is a free-form JSON object; if the data type declares a metadata schema, the body is validated against it. Transient result data uploaded for result import is marked as PVD-formatted by setting `{"format": "PVD"}` here.</summary>
+    public void UpdateDomainSpecificMetadata(
+        string dataId,
+        DomainSpecificMetadata body
+    )
+    {
+        _client.RequestVoid(HttpMethod.Put, $"/data-repository/data/{dataId}/domain-specific-metadata", body);
+    }
+
     /// <summary>Upload a new data object.</summary>
     public string UploadData(
         Stream content,
         string? dataType = null,
         string? projectId = null,
+        string? originalFileName = null,
         string? contentType = null
     )
     {
         return _client.Request<string>(HttpMethod.Post, $"/data-repository/data", binaryBody: content, contentType: contentType,
-            queryParams: new Dictionary<string, object?> { ["dataType"] = dataType, ["projectId"] = projectId });
+            queryParams: new Dictionary<string, object?> { ["dataType"] = dataType, ["projectId"] = projectId, ["originalFileName"] = originalFileName });
     }
 }
