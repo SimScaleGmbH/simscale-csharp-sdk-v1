@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.WorkflowRepositoryModels;
 
-/// <summary>Workflow update data structure. Suitable for specifying all mutable properties. Properties which are not presented will not be updated in the workflow.</summary>
+/// <summary>Workflow update data structure. Suitable for specifying all mutable properties. Properties which are omitted or explicitly null will not be updated in the workflow.</summary>
 public class UpdateWorkflowRequest
 {
     [JsonPropertyName("breakpoints")]

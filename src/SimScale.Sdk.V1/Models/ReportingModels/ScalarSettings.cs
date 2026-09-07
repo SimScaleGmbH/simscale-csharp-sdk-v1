@@ -30,4 +30,14 @@ public class ScalarSettings
     [JsonPropertyName("colorScheme")]
     public string? ColorScheme { get; set; }
 
+    /// <summary>How the color legend range is scaled when minimumRange/maximumRange are not given. FULL_RANGE uses the whole dataset...</summary>
+    [JsonPropertyName("colorLegendScaling")]
+    public string? ColorLegendScaling { get; set; }
+
+    [JsonPropertyName("belowRangeColor")]
+    public Color? BelowRangeColor { get; set; }
+
+    [JsonPropertyName("aboveRangeColor")]
+    public Color? AboveRangeColor { get; set; }
+
 }

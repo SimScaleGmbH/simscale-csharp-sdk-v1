@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Define a Distributed mass boundary condition in order to insert an additional mass on a specific face of the active model.</summary>
-public class DistributedMassBC : OneOf_HarmonicAnalysisBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_FrequencyAnalysisBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions
+public class DistributedMassBC : OneOf_StaticAnalysisBoundaryConditions, OneOf_HarmonicAnalysisBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_FrequencyAnalysisBoundaryConditions
 {
     /// <summary>Define a Distributed mass boundary condition in order to insert an additional mass on a specific face of the active m...</summary>
     [JsonPropertyName("type")]

@@ -37,11 +37,12 @@ public class Projects
     /// <summary>List projects</summary>
     public PaginatedResponse<Project> GetProjects(
         int? limit = null,
-        int? page = null
+        int? page = null,
+        string? projectType = null
     )
     {
         return _client.RequestPaginated<Project>(HttpMethod.Get, $"/projects",
-            queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page });
+            queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page, ["projectType"] = projectType });
     }
 
     /// <summary>Update an existing project</summary>

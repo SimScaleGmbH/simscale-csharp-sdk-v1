@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This boundary condition provides a symmetry condition on any face by applying a mirror effect. The fluxes and the normal components across the symmetry face are set to zero. Learn more.</summary>
-public class SymmetryBC : OneOf_IncompressibleBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_CoupledConjugateHeatTransferBoundaryConditions, OneOf_SimericsAnalysisBoundaryConditions, OneOf_EmbeddedBoundaryBoundaryConditions, OneOf_MultiphaseBoundaryConditions
+public class SymmetryBC : OneOf_MultiphaseBoundaryConditions, OneOf_IncompressibleBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_CoupledConjugateHeatTransferBoundaryConditions, OneOf_SimericsAnalysisBoundaryConditions, OneOf_EmbeddedBoundaryBoundaryConditions
 {
     /// <summary>This boundary condition provides a symmetry condition on any face by applying a mirror effect. The fluxes and the nor...</summary>
     [JsonPropertyName("type")]

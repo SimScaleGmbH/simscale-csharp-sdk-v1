@@ -18,6 +18,7 @@ internal class ValueReferenceConverter : JsonConverter<ValueReference>
         ["general_metadata"] = typeof(GeneralMetadataValueReference),
         ["iterator"] = typeof(IteratorReference),
         ["metadata"] = typeof(MetadataValueReference),
+        ["viewer_entity"] = typeof(ViewerEntityValueReference),
     };
 
     public override ValueReference? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

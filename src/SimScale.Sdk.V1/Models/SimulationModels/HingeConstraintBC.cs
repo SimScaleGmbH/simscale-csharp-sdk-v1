@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Replicate the behaviour of a freely rotating hinge fixed to the ground. Note that only a single face assignment is allowed. The assigned surface is constrained such that only rotational motion around the hinge axis is free. SimScale can automatically detect the axis of the hinge based on an assigned cylindrical surface, but the boundary condition also allows for a user-defined input.</summary>
-public class HingeConstraintBC : OneOf_DynamicAnalysisBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions
+public class HingeConstraintBC : OneOf_StaticAnalysisBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions
 {
     /// <summary>Replicate the behaviour of a freely rotating hinge fixed to the ground. Note that only a single face assignment is al...</summary>
     [JsonPropertyName("type")]

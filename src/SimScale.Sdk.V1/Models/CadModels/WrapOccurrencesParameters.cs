@@ -34,7 +34,7 @@ public class WrapOccurrencesParameters
     [JsonRequired]
     public required WrapTunnelDetectionParameter TunnelDetection { get; set; }
 
-    /// <summary>Controls the result. If `true`, each body is wrapped individually; otherwise, one wrap body encloses all selected bod...</summary>
+    /// <summary>Controls whether the selected occurrences are wrapped individually or merged into a single wrap body. In both cases,...</summary>
     [JsonPropertyName("replace_each")]
     [JsonRequired]
     public required bool ReplaceEach { get; set; }

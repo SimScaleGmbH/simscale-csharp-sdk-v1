@@ -67,11 +67,12 @@ public class Folders
         Guid folderId,
         int? limit = null,
         int? page = null,
-        string? sort = null
+        string? sort = null,
+        string? projectType = null
     )
     {
         return _client.RequestPaginated<Project>(HttpMethod.Get, $"/spaces/{spaceId}/folders/{folderId}/content/projects",
-            queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page, ["sort"] = sort });
+            queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page, ["sort"] = sort, ["projectType"] = projectType });
     }
 
     /// <summary>List Projects in Space root List projects located at the root level of a Space. Filtering or search capabilities are not supported. This only returns the projects at the root level of a Space, without a recursive expansion to child folders.</summary>
@@ -79,11 +80,12 @@ public class Folders
         Guid spaceId,
         int? limit = null,
         int? page = null,
-        string? sort = null
+        string? sort = null,
+        string? projectType = null
     )
     {
         return _client.RequestPaginated<Project>(HttpMethod.Get, $"/spaces/{spaceId}/content/projects",
-            queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page, ["sort"] = sort });
+            queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page, ["sort"] = sort, ["projectType"] = projectType });
     }
 
     /// <summary>Move Content from Folder Move content from this folder. Several resources can be moved with the same request. All resources must be moved to the same target location. Folders cannot be moved to a different Space. Projects can only be moved to a Personal Space if the Space owner and the project owner match.</summary>

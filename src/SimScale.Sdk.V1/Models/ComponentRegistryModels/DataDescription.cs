@@ -20,6 +20,10 @@ public class DataDescription
     [JsonPropertyName("doc")]
     public string? Doc { get; set; }
 
+    /// <summary>Data identifier. It is a string composed of the type identifier and a UUID: `data:[UUID]`.</summary>
+    [JsonPropertyName("fixedDataId")]
+    public string? FixedDataId { get; set; }
+
     [JsonPropertyName("label")]
     public string? Label { get; set; }
 

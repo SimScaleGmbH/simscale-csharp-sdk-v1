@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class OutletMeanPhaseVBC : OneOf_CustomFluidBCVelocity, OneOf_VelocityOutletBCVelocity
+public class OutletMeanPhaseVBC : OneOf_VelocityOutletBCVelocity, OneOf_CustomFluidBCVelocity
 {
     /// <summary>Schema name: OutletMeanPhaseVBC</summary>
     [JsonPropertyName("type")]

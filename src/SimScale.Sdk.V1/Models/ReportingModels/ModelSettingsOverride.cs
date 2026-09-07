@@ -10,4 +10,11 @@ public class ModelSettingsOverride
     [JsonPropertyName("scalarField")]
     public ScalarField? ScalarField { get; set; }
 
+    /// <summary>Overrides how the color legend range is scaled for the active scalar (see ScalarSettings.colorLegendScaling): FULL_RA...</summary>
+    [JsonPropertyName("colorLegendScaling")]
+    public string? ColorLegendScaling { get; set; }
+
+    [JsonPropertyName("outOfRangeColors")]
+    public OutOfRangeColorOverride? OutOfRangeColors { get; set; }
+
 }

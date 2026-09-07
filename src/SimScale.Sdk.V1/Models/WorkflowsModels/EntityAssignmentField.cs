@@ -43,9 +43,8 @@ public class EntityAssignmentField
     [JsonPropertyName("uiFieldIndex")]
     public int? UiFieldIndex { get; set; }
 
-    /// <summary>Entity type distinguished by its spatial dimensionality.</summary>
-    [JsonPropertyName("allowedEntityType")]
-    public string? AllowedEntityType { get; set; }
+    [JsonPropertyName("allowedEntityTypes")]
+    public List<string>? AllowedEntityTypes { get; set; }
 
     [JsonPropertyName("allowedSourceTypes")]
     public List<string>? AllowedSourceTypes { get; set; }

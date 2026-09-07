@@ -30,9 +30,13 @@ public class Project
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
-    /// <summary>The measurement system of the project. Can't be modified.</summary>
+    /// <summary>The measurement system of the project. Can't be modified. Only applies to SIMULATION projects, SI is used when it is...</summary>
     [JsonPropertyName("measurementSystem")]
-    public string MeasurementSystem { get; set; } = "SI";
+    public string? MeasurementSystem { get; set; }
+
+    /// <summary>The type of the project. Can only be set when the project is created, 'SIMULATION' is used when it is omitted. The po...</summary>
+    [JsonPropertyName("projectType")]
+    public string? ProjectType { get; set; }
 
     [JsonPropertyName("tags")]
     public List<string>? Tags { get; set; }

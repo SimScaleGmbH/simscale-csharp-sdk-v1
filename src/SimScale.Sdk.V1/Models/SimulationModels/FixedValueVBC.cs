@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class FixedValueVBC : OneOf_CustomFluidBCVelocity, OneOf_VelocityOutletBCVelocity, OneOf_VelocityInletBCVelocity
+public class FixedValueVBC : OneOf_VelocityOutletBCVelocity, OneOf_VelocityInletBCVelocity, OneOf_CustomFluidBCVelocity
 {
     /// <summary>Schema name: FixedValueVBC</summary>
     [JsonPropertyName("type")]

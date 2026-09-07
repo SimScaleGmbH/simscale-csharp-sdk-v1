@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class FlowDependentValuePFBC : OneOf_CustomFluidBCPhaseFraction, OneOf_VelocityOutletBCPhaseFraction
+public class FlowDependentValuePFBC : OneOf_VelocityOutletBCPhaseFraction, OneOf_CustomFluidBCPhaseFraction
 {
     /// <summary>Schema name: FlowDependentValuePFBC</summary>
     [JsonPropertyName("type")]

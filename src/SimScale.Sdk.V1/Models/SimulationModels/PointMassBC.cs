@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Define a Point mass boundary condition in order to insert an additional mass on a specific location of the active model.</summary>
-public class PointMassBC : OneOf_HarmonicAnalysisBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_FrequencyAnalysisBoundaryConditions, OneOf_StaticAnalysisBoundaryConditions
+public class PointMassBC : OneOf_StaticAnalysisBoundaryConditions, OneOf_HarmonicAnalysisBoundaryConditions, OneOf_DynamicAnalysisBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions, OneOf_FrequencyAnalysisBoundaryConditions
 {
     /// <summary>Define a Point mass boundary condition in order to insert an additional mass on a specific location of the active mod...</summary>
     [JsonPropertyName("type")]

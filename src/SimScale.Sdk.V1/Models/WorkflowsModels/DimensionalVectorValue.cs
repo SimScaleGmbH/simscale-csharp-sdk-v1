@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.WorkflowsModels;
 
-/// <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector components (`x`, `y`, `z`; as double nodes) and field `unit` (text node). Note that during resolution, all dimensionals are converted to base SI units (e.g. 50 miles/hour -&gt; 22.352 m/s),</summary>
+/// <summary>Value model for a dimensional vector. Resolves to an object node with field `vector` containing Cartesian vector components (`x`, `y`, `z`; as double nodes) and field `unit` (text node). Note that during resolution dimensionals are converted to base SI units (e.g. 50 miles/hour -&gt; 22.352 m/s), unless the resolution context opts out of the conversion to keep the original units; results of operations are always in base SI units.</summary>
 [JsonConverter(typeof(DimensionalVectorValueConverter))]
 public interface DimensionalVectorValue { }
 

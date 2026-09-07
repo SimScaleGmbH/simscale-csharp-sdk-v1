@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class KinematicPlasticHardeningMarc : OneOf_BilinearModelMarcHardeningRule, OneOf_MultilinearModelMarcHardeningRule
+public class KinematicPlasticHardeningMarc : OneOf_MultilinearModelMarcHardeningRule, OneOf_BilinearModelMarcHardeningRule
 {
     /// <summary>Schema name: KinematicPlasticHardeningMarc</summary>
     [JsonPropertyName("type")]
