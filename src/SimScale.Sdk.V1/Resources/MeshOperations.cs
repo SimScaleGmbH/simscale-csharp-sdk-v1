@@ -38,6 +38,15 @@ public class MeshOperations
         return _client.Request<MeshOperation>(HttpMethod.Post, $"/projects/{projectId}/meshoperations", body);
     }
 
+    /// <summary>Delete the mesh operation The generated mesh is deleted with the operation. A running meshing job is stopped.</summary>
+    public void DeleteMeshOperation(
+        string projectId,
+        Guid meshOperationId
+    )
+    {
+        _client.RequestVoid(HttpMethod.Delete, $"/projects/{projectId}/meshoperations/{meshOperationId}");
+    }
+
     /// <summary>Estimate the mesh operation</summary>
     public Estimation EstimateMeshOperation(
         string projectId,

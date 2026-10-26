@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class ForceFieldSelection : OneOf_SumFieldsCalculationResultControlItemFieldSelection, OneOf_AverageFieldsCalculationResultControlItemFieldSelection, OneOf_MinMaxFieldsCalculationResultControlItemFieldSelection
+public class ForceFieldSelection : OneOf_AverageFieldsCalculationResultControlItemFieldSelection, OneOf_MinMaxFieldsCalculationResultControlItemFieldSelection, OneOf_SumFieldsCalculationResultControlItemFieldSelection
 {
     /// <summary>Schema name: ForceFieldSelection</summary>
     [JsonPropertyName("type")]

@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Choose between Newtonian and Non-Newtonian viscosity models.</summary>
-public class NewtonianViscosityModel : OneOf_FluidCompressibleMaterialViscosityModel, OneOf_IncompressibleMaterialViscosityModel
+public class NewtonianViscosityModel : OneOf_IncompressibleMaterialViscosityModel, OneOf_FluidCompressibleMaterialViscosityModel
 {
     /// <summary>Choose between Newtonian and Non-Newtonian viscosity models. Schema name: NewtonianViscosityModel</summary>
     [JsonPropertyName("type")]

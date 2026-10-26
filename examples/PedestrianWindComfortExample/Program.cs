@@ -162,7 +162,6 @@ var simulationRun = sdk.SimulationRuns.CreateSimulationRun(projectId, simulation
 });
 var runId = simulationRun.RunId;
 Console.WriteLine($"runId: {runId}");
-sdk.SimulationRuns.StartSimulationRun(projectId, simulationId, runId);
 simulationRun = sdk.WaitUntilDone(
     () => sdk.SimulationRuns.GetSimulationRun(projectId, simulationId, runId),
     r => r.Status, timeoutSeconds: maxRuntime);

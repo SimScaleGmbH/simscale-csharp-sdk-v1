@@ -9,6 +9,9 @@ public class CompoundField
     [JsonPropertyName("associatedDataType")]
     public string? AssociatedDataType { get; set; }
 
+    [JsonPropertyName("axes")]
+    public List<string>? Axes { get; set; }
+
     [JsonPropertyName("defaultSubtype")]
     public bool? DefaultSubtype { get; set; }
 
@@ -38,6 +41,9 @@ public class CompoundField
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
+
+    [JsonPropertyName("nonEmpty")]
+    public bool? NonEmpty { get; set; }
 
     [JsonPropertyName("optional")]
     public bool? Optional { get; set; }

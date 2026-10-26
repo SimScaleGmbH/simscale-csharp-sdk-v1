@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Output will be written every 2 time steps.</summary>
-public class HighResolution : OneOf_ForcesMomentsResultControlWriteControl, OneOf_StatisticalAveragingResultControlV2SamplingInterval, OneOf_ProbePointsResultControlWriteControl, OneOf_TransientResultControlWriteControl
+public class HighResolution : OneOf_TransientResultControlWriteControl, OneOf_ForcesMomentsResultControlWriteControl, OneOf_ProbePointsResultControlWriteControl, OneOf_StatisticalAveragingResultControlV2SamplingInterval
 {
     /// <summary>Output will be written every 2 time steps. Schema name: HighResolution</summary>
     [JsonPropertyName("type")]

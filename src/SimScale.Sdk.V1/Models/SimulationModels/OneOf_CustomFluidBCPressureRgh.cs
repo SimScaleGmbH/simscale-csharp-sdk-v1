@@ -21,7 +21,6 @@ internal class OneOf_CustomFluidBCPressureRghConverter : JsonConverter<OneOf_Cus
         ["FIXED_MEAN"] = typeof(MeanValuePBC),
         ["ZERO_GRADIENT"] = typeof(ZeroGradientPBC),
         ["TOTAL_PRESSURE"] = typeof(TotalPBC),
-        ["HYDROSTATIC_ISOTHERMAL_FAN_PRESSURE"] = typeof(HydrostaticFanPBC),
     };
 
     public override OneOf_CustomFluidBCPressureRgh? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

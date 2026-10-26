@@ -11,9 +11,10 @@ internal class UiConfigurationEntryConverter : JsonConverter<UiConfigurationEntr
 {
     private static readonly Dictionary<string, Type> Variants = new()
     {
+        ["builtin:geometry_derivation"] = typeof(GeometryDerivationUiConfigurationEntry),
         ["builtin:navigation"] = typeof(NavigationUiConfigurationEntry),
         ["builtin:navigation:list"] = typeof(NavigationListUiConfigurationEntry),
-        ["builtin:plot"] = typeof(Plot2DUiConfigurationEntry),
+        ["builtin:plot2D"] = typeof(Plot2DUiConfigurationEntry),
         ["builtin:slider"] = typeof(SliderUiConfigurationEntry),
         ["builtin:title"] = typeof(CompoundFieldTitleUiConfigurationEntry),
         ["builtin:visibility"] = typeof(VisibilityUiConfigurationEntry),

@@ -19,6 +19,7 @@ internal class ValueListStringValueConverter : JsonConverter<ValueListStringValu
         ["list:function:filter"] = typeof(ValueListFunctionFilter),
         ["list:function:map"] = typeof(ValueListFunctionMap),
         ["list:function:sublist"] = typeof(ValueListFunctionSubList),
+        ["list:function:table_section"] = typeof(ValueListFunctionTableSection),
         ["list:function:take"] = typeof(ValueListFunctionTake),
         ["list:function:take_last"] = typeof(ValueListFunctionTakeLast),
         ["list:generator:integer_sequence"] = typeof(IntegerSequenceGenerator),

@@ -14,6 +14,7 @@ internal class EntityAssignmentListValueConverter : JsonConverter<EntityAssignme
     {
         ["entity_assignment:conversion:to_entity_assignment_list"] = typeof(EntityAssignmentToEntityAssignmentListValueConversion),
         ["entity_assignment_list:constant"] = typeof(EntityAssignmentListConstant),
+        ["entity_assignment_list:function:cad_predicate_failures"] = typeof(EntityAssignmentListCadPredicateFailures),
         ["entity_assignment_list:function:intersect"] = typeof(EntityAssignmentListIntersect),
         ["entity_assignment_list:function:map_entities"] = typeof(EntityAssignmentListMapEntities),
         ["entity_assignment_list:reference"] = typeof(EntityAssignmentListReference),

@@ -20,6 +20,15 @@ public class Cads
         return _client.Request<CreateSavedSelectionResponse>(HttpMethod.Post, $"/cads/{cadId}/states/{cadStateId}/savedselections", body);
     }
 
+    /// <summary>Delete the CAD The CAD is deleted with all its states. Mesh operations and simulations that use it are not deleted.</summary>
+    public void DeleteCad(
+        string projectId,
+        Guid cadId
+    )
+    {
+        _client.RequestVoid(HttpMethod.Delete, $"/projects/{projectId}/cads/{cadId}");
+    }
+
     /// <summary>Download original CAD file Get a temporary link to download the originally imported CAD file.</summary>
     public DownloadOriginalCadResponse DownloadOriginalCad(
         Guid cadId,

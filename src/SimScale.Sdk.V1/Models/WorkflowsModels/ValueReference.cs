@@ -13,9 +13,11 @@ internal class ValueReferenceConverter : JsonConverter<ValueReference>
     private static readonly Dictionary<string, Type> Variants = new()
     {
         ["config"] = typeof(ConfigValueReference),
+        ["connections"] = typeof(ConnectionsValueReference),
         ["data"] = typeof(DataValueReference),
         ["data_presence"] = typeof(DataPresenceReference),
         ["general_metadata"] = typeof(GeneralMetadataValueReference),
+        ["instance"] = typeof(InstanceValueReference),
         ["iterator"] = typeof(IteratorReference),
         ["metadata"] = typeof(MetadataValueReference),
         ["viewer_entity"] = typeof(ViewerEntityValueReference),

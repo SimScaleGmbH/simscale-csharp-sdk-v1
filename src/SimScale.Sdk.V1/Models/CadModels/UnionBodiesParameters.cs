@@ -10,4 +10,8 @@ public class UnionBodiesParameters
     [JsonPropertyName("occurrences")]
     public List<string>? Occurrences { get; set; }
 
+    /// <summary>If `true`, faces of the resulting bodies that lie on the same underlying surface are merged. Defaults to `false`.</summary>
+    [JsonPropertyName("merge_faces")]
+    public bool? MergeFaces { get; set; }
+
 }

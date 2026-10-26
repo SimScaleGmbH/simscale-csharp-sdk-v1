@@ -30,6 +30,9 @@ public class AbstractCompoundField
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("nonEmpty")]
+    public bool? NonEmpty { get; set; }
+
     [JsonPropertyName("optional")]
     public bool? Optional { get; set; }
 
@@ -46,15 +49,17 @@ public class AbstractCompoundField
     [JsonPropertyName("defaultSubtype")]
     public bool? DefaultSubtype { get; set; }
 
+    [JsonPropertyName("fields")]
+    public Dictionary<string, SchemaElement>? Fields { get; set; }
+
     [JsonPropertyName("polymorphic")]
     public bool? Polymorphic { get; set; }
 
     [JsonPropertyName("subtypes")]
-    public List<Dictionary<string, JsonElement>>? Subtypes { get; set; }
+    public List<JsonElement>? Subtypes { get; set; }
 
-    /// <summary>Abstract compound field denotes a schema element which has nested schema elements.</summary>
     [JsonPropertyName("supertype")]
-    public JsonElement? Supertype { get; set; }
+    public AbstractCompoundField? Supertype { get; set; }
 
     [JsonPropertyName("typeName")]
     public string? TypeName { get; set; }

@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class FixedValuePBC : OneOf_PressureInletBCPressure, OneOf_PressureInletBCGaugePressure, OneOf_FreestreamVBCAmbientPressure, OneOf_CustomFluidBCPressure, OneOf_CustomFluidBCPressureRgh, OneOf_CustomFluidBCGaugePressure, OneOf_CustomFluidBCGaugePressureRgh, OneOf_PressureOutletBCPressure, OneOf_PressureOutletBCPressureRgh, OneOf_PressureOutletBCGaugePressure, OneOf_PressureOutletBCGaugePressureRgh
+public class FixedValuePBC : OneOf_PressureInletBCPressure, OneOf_PressureInletBCGaugePressure, OneOf_FreestreamVBCAmbientPressure, OneOf_PressureOutletBCPressure, OneOf_PressureOutletBCPressureRgh, OneOf_PressureOutletBCGaugePressure, OneOf_PressureOutletBCGaugePressureRgh, OneOf_CustomFluidBCPressure, OneOf_CustomFluidBCPressureRgh, OneOf_CustomFluidBCGaugePressure, OneOf_CustomFluidBCGaugePressureRgh
 {
     /// <summary>Schema name: FixedValuePBC</summary>
     [JsonPropertyName("type")]

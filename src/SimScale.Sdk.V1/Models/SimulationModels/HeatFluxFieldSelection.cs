@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class HeatFluxFieldSelection : OneOf_AverageFieldsCalculationResultControlItemFieldSelection, OneOf_TemporalResponseResultControlItemFieldSelection, OneOf_MinMaxFieldsCalculationResultControlItemFieldSelection
+public class HeatFluxFieldSelection : OneOf_AverageFieldsCalculationResultControlItemFieldSelection, OneOf_MinMaxFieldsCalculationResultControlItemFieldSelection, OneOf_TemporalResponseResultControlItemFieldSelection
 {
     /// <summary>Schema name: HeatFluxFieldSelection</summary>
     [JsonPropertyName("type")]

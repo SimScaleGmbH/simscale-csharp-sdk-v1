@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class FixedValueTurbulence : OneOf_VelocityInletBCTurbulence, OneOf_PressureInletBCTurbulence, OneOf_FanBCTurbulence, OneOf_NaturalConvectionInletOutletBCTurbulence
+public class FixedValueTurbulence : OneOf_PressureInletBCTurbulence, OneOf_VelocityInletBCTurbulence, OneOf_FanBCTurbulence, OneOf_NaturalConvectionInletOutletBCTurbulence
 {
     /// <summary>Schema name: FixedValueTurbulence</summary>
     [JsonPropertyName("type")]

@@ -34,6 +34,9 @@ public class ExternalDataInfo : DataInfo
     [JsonRequired]
     public required string DataInfoType { get; set; }
 
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
+
     /// <summary>Identifies the origin of data creation: - `USER_UPLOAD`: data was uploaded or registered directly by a user through t...</summary>
     [JsonPropertyName("origin")]
     public string? Origin { get; set; }

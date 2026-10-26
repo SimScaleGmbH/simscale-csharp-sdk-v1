@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class FluidTypeLiquid : OneOf_FluidCompressibleMaterialFluidType, OneOf_IncompressibleMaterialFluidType
+public class FluidTypeLiquid : OneOf_IncompressibleMaterialFluidType, OneOf_FluidCompressibleMaterialFluidType
 {
     /// <summary>Schema name: FluidTypeLiquid</summary>
     [JsonPropertyName("type")]

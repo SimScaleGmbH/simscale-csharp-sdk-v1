@@ -7,7 +7,7 @@ namespace SimScale.Sdk.V1.Models.SimulationModels;
 public class ElectromagneticAdvancedConcepts
 {
     [JsonPropertyName("motionAnalysis")]
-    public List<OneOf_ElectromagneticAdvancedConceptsMotionAnalysis>? MotionAnalysis { get; set; }
+    public List<ElectromagneticMotion>? MotionAnalysis { get; set; }
 
     [JsonPropertyName("circuit")]
     public ElectromagneticCircuit? Circuit { get; set; }

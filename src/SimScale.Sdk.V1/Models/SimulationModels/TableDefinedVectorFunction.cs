@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class TableDefinedVectorFunction : OneOf_DimensionalVectorFunction_PressureValue, OneOf_DimensionalVectorFunction_LengthValue, OneOf_DimensionalVectorFunction_ForceValue, OneOf_DimensionalVectorFunction_SpeedValue, OneOf_DimensionalVectorFunction_AccelerationValue, OneOf_DimensionalVectorFunction_TorqueValue, OneOf_DimensionalVectorFunction_VolumeForceValue
+public class TableDefinedVectorFunction : OneOf_DimensionalVectorFunction_VolumeForceValue, OneOf_DimensionalVectorFunction_TorqueValue, OneOf_DimensionalVectorFunction_LengthValue, OneOf_DimensionalVectorFunction_AccelerationValue, OneOf_DimensionalVectorFunction_PressureValue, OneOf_DimensionalVectorFunction_SpeedValue, OneOf_DimensionalVectorFunction_ForceValue
 {
     /// <summary>Schema name: TableDefinedVectorFunction</summary>
     [JsonPropertyName("type")]

@@ -25,4 +25,7 @@ public class ProjectCopyRequest
     [JsonRequired]
     public required string Description { get; set; }
 
+    [JsonPropertyName("visibility")]
+    public string? Visibility { get; set; }
+
 }

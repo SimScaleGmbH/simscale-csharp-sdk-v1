@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class MinimumGapSize : OneOf_WindComfortMeshAutomaticGapClosing, OneOf_PacefishAutomeshAutomaticGapClosing
+public class MinimumGapSize : OneOf_PacefishAutomeshAutomaticGapClosing, OneOf_WindComfortMeshAutomaticGapClosing
 {
     /// <summary>Schema name: MinimumGapSize</summary>
     [JsonPropertyName("type")]

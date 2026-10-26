@@ -38,6 +38,13 @@ public class Project
     [JsonPropertyName("projectType")]
     public string? ProjectType { get; set; }
 
+    [JsonPropertyName("visibility")]
+    public string? Visibility { get; set; }
+
+    /// <summary>The `userId` of the user who owns the project.</summary>
+    [JsonPropertyName("ownerUserId")]
+    public string? OwnerUserId { get; set; }
+
     [JsonPropertyName("tags")]
     public List<string>? Tags { get; set; }
 

@@ -4,9 +4,10 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
+/// <summary>Use Min-max to output the minimum and maximum nodal values of the selected result quantity on the assigned entity.</summary>
 public class MinMaxFieldsCalculationResultControlItem : OneOf_SolidResultControlEdgeCalculation, OneOf_SolidResultControlAreaCalculation, OneOf_SolidResultControlVolumeCalculation
 {
-    /// <summary>Schema name: MinMaxFieldsCalculationResultControlItem</summary>
+    /// <summary>Use Min-max to output the minimum and maximum nodal values of the selected result quantity on the assigned entity. Sc...</summary>
     [JsonPropertyName("type")]
     public string Type { get; set; } = "MIN_MAX_FIELDS_CALCULATION";
 

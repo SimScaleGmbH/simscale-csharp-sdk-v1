@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-/// <summary>Current ExcitationUse when you want to set a specific current flow through the coil. Note that the specified current is assumed to flow over the sum of all entry (or internal) faces.Voltage ExcitationUse when you want to set a specific voltage across the coil ports.</summary>
+/// <summary>Current ExcitationUse when you want to set a specific current flow through the coil. Note that the specified current is assumed to flow over the sum of all entry (or internal) faces, which act as parallel current paths. For stranded and Litz wire coils, it is the current per turn and is multiplied by the number of turns.Voltage ExcitationUse when you want to set a specific voltage across the coil ports.</summary>
 [JsonConverter(typeof(OneOf_CoilExcitationConverter))]
 public interface OneOf_CoilExcitation { }
 

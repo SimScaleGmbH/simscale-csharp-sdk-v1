@@ -13,6 +13,9 @@ public class ComponentVersionDependents
     [JsonPropertyName("engineeringAiAgentDependents")]
     public List<string>? EngineeringAiAgentDependents { get; set; }
 
+    [JsonPropertyName("materialDependents")]
+    public List<string>? MaterialDependents { get; set; }
+
     [JsonPropertyName("methodDependents")]
     public List<string>? MethodDependents { get; set; }
 

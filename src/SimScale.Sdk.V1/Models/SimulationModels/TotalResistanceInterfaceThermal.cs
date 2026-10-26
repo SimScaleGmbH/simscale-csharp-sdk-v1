@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class TotalResistanceInterfaceThermal : OneOf_RegionInterfaceInterfaceThermal, OneOf_ContactResistanceLayerInterfaceThermal
+public class TotalResistanceInterfaceThermal : OneOf_ContactResistanceLayerInterfaceThermal, OneOf_RegionInterfaceInterfaceThermal
 {
     /// <summary>Schema name: TotalResistanceInterfaceThermal</summary>
     [JsonPropertyName("type")]

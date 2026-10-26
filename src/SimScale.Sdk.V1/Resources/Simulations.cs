@@ -38,6 +38,15 @@ public class Simulations
         return _client.Request<Simulation>(HttpMethod.Post, $"/projects/{projectId}/simulations", body);
     }
 
+    /// <summary>Delete the simulation setup All runs of the simulation are deleted with it. Running jobs are stopped.</summary>
+    public void DeleteSimulation(
+        string projectId,
+        Guid simulationId
+    )
+    {
+        _client.RequestVoid(HttpMethod.Delete, $"/projects/{projectId}/simulations/{simulationId}");
+    }
+
     /// <summary>Estimate the simulation setup</summary>
     public Estimation EstimateSimulationSetup(
         string projectId,

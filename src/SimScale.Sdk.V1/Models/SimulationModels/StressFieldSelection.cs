@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class StressFieldSelection : OneOf_AverageFieldsCalculationResultControlItemFieldSelection, OneOf_HarmonicResponseResultControlItemFieldSelection, OneOf_TemporalResponseResultControlItemFieldSelection, OneOf_MinMaxFieldsCalculationResultControlItemFieldSelection
+public class StressFieldSelection : OneOf_AverageFieldsCalculationResultControlItemFieldSelection, OneOf_HarmonicResponseResultControlItemFieldSelection, OneOf_MinMaxFieldsCalculationResultControlItemFieldSelection, OneOf_TemporalResponseResultControlItemFieldSelection
 {
     /// <summary>Schema name: StressFieldSelection</summary>
     [JsonPropertyName("type")]

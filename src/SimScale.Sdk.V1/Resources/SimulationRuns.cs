@@ -41,7 +41,7 @@ public class SimulationRuns
         _client.RequestVoid(HttpMethod.Post, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}/cancel");
     }
 
-    /// <summary>Create a simulation run This operation creates a run in status `READY`, however the run is not automatically started. The run must be started explicitly using the `POST /projects/{projectId}/simulations/{simulationId}/runs/{runId}/start` endpoint.</summary>
+    /// <summary>Create and start a simulation run This operation creates a simulation run and starts it in one call.</summary>
     public SimulationRun CreateSimulationRun(
         string projectId,
         Guid simulationId,
@@ -49,6 +49,16 @@ public class SimulationRuns
     )
     {
         return _client.Request<SimulationRun>(HttpMethod.Post, $"/projects/{projectId}/simulations/{simulationId}/runs", body);
+    }
+
+    /// <summary>Delete the simulation run Continued runs and sub-runs of the run are deleted with it. A running job is stopped.</summary>
+    public void DeleteSimulationRun(
+        string projectId,
+        Guid simulationId,
+        Guid runId
+    )
+    {
+        _client.RequestVoid(HttpMethod.Delete, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}");
     }
 
     /// <summary>Delete the sub-run of a parametric run</summary>
@@ -166,16 +176,6 @@ public class SimulationRuns
     {
         return _client.RequestPaginated<SimulationRun>(HttpMethod.Get, $"/projects/{projectId}/simulations/{simulationId}/runs",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page });
-    }
-
-    /// <summary>Start the simulation run</summary>
-    public void StartSimulationRun(
-        string projectId,
-        Guid simulationId,
-        Guid runId
-    )
-    {
-        _client.RequestVoid(HttpMethod.Post, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}/start");
     }
 
     /// <summary>Update an existing simulation run</summary>

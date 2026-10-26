@@ -4,6 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
+/// <summary>Reaction force: Reaction forces computed on the nodes of the model. The field is non-zero only on faces with imposed displacement boundary conditions, such as Fixed support, Fixed value, or Symmetry plane. Expressed in global components X, Y, Z.Nodal force: Applied forces as computed on the nodes of the model. The field is non-zero on entities with imposed displacement and load boundary conditions, such as Force, Pressure, etc. Expressed in global components X, Y, Z.</summary>
 [JsonConverter(typeof(OneOf_ForceFieldSelectionForceTypeConverter))]
 public interface OneOf_ForceFieldSelectionForceType { }
 

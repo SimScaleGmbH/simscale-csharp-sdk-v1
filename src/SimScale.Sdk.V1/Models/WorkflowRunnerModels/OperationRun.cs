@@ -43,6 +43,9 @@ public class OperationRun
     [JsonPropertyName("recycled")]
     public bool? Recycled { get; set; }
 
+    [JsonPropertyName("recycledFrom")]
+    public JsonElement? RecycledFrom { get; set; }
+
     [JsonPropertyName("stateHistoryStatisticalSummary")]
     public OperationRunStateHistoryStatisticalSummary? StateHistoryStatisticalSummary { get; set; }
 

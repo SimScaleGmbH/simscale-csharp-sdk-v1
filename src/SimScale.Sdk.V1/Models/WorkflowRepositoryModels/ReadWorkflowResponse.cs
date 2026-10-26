@@ -44,6 +44,9 @@ public class ReadWorkflowResponse
     [JsonPropertyName("workflowId")]
     public string? WorkflowId { get; set; }
 
+    [JsonPropertyName("workflowName")]
+    public string? WorkflowName { get; set; }
+
     /// <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
     [JsonPropertyName("workflowTypeReference")]
     public string? WorkflowTypeReference { get; set; }

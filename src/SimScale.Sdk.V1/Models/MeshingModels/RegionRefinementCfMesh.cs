@@ -4,9 +4,10 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
+/// <summary>Volume custom sizing refines all cells inside the assigned geometry primitives (cartesian box, cylinder or sphere) or solid CAD bodies to the given maximum edge length. Use it to refine regions of interest away from surfaces, for example wakes or jets. The refinement always applies to the inside of the assigned primitives and bodies. An assigned body must also be the meshed region itself (with physics-based meshing, the volume with the material assignment), a cell zone or, with physics-based meshing, a volume assigned to an advanced concept such as a rotating zone or porous medium.</summary>
 public class RegionRefinementCfMesh
 {
-    /// <summary>Schema name: RegionRefinementCfMesh</summary>
+    /// <summary>Volume custom sizing refines all cells inside the assigned geometry primitives (cartesian box, cylinder or sphere) or...</summary>
     [JsonPropertyName("type")]
     public string Type { get; set; } = "REGION_REFINEMENT_CF_MESH";
 

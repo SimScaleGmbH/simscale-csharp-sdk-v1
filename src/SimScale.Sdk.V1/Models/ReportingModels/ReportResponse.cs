@@ -38,6 +38,11 @@ public class ReportResponse
     [JsonRequired]
     public required string Status { get; set; }
 
+    /// <summary>The RAMPS result of a dataflow output for which the report was created; absent for reports on simulation results (res...</summary>
+    [JsonPropertyName("rampsId")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public Guid RampsId { get; set; }
+
     /// <summary>The resultIds the report has been created for.</summary>
     [JsonPropertyName("resultIds")]
     public List<Guid>? ResultIds { get; set; }

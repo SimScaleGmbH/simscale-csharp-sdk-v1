@@ -4,7 +4,6 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-/// <summary>Define how the layers should be distributed within the overall layer thickness:Specify growth rate: Define the growth rate between adjacent layers. Specify first layer thickness: Define the absolute thickness of the first layer. The remaining layers are distributed automatically. Choose this option for example to strictly control the y+ value. Specify first layer and total absolute thickness: Define the absolute value of the first layer and the total layer thickness. The growth rate is computed automatically using a geometric progression.</summary>
 [JsonConverter(typeof(OneOf_AutomaticLayerOnLayerTypeConverter))]
 public interface OneOf_AutomaticLayerOnLayerType { }
 

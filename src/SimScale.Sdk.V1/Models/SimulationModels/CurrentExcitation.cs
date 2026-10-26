@@ -4,10 +4,10 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-/// <summary>The total current over all faces</summary>
+/// <summary>The current in a single turn of the coil. For Stranded and Litz wire coils, the solver multiplies it by the Number of turns to obtain the ampere-turns.The current is shared over all entry (or internal) port faces of the coil, which are treated as parallel current paths. To model coils that are connected in series, create one coil per physical coil, each with a single port face, and assign the full current to every coil.</summary>
 public class CurrentExcitation : OneOf_CoilExcitation
 {
-    /// <summary>The total current over all faces Schema name: CurrentExcitation</summary>
+    /// <summary>The current in a single turn of the coil. For Stranded and Litz wire coils, the solver multiplies it by the Number of...</summary>
     [JsonPropertyName("type")]
     public string Type { get; set; } = "CURRENT_EXCITATION";
 

@@ -33,6 +33,9 @@ public class StringField : AtomicField
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("nonEmpty")]
+    public bool? NonEmpty { get; set; }
+
     [JsonPropertyName("optional")]
     public bool? Optional { get; set; }
 

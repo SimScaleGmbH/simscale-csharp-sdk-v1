@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class IncompressibleMaterial : OneOf_ConvectiveHeatTransferMaterialsFluids, OneOf_CoupledConjugateHeatTransferMaterialsFluids, OneOf_SimericsMaterialsFluids
+public class IncompressibleMaterial : OneOf_ConvectiveHeatTransferMaterialsFluids, OneOf_SimericsMaterialsFluids, OneOf_CoupledConjugateHeatTransferMaterialsFluids
 {
     /// <summary>Schema name: IncompressibleMaterial</summary>
     [JsonPropertyName("type")]

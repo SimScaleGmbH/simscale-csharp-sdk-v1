@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-/// <summary>Open Coil: This coil topology has an entry port and an exit port.Example of an open coil with an entry (blue) and exit (red) port. Note that an entry port and exit port should lie on an outer boundary with Magnetic flux tangential boundaries. Closed Coil: This coil topology is a self-contained loop with no entry or exit ports. An internal port is used to specify the current flow surface within the coil. Example of a closed coil with an internal port (blue).</summary>
+/// <summary>Open Coil: This coil topology has an entry port and an exit port.Example of an open coil with an entry (blue) and exit (red) port. Note that an entry port and exit port should lie on an outer boundary with Magnetic flux tangential boundaries. Closed Coil: This coil topology is a self-contained loop with no entry or exit ports. An internal port is used to specify the current flow surface within the coil. The current flows in the direction of the internal port face normal, shown as an arrow in the viewer. Example of a closed coil with an internal port (blue).</summary>
 [JsonConverter(typeof(OneOf_CoilTopologyConverter))]
 public interface OneOf_CoilTopology { }
 

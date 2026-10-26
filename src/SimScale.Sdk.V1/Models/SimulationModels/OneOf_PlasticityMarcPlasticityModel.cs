@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-/// <summary>This setting defines how the post-yield behavior is mathematically represented; Bilinear uses a single tangent modulus for simplified hardening, while Multilinear allows for a precise fit of experimental data points.</summary>
+/// <summary>This setting defines how the post-yield behavior is mathematically represented; Bilinear uses a single tangent modulus for simplified hardening, Multilinear allows for a precise fit of experimental data points, and Voce-Chaboche uses a combined isotropic/kinematic hardening law suited for cyclic and non-proportional loading.</summary>
 [JsonConverter(typeof(OneOf_PlasticityMarcPlasticityModelConverter))]
 public interface OneOf_PlasticityMarcPlasticityModel { }
 
@@ -14,6 +14,7 @@ internal class OneOf_PlasticityMarcPlasticityModelConverter : JsonConverter<OneO
     {
         ["BILINEAR"] = typeof(BilinearModelMarc),
         ["MULTILINEAR"] = typeof(MultilinearModelMarc),
+        ["VOCE_CHABOCHE"] = typeof(VoceChabocheModelMarc),
     };
 
     public override OneOf_PlasticityMarcPlasticityModel? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
