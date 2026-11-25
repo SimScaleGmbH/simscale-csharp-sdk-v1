@@ -17,7 +17,7 @@ public class SimulationSpec
 
     /// <summary>The schema version of the simulation spec. This can be either the external version like `30.0`, or the internal versi...</summary>
     [JsonPropertyName("version")]
-    public string Version { get; set; } = "34.0";
+    public string Version { get; set; } = "35.0";
 
     [JsonPropertyName("createdAt")]
     public DateTimeOffset? CreatedAt { get; set; }

@@ -15,7 +15,7 @@ public class Export
         CreateExportRequest body
     )
     {
-        return _client.Request<CreateExportResponse>(HttpMethod.Post, $"/projects/{projectId}/export", body);
+        return _client.Request<CreateExportResponse>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/export", body);
     }
 
     /// <summary>Get the status of the export and temporary download link to the exported object if it is done</summary>
@@ -24,6 +24,6 @@ public class Export
         Guid exportId
     )
     {
-        return _client.Request<GetExportResponse>(HttpMethod.Get, $"/projects/{projectId}/export/{exportId}");
+        return _client.Request<GetExportResponse>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/export/{SimScaleClient.PathSegment(exportId)}");
     }
 }

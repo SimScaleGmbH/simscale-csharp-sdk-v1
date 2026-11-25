@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Output will be written every 8 time steps.</summary>
-public class CoarseResolution : OneOf_TransientResultControlWriteControl, OneOf_ForcesMomentsResultControlWriteControl, OneOf_ProbePointsResultControlWriteControl, OneOf_StatisticalAveragingResultControlV2SamplingInterval
+public class CoarseResolution : OneOf_StatisticalAveragingResultControlV2SamplingInterval, OneOf_ForcesMomentsResultControlWriteControl, OneOf_TransientResultControlWriteControl, OneOf_ProbePointsResultControlWriteControl
 {
     /// <summary>Output will be written every 8 time steps. Schema name: CoarseResolution</summary>
     [JsonPropertyName("type")]

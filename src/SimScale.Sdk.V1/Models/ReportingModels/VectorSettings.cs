@@ -35,4 +35,8 @@ public class VectorSettings
     [JsonPropertyName("maximumFilteringRange")]
     public double? MaximumFilteringRange { get; set; }
 
+    /// <summary>Number of vector arrows skipped after each one drawn, so 3 draws one arrow in four. 0, used when this field is omitte...</summary>
+    [JsonPropertyName("drawSkipBy")]
+    public int? DrawSkipBy { get; set; }
+
 }

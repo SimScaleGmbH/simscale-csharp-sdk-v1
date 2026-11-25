@@ -1,0 +1,6 @@
+# Shipped as .gitignore in the public SDK repos. release.py commits with git add -A, so this keeps
+# build output out of a release even if a build leaves some in the artifact.
+bin/
+obj/
+__pycache__/
+*.pyc

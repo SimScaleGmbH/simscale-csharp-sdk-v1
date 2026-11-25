@@ -14,6 +14,6 @@ public class ProjectPermissions
         string projectId
     )
     {
-        return _client.Request<Models.ProjectPermissions>(HttpMethod.Get, $"/permissions/projects/{projectId}/requester");
+        return _client.Request<Models.ProjectPermissions>(HttpMethod.Get, $"/permissions/projects/{SimScaleClient.PathSegment(projectId)}/requester");
     }
 }

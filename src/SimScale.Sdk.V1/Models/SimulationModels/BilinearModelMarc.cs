@@ -10,8 +10,8 @@ public class BilinearModelMarc : OneOf_PlasticityMarcPlasticityModel
     [JsonPropertyName("type")]
     public string Type { get; set; } = "BILINEAR";
 
-    [JsonPropertyName("yieldStress")]
-    public Dimensional_Pressure? YieldStress { get; set; }
+    [JsonPropertyName("yieldStressFunction")]
+    public DimensionalFunction_Pressure? YieldStressFunction { get; set; }
 
     [JsonPropertyName("hardeningModel")]
     public OneOf_BilinearModelMarcHardeningModel? HardeningModel { get; set; }

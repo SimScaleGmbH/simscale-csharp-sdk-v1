@@ -14,9 +14,6 @@ public class Incompressible : Analysis
     [JsonPropertyName("turbulenceModel")]
     public string? TurbulenceModel { get; set; }
 
-    [JsonPropertyName("adjointTurbulenceModel")]
-    public string? AdjointTurbulenceModel { get; set; }
-
     [JsonPropertyName("timeDependency")]
     public OneOf_IncompressibleTimeDependency? TimeDependency { get; set; }
 
@@ -26,9 +23,6 @@ public class Incompressible : Analysis
     /// <summary>Select the number of passive species involved in the simulation. Passive species allow you to simulate the transport...</summary>
     [JsonPropertyName("numOfPassiveSpecies")]
     public long? NumOfPassiveSpecies { get; set; }
-
-    [JsonPropertyName("enableAdjointOptimization")]
-    public bool? EnableAdjointOptimization { get; set; }
 
     [JsonPropertyName("model")]
     public FluidModel? Model { get; set; }

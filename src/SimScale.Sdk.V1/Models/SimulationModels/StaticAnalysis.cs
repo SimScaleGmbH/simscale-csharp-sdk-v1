@@ -14,6 +14,9 @@ public class StaticAnalysis : Analysis
     [JsonPropertyName("nonLinearAnalysis")]
     public bool? NonLinearAnalysis { get; set; }
 
+    [JsonPropertyName("localCoordinateSystems")]
+    public List<OneOf_StaticAnalysisLocalCoordinateSystems>? LocalCoordinateSystems { get; set; }
+
     [JsonPropertyName("connectionGroups")]
     public List<OneOf_StaticAnalysisConnectionGroups>? ConnectionGroups { get; set; }
 

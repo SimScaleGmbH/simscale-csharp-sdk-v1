@@ -14,6 +14,7 @@ internal class OneOf_CoilExcitationConverter : JsonConverter<OneOf_CoilExcitatio
     {
         ["CURRENT_EXCITATION"] = typeof(CurrentExcitation),
         ["VOLTAGE_EXCITATION"] = typeof(VoltageExcitation),
+        ["CIRCUIT_EXCITATION"] = typeof(CircuitExcitation),
     };
 
     public override OneOf_CoilExcitation? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

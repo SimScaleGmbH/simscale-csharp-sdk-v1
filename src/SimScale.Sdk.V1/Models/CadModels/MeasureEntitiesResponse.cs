@@ -14,4 +14,8 @@ public class MeasureEntitiesResponse
     [JsonPropertyName("measured")]
     public List<MeasuredValue>? Measured { get; set; }
 
+    /// <summary>Measure results shown together in a titled section.</summary>
+    [JsonPropertyName("groups")]
+    public List<MeasureGroup>? Groups { get; set; }
+
 }

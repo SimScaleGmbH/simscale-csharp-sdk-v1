@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This boundary condition is suitable for inlet and open boundaries where the value of pressure is known.</summary>
-public class PressureInletBC : OneOf_IncompressibleBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_CoupledConjugateHeatTransferBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_EmbeddedBoundaryBoundaryConditions, OneOf_SimericsAnalysisBoundaryConditions, OneOf_MultiphaseBoundaryConditions
+public class PressureInletBC : OneOf_MultiphaseBoundaryConditions, OneOf_SimericsAnalysisBoundaryConditions, OneOf_IncompressibleBoundaryConditions, OneOf_CoupledConjugateHeatTransferBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_EmbeddedBoundaryBoundaryConditions
 {
     /// <summary>This boundary condition is suitable for inlet and open boundaries where the value of pressure is known. Schema name:...</summary>
     [JsonPropertyName("type")]

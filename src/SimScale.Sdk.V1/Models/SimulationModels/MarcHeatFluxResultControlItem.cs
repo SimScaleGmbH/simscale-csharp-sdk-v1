@@ -13,4 +13,7 @@ public class MarcHeatFluxResultControlItem : OneOf_MarcResultControlSolutionFiel
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("heatFluxType")]
+    public GlobalHeatFlux? HeatFluxType { get; set; }
+
 }

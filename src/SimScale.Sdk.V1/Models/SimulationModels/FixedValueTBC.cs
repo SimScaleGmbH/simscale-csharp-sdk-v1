@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class FixedValueTBC : OneOf_PressureInletBCTemperature, OneOf_VelocityInletBCTemperature, OneOf_FanBCTemperature, OneOf_WallBCTemperature, OneOf_CustomFluidBCTemperature
+public class FixedValueTBC : OneOf_WallBCTemperature, OneOf_VelocityInletBCTemperature, OneOf_PressureInletBCTemperature, OneOf_CustomFluidBCTemperature, OneOf_FanBCTemperature
 {
     /// <summary>Schema name: FixedValueTBC</summary>
     [JsonPropertyName("type")]

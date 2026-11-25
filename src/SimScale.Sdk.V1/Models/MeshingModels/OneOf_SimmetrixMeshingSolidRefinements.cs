@@ -11,10 +11,8 @@ internal class OneOf_SimmetrixMeshingSolidRefinementsConverter : JsonConverter<O
 {
     private static readonly Dictionary<string, Type> Variants = new()
     {
-        ["REGION_LENGTH"] = typeof(RegionRefinementWithLength),
         ["SURFACE_CUSTOM_SIZING"] = typeof(SurfaceCustomSizing),
         ["VOLUME_CUSTOM_SIZING"] = typeof(VolumeCustomSizing),
-        ["SIMMETRIX_LOCAL_SIZING_V10"] = typeof(SimmetrixLocalSizingRefinement),
         ["SIMMETRIX_BOUNDARY_LAYER_V13"] = typeof(SimmetrixBoundaryLayerRefinement),
         ["SIMMETRIX_SWEPT_MESH_REFINEMENT"] = typeof(SimmetrixSweptMeshRefinement),
         ["SIMMETRIX_THIN_SECTION_MESH_REFINEMENT"] = typeof(SimmetrixThinSectionMeshRefinement),

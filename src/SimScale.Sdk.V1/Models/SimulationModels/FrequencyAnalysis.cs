@@ -10,6 +10,9 @@ public class FrequencyAnalysis : Analysis
     [JsonPropertyName("type")]
     public string Type { get; set; } = "FREQUENCY_ANALYSIS";
 
+    [JsonPropertyName("localCoordinateSystems")]
+    public List<OneOf_FrequencyAnalysisLocalCoordinateSystems>? LocalCoordinateSystems { get; set; }
+
     [JsonPropertyName("connectionGroups")]
     public List<Contact>? ConnectionGroups { get; set; }
 

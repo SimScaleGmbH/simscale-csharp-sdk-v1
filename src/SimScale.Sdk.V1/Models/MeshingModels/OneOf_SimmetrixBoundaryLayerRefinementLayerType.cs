@@ -15,6 +15,7 @@ internal class OneOf_SimmetrixBoundaryLayerRefinementLayerTypeConverter : JsonCo
         ["FRACTIONAL_HEIGHT_2"] = typeof(FractionalHeight2),
         ["GEOMETRIC_GROWTH"] = typeof(GeometricGrowth),
         ["FIRST_LAYER_GROWTH"] = typeof(FirstLayerGrowth),
+        ["LAYER_GROWTH"] = typeof(LayerGrowth),
     };
 
     public override OneOf_SimmetrixBoundaryLayerRefinementLayerType? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

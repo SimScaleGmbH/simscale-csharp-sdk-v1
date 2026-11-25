@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class TransientTimeDependency : OneOf_IncompressibleTimeDependency, OneOf_ConvectiveHeatTransferTimeDependency, OneOf_ThermalMechanicalTimeDependency, OneOf_CoupledConjugateHeatTransferTimeDependency, OneOf_TimeHarmonicMagneticsTimeDependency, OneOf_ConjugateHeatTransferTimeDependency, OneOf_CompressibleTimeDependency, OneOf_EmbeddedBoundaryTimeDependency, OneOf_HeatTransferTimeDependency, OneOf_SimericsAnalysisTimeDependency
+public class TransientTimeDependency : OneOf_SimericsAnalysisTimeDependency, OneOf_IncompressibleTimeDependency, OneOf_CoupledConjugateHeatTransferTimeDependency, OneOf_HeatTransferTimeDependency, OneOf_TimeHarmonicMagneticsTimeDependency, OneOf_ThermalMechanicalTimeDependency, OneOf_ConjugateHeatTransferTimeDependency, OneOf_CompressibleTimeDependency, OneOf_ConvectiveHeatTransferTimeDependency, OneOf_EmbeddedBoundaryTimeDependency
 {
     /// <summary>Schema name: TransientTimeDependency</summary>
     [JsonPropertyName("type")]

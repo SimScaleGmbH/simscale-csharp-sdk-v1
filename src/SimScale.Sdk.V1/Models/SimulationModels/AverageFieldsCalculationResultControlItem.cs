@@ -14,6 +14,11 @@ public class AverageFieldsCalculationResultControlItem : OneOf_SolidResultContro
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    /// <summary>The coordinate system in which the components of the selected field will be computed. Select from the available local...</summary>
+    [JsonPropertyName("coordinateSystem")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public Guid CoordinateSystem { get; set; }
+
     [JsonPropertyName("fieldSelection")]
     public OneOf_AverageFieldsCalculationResultControlItemFieldSelection? FieldSelection { get; set; }
 

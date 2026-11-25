@@ -13,6 +13,7 @@ internal class OneOf_AdvancedConceptsRotatingZonesConverter : JsonConverter<OneO
     {
         ["ARBITRARY_MESH_INTERFACE"] = typeof(AMIRotatingZone),
         ["MULTI_REFERENCE_FRAME"] = typeof(MRFRotatingZone),
+        ["MIXING_PLANE"] = typeof(MixingPlaneRotatingZone),
     };
 
     public override OneOf_AdvancedConceptsRotatingZones? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

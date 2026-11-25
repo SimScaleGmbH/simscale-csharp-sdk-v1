@@ -41,7 +41,7 @@ By default, `SimScaleSDK()` reads configuration from environment variables:
 | Environment Variable | Description |
 |---------------------|-------------|
 | `SIMSCALE_API_KEY` | Your SimScale API key (required) |
-| `SIMSCALE_API_URL` | API base URL (optional, defaults to `https://api.simscale.com`) |
+| `SIMSCALE_API_URL` | API base URL (optional, defaults to `https://api.simscale.com`). Must be https; plain http only for localhost |
 
 You can also pass them explicitly:
 

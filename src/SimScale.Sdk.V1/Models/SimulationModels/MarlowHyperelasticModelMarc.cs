@@ -17,7 +17,7 @@ public class MarlowHyperelasticModelMarc : OneOf_HyperelasticityHyperelasticMode
     [JsonPropertyName("engineeringStressStrainCurve")]
     public DimensionalFunction_Pressure? EngineeringStressStrainCurve { get; set; }
 
-    [JsonPropertyName("bulkModulus")]
-    public Dimensional_Pressure? BulkModulus { get; set; }
+    [JsonPropertyName("bulkModulusFunction")]
+    public DimensionalFunction_Pressure? BulkModulusFunction { get; set; }
 
 }

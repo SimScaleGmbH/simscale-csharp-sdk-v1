@@ -17,6 +17,9 @@ public class MarcBondedContactConnection : OneOf_MarcConnectionGroupConnections
     [JsonPropertyName("positionTolerance")]
     public OneOf_MarcBondedContactConnectionPositionTolerance? PositionTolerance { get; set; }
 
+    [JsonPropertyName("thermalContact")]
+    public OneOf_MarcBondedContactConnectionThermalContact? ThermalContact { get; set; }
+
     /// <summary>Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enab...</summary>
     [JsonPropertyName("activateLoadSteps")]
     public bool? ActivateLoadSteps { get; set; }

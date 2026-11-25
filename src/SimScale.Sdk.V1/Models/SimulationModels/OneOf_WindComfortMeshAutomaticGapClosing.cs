@@ -4,6 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
+/// <summary>Automatic gap closing has two purposes:Closing gaps: Openings (such as doors or windows) smaller than the Automatic gap closing value are closed. Select Minimum gap size to set the value manually.Memory efficiency: An Automatic gap closing value above the Smallest cell size, typically 4x, greatly reduces memory demand.Note: Make sure openings relevant to the flow are larger than this value.</summary>
 [JsonConverter(typeof(OneOf_WindComfortMeshAutomaticGapClosingConverter))]
 public interface OneOf_WindComfortMeshAutomaticGapClosing { }
 

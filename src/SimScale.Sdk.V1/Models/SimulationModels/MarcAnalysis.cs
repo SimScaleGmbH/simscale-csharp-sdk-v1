@@ -14,6 +14,9 @@ public class MarcAnalysis : Analysis
     [JsonPropertyName("thermalEffects")]
     public bool? ThermalEffects { get; set; }
 
+    [JsonPropertyName("localCoordinateSystems")]
+    public List<OneOf_MarcAnalysisLocalCoordinateSystems>? LocalCoordinateSystems { get; set; }
+
     [JsonPropertyName("connectionGroups")]
     public List<MarcConnectionGroup>? ConnectionGroups { get; set; }
 
@@ -25,6 +28,9 @@ public class MarcAnalysis : Analysis
 
     [JsonPropertyName("materials")]
     public List<MarcMaterial>? Materials { get; set; }
+
+    [JsonPropertyName("initialConditions")]
+    public MarcInitialConditions? InitialConditions { get; set; }
 
     [JsonPropertyName("boundaryConditions")]
     public List<OneOf_MarcAnalysisBoundaryConditions>? BoundaryConditions { get; set; }

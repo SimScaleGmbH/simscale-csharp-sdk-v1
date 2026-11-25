@@ -11,10 +11,9 @@ internal class OneOf_SimmetrixMeshingElectromagneticsRefinementsConverter : Json
 {
     private static readonly Dictionary<string, Type> Variants = new()
     {
-        ["REGION_LENGTH"] = typeof(RegionRefinementWithLength),
         ["SURFACE_CUSTOM_SIZING"] = typeof(SurfaceCustomSizing),
         ["VOLUME_CUSTOM_SIZING"] = typeof(VolumeCustomSizing),
-        ["SIMMETRIX_LOCAL_SIZING_V10"] = typeof(SimmetrixLocalSizingRefinement),
+        ["SIMMETRIX_BOUNDARY_LAYER_V13"] = typeof(SimmetrixBoundaryLayerRefinement),
     };
 
     public override OneOf_SimmetrixMeshingElectromagneticsRefinements? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

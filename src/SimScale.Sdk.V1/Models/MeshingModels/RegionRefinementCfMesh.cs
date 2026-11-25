@@ -17,6 +17,9 @@ public class RegionRefinementCfMesh
     [JsonPropertyName("refinement")]
     public InsideRegionRefinementWithLength? Refinement { get; set; }
 
+    [JsonPropertyName("topologicalReference")]
+    public TopologicalReference? TopologicalReference { get; set; }
+
     [JsonPropertyName("geometryPrimitiveUuids")]
     public List<Guid>? GeometryPrimitiveUuids { get; set; }
 

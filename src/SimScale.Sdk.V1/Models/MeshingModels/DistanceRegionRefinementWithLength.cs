@@ -1,11 +1,10 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using SimScale.Sdk.V1.Models.SimulationModels;
 using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class DistanceRegionRefinementWithLength : OneOf_RegionRefinementWithLengthRefinement, OneOf_RegionRefinementEBMRefinement
+public class DistanceRegionRefinementWithLength : OneOf_RegionRefinementEBMRefinement, OneOf_RegionRefinementWithLengthRefinement
 {
     /// <summary>Schema name: DistanceRegionRefinementWithLength</summary>
     [JsonPropertyName("type")]

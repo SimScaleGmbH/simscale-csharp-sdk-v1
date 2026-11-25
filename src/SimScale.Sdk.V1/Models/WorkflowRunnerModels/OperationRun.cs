@@ -7,6 +7,9 @@ namespace SimScale.Sdk.V1.Models.WorkflowRunnerModels;
 /// <summary>Operation level information about workflow run.</summary>
 public class OperationRun
 {
+    [JsonPropertyName("error")]
+    public JsonElement? Error { get; set; }
+
     /// <summary>Reference to a component version. Components are organized into a group hierarchy which serves as a qualification mec...</summary>
     [JsonPropertyName("methodReference")]
     public string? MethodReference { get; set; }

@@ -12,4 +12,7 @@ public class MarcNumerics
     [JsonPropertyName("nonlinearSolverSettings")]
     public MarcNonlinearSolverSettings? NonlinearSolverSettings { get; set; }
 
+    [JsonPropertyName("advancedSettings")]
+    public AdvancedMarcNumericsSettings? AdvancedSettings { get; set; }
+
 }

@@ -17,6 +17,9 @@ public class ComponentGroupMetadata
     [JsonPropertyName("hasChildren")]
     public bool? HasChildren { get; set; }
 
+    [JsonPropertyName("hasIcon")]
+    public bool? HasIcon { get; set; }
+
     [JsonPropertyName("multiLanguageDescription")]
     public Dictionary<string, string>? MultiLanguageDescription { get; set; }
 

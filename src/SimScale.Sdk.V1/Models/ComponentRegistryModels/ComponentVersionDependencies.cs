@@ -19,8 +19,8 @@ public class ComponentVersionDependencies
     [JsonPropertyName("methodDependencies")]
     public List<string>? MethodDependencies { get; set; }
 
-    [JsonPropertyName("physicsAiModelDependencies")]
-    public List<string>? PhysicsAiModelDependencies { get; set; }
+    [JsonPropertyName("migrationSourceDependencies")]
+    public List<string>? MigrationSourceDependencies { get; set; }
 
     [JsonPropertyName("workflowTypeDependencies")]
     public List<string>? WorkflowTypeDependencies { get; set; }

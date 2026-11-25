@@ -44,9 +44,6 @@ public class EmbeddedBoundary : Analysis
     [JsonPropertyName("resultControl")]
     public FluidResultControls? ResultControl { get; set; }
 
-    [JsonPropertyName("embeddedBoundaryMeshing")]
-    public EmbeddedBoundaryMeshing? EmbeddedBoundaryMeshing { get; set; }
-
     /// <summary>Toggle off Compressible for small temperature variations within the domain, for example, in natural convection simula...</summary>
     [JsonPropertyName("isCompressible")]
     public bool? IsCompressible { get; set; }

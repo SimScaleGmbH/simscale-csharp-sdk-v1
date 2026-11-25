@@ -21,12 +21,19 @@ public class PressureBCMarc : OneOf_MarcAnalysisBoundaryConditions
     [JsonPropertyName("isFollowerPressure")]
     public bool? IsFollowerPressure { get; set; }
 
+    /// <summary>Determines if pressure remains active on elements in contact. When Off, the pressure load is applied regardless of th...</summary>
+    [JsonPropertyName("suppressLoadInContact")]
+    public bool? SuppressLoadInContact { get; set; }
+
     /// <summary>Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enab...</summary>
     [JsonPropertyName("activateLoadSteps")]
     public bool? ActivateLoadSteps { get; set; }
 
     [JsonPropertyName("loadStepUuids")]
     public List<Guid>? LoadStepUuids { get; set; }
+
+    [JsonPropertyName("automaticLoadRamping")]
+    public AutomaticLoadRampingMarc? AutomaticLoadRamping { get; set; }
 
     [JsonPropertyName("topologicalReference")]
     public TopologicalReference? TopologicalReference { get; set; }

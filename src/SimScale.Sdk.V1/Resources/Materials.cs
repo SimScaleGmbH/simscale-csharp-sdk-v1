@@ -16,7 +16,7 @@ public class Materials
         CreateMaterialRequest body
     )
     {
-        return _client.Request<MaterialResponse>(HttpMethod.Post, $"/materialgroups/{materialGroupId}/materials", body);
+        return _client.Request<MaterialResponse>(HttpMethod.Post, $"/materialgroups/{SimScaleClient.PathSegment(materialGroupId)}/materials", body);
     }
 
     /// <summary>Create new material group</summary>
@@ -33,7 +33,7 @@ public class Materials
         CreateNestedMaterialGroupRequest body
     )
     {
-        return _client.Request<MaterialGroupResponse>(HttpMethod.Post, $"/materialgroups/{materialGroupId}/materialgroups", body);
+        return _client.Request<MaterialGroupResponse>(HttpMethod.Post, $"/materialgroups/{SimScaleClient.PathSegment(materialGroupId)}/materialgroups", body);
     }
 
     /// <summary>Remove an existing material</summary>
@@ -42,7 +42,7 @@ public class Materials
         string materialId
     )
     {
-        _client.RequestVoid(HttpMethod.Delete, $"/materialgroups/{materialGroupId}/materials/{materialId}");
+        _client.RequestVoid(HttpMethod.Delete, $"/materialgroups/{SimScaleClient.PathSegment(materialGroupId)}/materials/{SimScaleClient.PathSegment(materialId)}");
     }
 
     /// <summary>Delete material group, sub-groups associated to it, and materials associated to the group and all sub-groups</summary>
@@ -50,7 +50,7 @@ public class Materials
         string materialGroupId
     )
     {
-        _client.RequestVoid(HttpMethod.Delete, $"/materialgroups/{materialGroupId}");
+        _client.RequestVoid(HttpMethod.Delete, $"/materialgroups/{SimScaleClient.PathSegment(materialGroupId)}");
     }
 
     /// <summary>Get information about an existing material</summary>
@@ -59,7 +59,7 @@ public class Materials
         string materialId
     )
     {
-        return _client.Request<MaterialResponse>(HttpMethod.Get, $"/materialgroups/{materialGroupId}/materials/{materialId}");
+        return _client.Request<MaterialResponse>(HttpMethod.Get, $"/materialgroups/{SimScaleClient.PathSegment(materialGroupId)}/materials/{SimScaleClient.PathSegment(materialId)}");
     }
 
     /// <summary>Fetch material group information</summary>
@@ -67,7 +67,7 @@ public class Materials
         string materialGroupId
     )
     {
-        return _client.Request<MaterialGroupResponse>(HttpMethod.Get, $"/materialgroups/{materialGroupId}");
+        return _client.Request<MaterialGroupResponse>(HttpMethod.Get, $"/materialgroups/{SimScaleClient.PathSegment(materialGroupId)}");
     }
 
     /// <summary>List all the material groups the user has access to</summary>
@@ -87,7 +87,7 @@ public class Materials
         int? page = null
     )
     {
-        return _client.RequestPaginated<MaterialResponse>(HttpMethod.Get, $"/materialgroups/{materialGroupId}/materials",
+        return _client.RequestPaginated<MaterialResponse>(HttpMethod.Get, $"/materialgroups/{SimScaleClient.PathSegment(materialGroupId)}/materials",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page });
     }
 
@@ -98,7 +98,7 @@ public class Materials
         int? page = null
     )
     {
-        return _client.RequestPaginated<MaterialGroupResponse>(HttpMethod.Get, $"/materialgroups/{materialGroupId}/materialgroups",
+        return _client.RequestPaginated<MaterialGroupResponse>(HttpMethod.Get, $"/materialgroups/{SimScaleClient.PathSegment(materialGroupId)}/materialgroups",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page });
     }
 
@@ -109,7 +109,7 @@ public class Materials
         CreateMaterialRequest body
     )
     {
-        return _client.Request<MaterialResponse>(HttpMethod.Put, $"/materialgroups/{materialGroupId}/materials/{materialId}", body);
+        return _client.Request<MaterialResponse>(HttpMethod.Put, $"/materialgroups/{SimScaleClient.PathSegment(materialGroupId)}/materials/{SimScaleClient.PathSegment(materialId)}", body);
     }
 
     /// <summary>Update material group information</summary>
@@ -118,6 +118,6 @@ public class Materials
         UpdateMaterialGroupRequest body
     )
     {
-        return _client.Request<MaterialGroupResponse>(HttpMethod.Put, $"/materialgroups/{materialGroupId}", body);
+        return _client.Request<MaterialGroupResponse>(HttpMethod.Put, $"/materialgroups/{SimScaleClient.PathSegment(materialGroupId)}", body);
     }
 }

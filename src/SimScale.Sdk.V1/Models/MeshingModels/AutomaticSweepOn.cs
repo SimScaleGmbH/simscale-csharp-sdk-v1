@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class AutomaticSweepOn : OneOf_SimmetrixMeshingSolidAutomaticSweepParameters, OneOf_SimmetrixMeshingFluidAutomaticSweepParameters
+public class AutomaticSweepOn : OneOf_SimmetrixMeshingFluidAutomaticSweepParameters, OneOf_SimmetrixMeshingSolidAutomaticSweepParameters
 {
     /// <summary>Schema name: AutomaticSweepOn</summary>
     [JsonPropertyName("type")]

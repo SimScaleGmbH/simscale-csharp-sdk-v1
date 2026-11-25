@@ -13,4 +13,7 @@ public class MarcTemperatureResultControlItem : OneOf_MarcResultControlSolutionF
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("temperatureType")]
+    public GlobalTemperature? TemperatureType { get; set; }
+
 }

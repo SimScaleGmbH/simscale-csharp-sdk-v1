@@ -14,4 +14,12 @@ public class TimeTransientMagnetics : OneOf_ElectromagneticAnalysisModel
     [JsonPropertyName("thermal")]
     public bool? Thermal { get; set; }
 
+    /// <summary>Once enabled, all excitation coils are driven through a user specified electric circuit.</summary>
+    [JsonPropertyName("circuit")]
+    public bool? Circuit { get; set; }
+
+    /// <summary>Once enabled, bodies can be set in motion. The motion can be prescribed, or computed from the forces the body experie...</summary>
+    [JsonPropertyName("motion")]
+    public bool? Motion { get; set; }
+
 }

@@ -7,6 +7,9 @@ namespace SimScale.Sdk.V1.Models.WorkflowRunnerModels;
 /// <summary>Workflow run information to be presented for the initialization.</summary>
 public class InitializeWorkflowRunRequest
 {
+    [JsonPropertyName("operationRecyclingEnabled")]
+    public bool? OperationRecyclingEnabled { get; set; }
+
     [JsonPropertyName("workflowRunMode")]
     [JsonRequired]
     public required string WorkflowRunMode { get; set; }

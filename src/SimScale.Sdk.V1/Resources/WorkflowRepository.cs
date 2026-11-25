@@ -26,7 +26,7 @@ public class WorkflowRepository
         string? sortBy = null
     )
     {
-        return _client.Request<List<WorkflowVersionOverview>>(HttpMethod.Get, $"/workflow-repository/workflows/{workflowId}/versions",
+        return _client.Request<List<WorkflowVersionOverview>>(HttpMethod.Get, $"/workflow-repository/workflows/{SimScaleClient.PathSegment(workflowId)}/versions",
             queryParams: new Dictionary<string, object?> { ["page"] = page, ["size"] = size, ["sortBy"] = sortBy });
     }
 
@@ -38,7 +38,7 @@ public class WorkflowRepository
         string? sortBy = null
     )
     {
-        return _client.Request<List<WorkflowOverview>>(HttpMethod.Get, $"/workflow-repository/projects/{projectId}/workflows",
+        return _client.Request<List<WorkflowOverview>>(HttpMethod.Get, $"/workflow-repository/projects/{SimScaleClient.PathSegment(projectId)}/workflows",
             queryParams: new Dictionary<string, object?> { ["page"] = page, ["size"] = size, ["sortBy"] = sortBy });
     }
 
@@ -47,7 +47,7 @@ public class WorkflowRepository
         string workflowId
     )
     {
-        return _client.Request<ReadWorkflowResponse>(HttpMethod.Get, $"/workflow-repository/workflows/{workflowId}");
+        return _client.Request<ReadWorkflowResponse>(HttpMethod.Get, $"/workflow-repository/workflows/{SimScaleClient.PathSegment(workflowId)}");
     }
 
     /// <summary>Read a specific workflow version.</summary>
@@ -56,7 +56,7 @@ public class WorkflowRepository
         bool? populateDefaultValues = null
     )
     {
-        return _client.Request<ReadWorkflowResponse>(HttpMethod.Get, $"/workflow-repository/workflow-versions/{workflowVersionId}",
+        return _client.Request<ReadWorkflowResponse>(HttpMethod.Get, $"/workflow-repository/workflow-versions/{SimScaleClient.PathSegment(workflowVersionId)}",
             queryParams: new Dictionary<string, object?> { ["populateDefaultValues"] = populateDefaultValues });
     }
 
@@ -66,6 +66,6 @@ public class WorkflowRepository
         UpdateWorkflowRequest body
     )
     {
-        return _client.Request<string>(HttpMethod.Post, $"/workflow-repository/workflow-versions/{workflowVersionId}", body);
+        return _client.Request<string>(HttpMethod.Post, $"/workflow-repository/workflow-versions/{SimScaleClient.PathSegment(workflowVersionId)}", body);
     }
 }

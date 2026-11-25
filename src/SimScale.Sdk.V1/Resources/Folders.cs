@@ -15,7 +15,7 @@ public class Folders
         Folder body
     )
     {
-        return _client.Request<Folder>(HttpMethod.Post, $"/spaces/{spaceId}/folders", body);
+        return _client.Request<Folder>(HttpMethod.Post, $"/spaces/{SimScaleClient.PathSegment(spaceId)}/folders", body);
     }
 
     /// <summary>Delete Folder Delete a folder and all its content. The deletion is propagated to all child elements. If the total number of elements to delete is too large, this operation will be carried out asynchronously.</summary>
@@ -24,7 +24,7 @@ public class Folders
         Guid folderId
     )
     {
-        _client.RequestVoid(HttpMethod.Delete, $"/spaces/{spaceId}/folders/{folderId}");
+        _client.RequestVoid(HttpMethod.Delete, $"/spaces/{SimScaleClient.PathSegment(spaceId)}/folders/{SimScaleClient.PathSegment(folderId)}");
     }
 
     /// <summary>Get Folder Info Get Folder metadata and current user permissions.</summary>
@@ -33,7 +33,7 @@ public class Folders
         Guid folderId
     )
     {
-        return _client.Request<Folder>(HttpMethod.Get, $"/spaces/{spaceId}/folders/{folderId}");
+        return _client.Request<Folder>(HttpMethod.Get, $"/spaces/{SimScaleClient.PathSegment(spaceId)}/folders/{SimScaleClient.PathSegment(folderId)}");
     }
 
     /// <summary>List Folders in Folder List folders located in a Folder. Filtering or search capabilities are not supported. This only returns the folders of the queried folder, without a recursive expansion to child folders</summary>
@@ -45,7 +45,7 @@ public class Folders
         string? sort = null
     )
     {
-        return _client.RequestPaginated<Folder>(HttpMethod.Get, $"/spaces/{spaceId}/folders/{folderId}/content/folders",
+        return _client.RequestPaginated<Folder>(HttpMethod.Get, $"/spaces/{SimScaleClient.PathSegment(spaceId)}/folders/{SimScaleClient.PathSegment(folderId)}/content/folders",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page, ["sort"] = sort });
     }
 
@@ -57,7 +57,7 @@ public class Folders
         string? sort = null
     )
     {
-        return _client.RequestPaginated<Folder>(HttpMethod.Get, $"/spaces/{spaceId}/content/folders",
+        return _client.RequestPaginated<Folder>(HttpMethod.Get, $"/spaces/{SimScaleClient.PathSegment(spaceId)}/content/folders",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page, ["sort"] = sort });
     }
 
@@ -71,7 +71,7 @@ public class Folders
         string? projectType = null
     )
     {
-        return _client.RequestPaginated<Project>(HttpMethod.Get, $"/spaces/{spaceId}/folders/{folderId}/content/projects",
+        return _client.RequestPaginated<Project>(HttpMethod.Get, $"/spaces/{SimScaleClient.PathSegment(spaceId)}/folders/{SimScaleClient.PathSegment(folderId)}/content/projects",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page, ["sort"] = sort, ["projectType"] = projectType });
     }
 
@@ -84,7 +84,7 @@ public class Folders
         string? projectType = null
     )
     {
-        return _client.RequestPaginated<Project>(HttpMethod.Get, $"/spaces/{spaceId}/content/projects",
+        return _client.RequestPaginated<Project>(HttpMethod.Get, $"/spaces/{SimScaleClient.PathSegment(spaceId)}/content/projects",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page, ["sort"] = sort, ["projectType"] = projectType });
     }
 
@@ -95,7 +95,7 @@ public class Folders
         MoveContentRequest body
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/spaces/{spaceId}/folders/{folderId}/move", body);
+        _client.RequestVoid(HttpMethod.Post, $"/spaces/{SimScaleClient.PathSegment(spaceId)}/folders/{SimScaleClient.PathSegment(folderId)}/move", body);
     }
 
     /// <summary>Move Content from Space root Move content located at the root level of a Space. Several resources can be moved with the same request. All resources must be moved to the same target location. Folders cannot be moved to a different Space. Projects can only be moved to a Personal Space if the Space owner and the project owner match.</summary>
@@ -104,7 +104,7 @@ public class Folders
         MoveContentRequest body
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/spaces/{spaceId}/move", body);
+        _client.RequestVoid(HttpMethod.Post, $"/spaces/{SimScaleClient.PathSegment(spaceId)}/move", body);
     }
 
     /// <summary>Update Folder Update Folder metadata</summary>
@@ -114,6 +114,6 @@ public class Folders
         Folder body
     )
     {
-        return _client.Request<Folder>(HttpMethod.Put, $"/spaces/{spaceId}/folders/{folderId}", body);
+        return _client.Request<Folder>(HttpMethod.Put, $"/spaces/{SimScaleClient.PathSegment(spaceId)}/folders/{SimScaleClient.PathSegment(folderId)}", body);
     }
 }

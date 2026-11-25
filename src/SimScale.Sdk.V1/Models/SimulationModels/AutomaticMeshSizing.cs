@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class AutomaticMeshSizing : OneOf_NewRegionRefinementPacefishV38MeshSizing, OneOf_NewSurfaceRefinementPacefishV38MeshSizing
+public class AutomaticMeshSizing : OneOf_NewSurfaceRefinementPacefishV38MeshSizing, OneOf_NewRegionRefinementPacefishV38MeshSizing
 {
     /// <summary>Schema name: AutomaticMeshSizing</summary>
     [JsonPropertyName("type")]

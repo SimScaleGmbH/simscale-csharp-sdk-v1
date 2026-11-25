@@ -10,10 +10,10 @@ public class StrainHardeningModelMarc : OneOf_BilinearModelMarcHardeningModel
     [JsonPropertyName("type")]
     public string Type { get; set; } = "STRAIN_HARDENING";
 
-    [JsonPropertyName("ultimateTensileStress")]
-    public Dimensional_Pressure? UltimateTensileStress { get; set; }
+    [JsonPropertyName("ultimateTensileStressFunction")]
+    public DimensionalFunction_Pressure? UltimateTensileStressFunction { get; set; }
 
-    [JsonPropertyName("ultimateTotalStrain")]
-    public Dimensional_Dimensionless? UltimateTotalStrain { get; set; }
+    [JsonPropertyName("ultimateTotalStrainFunction")]
+    public DimensionalFunction_Dimensionless? UltimateTotalStrainFunction { get; set; }
 
 }

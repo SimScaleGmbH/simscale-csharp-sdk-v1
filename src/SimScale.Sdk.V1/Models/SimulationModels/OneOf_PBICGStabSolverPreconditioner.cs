@@ -14,6 +14,7 @@ internal class OneOf_PBICGStabSolverPreconditionerConverter : JsonConverter<OneO
     {
         ["DILU"] = typeof(DILUPreconditioner),
         ["DIC"] = typeof(DICPreconditioner),
+        ["GAMG"] = typeof(GAMGSolver),
         ["ILUCP"] = typeof(ILUCpPreconditioner),
     };
 

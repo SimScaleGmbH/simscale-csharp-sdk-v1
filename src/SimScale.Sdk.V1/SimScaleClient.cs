@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Globalization;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -46,7 +47,7 @@ public class SimScaleClient : IDisposable
     }
 
     /// <param name="apiKey">SimScale API key sent as the X-API-KEY header.</param>
-    /// <param name="serverUrl">Base URL for the API (scheme + host, no trailing path).</param>
+    /// <param name="serverUrl">Base URL for the API (scheme + host, no trailing path). Must be https, except for localhost.</param>
     /// <param name="timeout">Per-request read timeout, seconds (default 60). Lower it for faster failure on quick calls.</param>
     /// <param name="maxRetries">Retries on network errors / 5xx (idempotent) and 429 (any method).</param>
     /// <param name="retryBackoff">Base for exponential backoff, seconds.</param>
@@ -63,14 +64,20 @@ public class SimScaleClient : IDisposable
         int maxConnectionsPerServer = 100,
         double? maxRequestsPerSecond = null)
     {
+        var baseAddress = new Uri(serverUrl.TrimEnd('/') + "/");
+        if (baseAddress.Scheme != Uri.UriSchemeHttps && !baseAddress.IsLoopback)
+            throw new ArgumentException($"serverUrl must use https, plain http is only allowed for localhost: {serverUrl}", nameof(serverUrl));
         var handler = new SocketsHttpHandler
         {
             MaxConnectionsPerServer = maxConnectionsPerServer,
             PooledConnectionLifetime = TimeSpan.FromMinutes(5),
+            // No redirects: the API does not send any, and following one would send the key to the target.
+            // A 3xx surfaces as SimScaleAPIError.
+            AllowAutoRedirect = false,
         };
         _http = new HttpClient(handler, disposeHandler: true)
         {
-            BaseAddress = new Uri(serverUrl.TrimEnd('/') + "/"),
+            BaseAddress = baseAddress,
             Timeout = TimeSpan.FromSeconds(timeout),
         };
         _http.DefaultRequestHeaders.Add("X-API-KEY", apiKey);
@@ -80,6 +87,19 @@ public class SimScaleClient : IDisposable
         _retryBackoff = retryBackoff;
         _retryAfterCap = retryAfterCap;
         _rateLimiter = new RateLimiter(maxRequestsPerSecond);
+    }
+
+    /// <summary>
+    /// Encodes an identifier as one URL path segment. No SimScale identifier contains a separator,
+    /// a dot segment or a percent sign. Rejecting them makes a crafted identifier fail instead of
+    /// addressing a different endpoint.
+    /// </summary>
+    public static string PathSegment(object value)
+    {
+        var text = Convert.ToString(value, CultureInfo.InvariantCulture) ?? "";
+        if (text is "" or "." or ".." || text.IndexOfAny(['/', '\\', '?', '#', '%']) >= 0)
+            throw new ArgumentException($"Invalid path parameter: '{text}'", nameof(value));
+        return Uri.EscapeDataString(text);
     }
 
     public T Request<T>(HttpMethod method, string path, object? body = null,
@@ -171,9 +191,13 @@ public class SimScaleClient : IDisposable
         });
         if (!response.IsSuccessStatusCode)
         {
+            var status = (int)response.StatusCode;
             var responseBody = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            var location = status is >= 300 and < 400 && response.Headers.Location is { } target && response.RequestMessage?.RequestUri is { } requestUri
+                ? new Uri(requestUri, target).ToString()
+                : null;
             response.Dispose();
-            throw new SimScaleAPIError((int)response.StatusCode, responseBody, response.RequestMessage?.RequestUri?.ToString());
+            throw new SimScaleAPIError(status, responseBody, response.RequestMessage?.RequestUri?.ToString(), location);
         }
 
         return response;

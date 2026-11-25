@@ -17,7 +17,7 @@ public class DataRepository
         string? projectId = null
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/data-repository/data/upload-sessions/{storageId}/appends/{appendId}/cancel",
+        _client.RequestVoid(HttpMethod.Post, $"/data-repository/data/upload-sessions/{SimScaleClient.PathSegment(storageId)}/appends/{SimScaleClient.PathSegment(appendId)}/cancel",
             queryParams: new Dictionary<string, object?> { ["projectId"] = projectId });
     }
 
@@ -37,7 +37,7 @@ public class DataRepository
         string? projectId = null
     )
     {
-        _client.RequestVoid(HttpMethod.Delete, $"/data-repository/data/upload-sessions/{storageId}",
+        _client.RequestVoid(HttpMethod.Delete, $"/data-repository/data/upload-sessions/{SimScaleClient.PathSegment(storageId)}",
             queryParams: new Dictionary<string, object?> { ["projectId"] = projectId });
     }
 
@@ -47,7 +47,7 @@ public class DataRepository
         string? filename = null
     )
     {
-        return _client.RequestBytes(HttpMethod.Get, $"/data-repository/data/{dataId}/content",
+        return _client.RequestBytes(HttpMethod.Get, $"/data-repository/data/{SimScaleClient.PathSegment(dataId)}/content",
             queryParams: new Dictionary<string, object?> { ["filename"] = filename });
     }
 
@@ -57,7 +57,7 @@ public class DataRepository
         string? projectId = null
     )
     {
-        return _client.Request<string>(HttpMethod.Post, $"/data-repository/data/upload-sessions/{storageId}/finalize",
+        return _client.Request<string>(HttpMethod.Post, $"/data-repository/data/upload-sessions/{SimScaleClient.PathSegment(storageId)}/finalize",
             queryParams: new Dictionary<string, object?> { ["projectId"] = projectId });
     }
 
@@ -68,7 +68,7 @@ public class DataRepository
         string? projectId = null
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/data-repository/data/upload-sessions/{storageId}/appends/{appendId}/finish",
+        _client.RequestVoid(HttpMethod.Post, $"/data-repository/data/upload-sessions/{SimScaleClient.PathSegment(storageId)}/appends/{SimScaleClient.PathSegment(appendId)}/finish",
             queryParams: new Dictionary<string, object?> { ["projectId"] = projectId });
     }
 
@@ -77,7 +77,7 @@ public class DataRepository
         string dataId
     )
     {
-        return _client.Request<DataInfo>(HttpMethod.Get, $"/data-repository/data/{dataId}");
+        return _client.Request<DataInfo>(HttpMethod.Get, $"/data-repository/data/{SimScaleClient.PathSegment(dataId)}");
     }
 
     /// <summary>Read the domain-specific metadata of a data object. Returns the domain-specific metadata attached to the data object, a free-form JSON object whose shape is defined by the metadata schema of the data type. Data with no metadata attached is reported as 204, which is distinct from metadata that was set to an empty object.</summary>
@@ -85,7 +85,7 @@ public class DataRepository
         string dataId
     )
     {
-        return _client.Request<DomainSpecificMetadata>(HttpMethod.Get, $"/data-repository/data/{dataId}/domain-specific-metadata");
+        return _client.Request<DomainSpecificMetadata>(HttpMethod.Get, $"/data-repository/data/{SimScaleClient.PathSegment(dataId)}/domain-specific-metadata");
     }
 
     /// <summary>List data objects in a project.</summary>
@@ -97,7 +97,7 @@ public class DataRepository
         string? sortBy = null
     )
     {
-        return _client.Request<List<string>>(HttpMethod.Get, $"/data-repository/projects/{projectId}/data",
+        return _client.Request<List<string>>(HttpMethod.Get, $"/data-repository/projects/{SimScaleClient.PathSegment(projectId)}/data",
             queryParams: new Dictionary<string, object?> { ["origin"] = origin, ["page"] = page, ["size"] = size, ["sortBy"] = sortBy });
     }
 
@@ -108,7 +108,7 @@ public class DataRepository
         string? projectId = null
     )
     {
-        return _client.Request<UploadSessionAppend>(HttpMethod.Post, $"/data-repository/data/upload-sessions/{storageId}/appends", body,
+        return _client.Request<UploadSessionAppend>(HttpMethod.Post, $"/data-repository/data/upload-sessions/{SimScaleClient.PathSegment(storageId)}/appends", body,
             queryParams: new Dictionary<string, object?> { ["projectId"] = projectId });
     }
 
@@ -118,7 +118,7 @@ public class DataRepository
         DomainSpecificMetadata body
     )
     {
-        _client.RequestVoid(HttpMethod.Put, $"/data-repository/data/{dataId}/domain-specific-metadata", body);
+        _client.RequestVoid(HttpMethod.Put, $"/data-repository/data/{SimScaleClient.PathSegment(dataId)}/domain-specific-metadata", body);
     }
 
     /// <summary>Upload a new data object.</summary>

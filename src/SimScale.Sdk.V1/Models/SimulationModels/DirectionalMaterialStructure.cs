@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class DirectionalMaterialStructure : OneOf_PressureLossFunctionMediumPorousMaterialType, OneOf_DarcyMediumPorousMaterialType
+public class DirectionalMaterialStructure : OneOf_DarcyMediumPorousMaterialType, OneOf_PressureLossFunctionMediumPorousMaterialType
 {
     /// <summary>Schema name: DirectionalMaterialStructure</summary>
     [JsonPropertyName("type")]

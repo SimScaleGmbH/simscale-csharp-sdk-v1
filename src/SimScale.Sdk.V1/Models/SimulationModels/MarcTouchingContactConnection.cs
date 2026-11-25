@@ -18,6 +18,9 @@ public class MarcTouchingContactConnection : OneOf_MarcConnectionGroupConnection
     [JsonPropertyName("frictionCoefficient")]
     public double? FrictionCoefficient { get; set; }
 
+    [JsonPropertyName("thermalContact")]
+    public OneOf_MarcTouchingContactConnectionThermalContact? ThermalContact { get; set; }
+
     [JsonPropertyName("interferenceFit")]
     public InterferenceFit? InterferenceFit { get; set; }
 

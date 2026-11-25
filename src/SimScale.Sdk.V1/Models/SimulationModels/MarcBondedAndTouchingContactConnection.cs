@@ -21,6 +21,9 @@ public class MarcBondedAndTouchingContactConnection : OneOf_MarcConnectionGroupC
     [JsonPropertyName("frictionCoefficient")]
     public double? FrictionCoefficient { get; set; }
 
+    [JsonPropertyName("thermalContact")]
+    public OneOf_MarcBondedAndTouchingContactConnectionThermalContact? ThermalContact { get; set; }
+
     /// <summary>Turn this option on to assign this boundary condition or contact to specific load steps in your simulation. When enab...</summary>
     [JsonPropertyName("activateLoadSteps")]
     public bool? ActivateLoadSteps { get; set; }

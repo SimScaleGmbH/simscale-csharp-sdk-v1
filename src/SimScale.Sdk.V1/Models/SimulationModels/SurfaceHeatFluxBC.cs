@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>Define the heatflux per unit area that enters the body through the assigned faces. Negative sign determines flux leaving the body.</summary>
-public class SurfaceHeatFluxBC : OneOf_ThermalMechanicalBoundaryConditions, OneOf_HeatTransferBoundaryConditions
+public class SurfaceHeatFluxBC : OneOf_HeatTransferBoundaryConditions, OneOf_ThermalMechanicalBoundaryConditions
 {
     /// <summary>Define the heatflux per unit area that enters the body through the assigned faces. Negative sign determines flux leav...</summary>
     [JsonPropertyName("type")]

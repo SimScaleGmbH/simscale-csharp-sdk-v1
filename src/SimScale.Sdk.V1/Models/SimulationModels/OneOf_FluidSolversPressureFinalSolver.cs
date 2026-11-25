@@ -12,6 +12,7 @@ internal class OneOf_FluidSolversPressureFinalSolverConverter : JsonConverter<On
     private static readonly Dictionary<string, Type> Variants = new()
     {
         ["GAMG"] = typeof(GAMGSolver),
+        ["PBICGStab"] = typeof(PBICGStabSolver),
         ["PCG"] = typeof(PCGSolver),
         ["SMOOTH"] = typeof(SmoothSolver),
     };

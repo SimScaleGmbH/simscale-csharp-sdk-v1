@@ -17,7 +17,7 @@ public class CadFeatures
         CadFeatureRequest body
     )
     {
-        return _client.Request<CadFeatureResponse>(HttpMethod.Post, $"/cads/{cadId}/states/{cadStateId}/features", body);
+        return _client.Request<CadFeatureResponse>(HttpMethod.Post, $"/cads/{SimScaleClient.PathSegment(cadId)}/states/{SimScaleClient.PathSegment(cadStateId)}/features", body);
     }
 
     /// <summary>Get the CAD feature event log</summary>
@@ -27,7 +27,7 @@ public class CadFeatures
         Guid cadFeatureId
     )
     {
-        return _client.Request<EventLogResponse>(HttpMethod.Get, $"/cads/{cadId}/states/{cadStateId}/features/{cadFeatureId}/eventlog");
+        return _client.Request<EventLogResponse>(HttpMethod.Get, $"/cads/{SimScaleClient.PathSegment(cadId)}/states/{SimScaleClient.PathSegment(cadStateId)}/features/{SimScaleClient.PathSegment(cadFeatureId)}/eventlog");
     }
 
     /// <summary>Monitor CAD feature generation progress Monitor CAD feature generation progress for long-running processes.</summary>
@@ -35,6 +35,6 @@ public class CadFeatures
         Guid cadId
     )
     {
-        return _client.Request<CadFeatureResponse>(HttpMethod.Get, $"/cads/{cadId}/features/progress");
+        return _client.Request<CadFeatureResponse>(HttpMethod.Get, $"/cads/{SimScaleClient.PathSegment(cadId)}/features/progress");
     }
 }

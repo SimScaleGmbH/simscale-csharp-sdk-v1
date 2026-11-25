@@ -16,4 +16,8 @@ public class MarcStressResultControlItem : OneOf_MarcResultControlSolutionFields
     [JsonPropertyName("stressType")]
     public OneOf_MarcStressResultControlItemStressType? StressType { get; set; }
 
+    /// <summary>Choose where stress and strain results are computed and stored.Nodes: Values are extrapolated from the integration po...</summary>
+    [JsonPropertyName("location")]
+    public string? Location { get; set; }
+
 }

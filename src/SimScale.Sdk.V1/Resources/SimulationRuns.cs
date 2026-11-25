@@ -17,7 +17,7 @@ public class SimulationRuns
         WindData body
     )
     {
-        return _client.Request<SimulationRun>(HttpMethod.Post, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}/add-wind-data", body);
+        return _client.Request<SimulationRun>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}/add-wind-data", body);
     }
 
     /// <summary>Cancel the simulation run</summary>
@@ -27,7 +27,7 @@ public class SimulationRuns
         Guid runId
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}/cancel");
+        _client.RequestVoid(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}/cancel");
     }
 
     /// <summary>Cancel the sub-run of a parametric run</summary>
@@ -38,7 +38,7 @@ public class SimulationRuns
         Guid subRunId
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}/cancel");
+        _client.RequestVoid(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}/subruns/{SimScaleClient.PathSegment(subRunId)}/cancel");
     }
 
     /// <summary>Create and start a simulation run This operation creates a simulation run and starts it in one call.</summary>
@@ -48,7 +48,7 @@ public class SimulationRuns
         SimulationRun body
     )
     {
-        return _client.Request<SimulationRun>(HttpMethod.Post, $"/projects/{projectId}/simulations/{simulationId}/runs", body);
+        return _client.Request<SimulationRun>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs", body);
     }
 
     /// <summary>Delete the simulation run Continued runs and sub-runs of the run are deleted with it. A running job is stopped.</summary>
@@ -58,7 +58,7 @@ public class SimulationRuns
         Guid runId
     )
     {
-        _client.RequestVoid(HttpMethod.Delete, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}");
+        _client.RequestVoid(HttpMethod.Delete, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}");
     }
 
     /// <summary>Delete the sub-run of a parametric run</summary>
@@ -69,7 +69,7 @@ public class SimulationRuns
         Guid subRunId
     )
     {
-        _client.RequestVoid(HttpMethod.Delete, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}");
+        _client.RequestVoid(HttpMethod.Delete, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}/subruns/{SimScaleClient.PathSegment(subRunId)}");
     }
 
     /// <summary>Get basic information about the simulation run</summary>
@@ -79,7 +79,7 @@ public class SimulationRuns
         Guid runId
     )
     {
-        return _client.Request<SimulationRun>(HttpMethod.Get, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}");
+        return _client.Request<SimulationRun>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}");
     }
 
     /// <summary>Get the simulation run event log</summary>
@@ -89,7 +89,7 @@ public class SimulationRuns
         Guid runId
     )
     {
-        return _client.Request<EventLogResponse>(HttpMethod.Get, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}/eventlog");
+        return _client.Request<EventLogResponse>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}/eventlog");
     }
 
     /// <summary>List available results for a simulation runs</summary>
@@ -106,7 +106,7 @@ public class SimulationRuns
         string? direction = null
     )
     {
-        return _client.RequestPaginated<OneOfSimulationRunResult>(HttpMethod.Get, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}/results",
+        return _client.RequestPaginated<OneOfSimulationRunResult>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}/results",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page, ["type"] = type, ["category"] = category, ["quantity"] = quantity, ["name"] = name, ["direction"] = direction });
     }
 
@@ -118,7 +118,7 @@ public class SimulationRuns
         string? simulationSpecSchemaVersion = null
     )
     {
-        return _client.Request<SimulationSpec>(HttpMethod.Get, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}/spec",
+        return _client.Request<SimulationSpec>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}/spec",
             queryParams: new Dictionary<string, object?> { ["simulationSpecSchemaVersion"] = simulationSpecSchemaVersion });
     }
 
@@ -136,7 +136,7 @@ public class SimulationRuns
         string? name = null
     )
     {
-        return _client.RequestPaginated<OneOfSimulationRunResult>(HttpMethod.Get, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}/results",
+        return _client.RequestPaginated<OneOfSimulationRunResult>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}/subruns/{SimScaleClient.PathSegment(subRunId)}/results",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page, ["type"] = type, ["category"] = category, ["quantity"] = quantity, ["name"] = name });
     }
 
@@ -149,7 +149,7 @@ public class SimulationRuns
         string? simulationSpecSchemaVersion = null
     )
     {
-        return _client.Request<SimulationSpec>(HttpMethod.Get, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns/{subRunId}/spec",
+        return _client.Request<SimulationSpec>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}/subruns/{SimScaleClient.PathSegment(subRunId)}/spec",
             queryParams: new Dictionary<string, object?> { ["simulationSpecSchemaVersion"] = simulationSpecSchemaVersion });
     }
 
@@ -162,7 +162,7 @@ public class SimulationRuns
         int? page = null
     )
     {
-        return _client.RequestPaginated<SimulationRun>(HttpMethod.Get, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}/subruns",
+        return _client.RequestPaginated<SimulationRun>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}/subruns",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page });
     }
 
@@ -174,7 +174,7 @@ public class SimulationRuns
         int? page = null
     )
     {
-        return _client.RequestPaginated<SimulationRun>(HttpMethod.Get, $"/projects/{projectId}/simulations/{simulationId}/runs",
+        return _client.RequestPaginated<SimulationRun>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page });
     }
 
@@ -186,6 +186,6 @@ public class SimulationRuns
         SimulationRun body
     )
     {
-        _client.RequestVoid(HttpMethod.Put, $"/projects/{projectId}/simulations/{simulationId}/runs/{runId}", body);
+        _client.RequestVoid(HttpMethod.Put, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/runs/{SimScaleClient.PathSegment(runId)}", body);
     }
 }

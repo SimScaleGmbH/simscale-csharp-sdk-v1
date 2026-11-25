@@ -15,7 +15,7 @@ public class Postprocessing
         Guid resultId
     )
     {
-        return _client.Request<List<StateResponse>>(HttpMethod.Get, $"/projects/{projectId}/postprocessing/results/{resultId}/automatic-postprocessor-states");
+        return _client.Request<List<StateResponse>>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/postprocessing/results/{SimScaleClient.PathSegment(resultId)}/automatic-postprocessor-states");
     }
 
     public List<StateResponse> GetManualStates(
@@ -23,6 +23,6 @@ public class Postprocessing
         Guid resultId
     )
     {
-        return _client.Request<List<StateResponse>>(HttpMethod.Get, $"/projects/{projectId}/postprocessing/results/{resultId}/manual-postprocessor-states");
+        return _client.Request<List<StateResponse>>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/postprocessing/results/{SimScaleClient.PathSegment(resultId)}/manual-postprocessor-states");
     }
 }

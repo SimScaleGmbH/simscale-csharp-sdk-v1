@@ -14,7 +14,7 @@ public class SpacePermissions
         Guid spaceId
     )
     {
-        return _client.Request<Models.SpacePermissions>(HttpMethod.Get, $"/permissions/spaces/{spaceId}/requester");
+        return _client.Request<Models.SpacePermissions>(HttpMethod.Get, $"/permissions/spaces/{SimScaleClient.PathSegment(spaceId)}/requester");
     }
 
     /// <summary>List Space Permissions See who has access to a Space</summary>
@@ -22,7 +22,7 @@ public class SpacePermissions
         Guid spaceId
     )
     {
-        return _client.Request<Permissions>(HttpMethod.Get, $"/permissions/spaces/{spaceId}");
+        return _client.Request<Permissions>(HttpMethod.Get, $"/permissions/spaces/{SimScaleClient.PathSegment(spaceId)}");
     }
 
     /// <summary>Update Space Permissions Update who has access to a Space.</summary>
@@ -31,6 +31,6 @@ public class SpacePermissions
         Permissions body
     )
     {
-        return _client.Request<Permissions>(HttpMethod.Put, $"/permissions/spaces/{spaceId}", body);
+        return _client.Request<Permissions>(HttpMethod.Put, $"/permissions/spaces/{SimScaleClient.PathSegment(spaceId)}", body);
     }
 }

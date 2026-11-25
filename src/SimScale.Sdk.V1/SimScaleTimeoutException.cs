@@ -14,10 +14,10 @@ public class SimScaleTimeoutException : Exception
     public int Attempts { get; }
 
     public SimScaleTimeoutException(string method, string url, double elapsedSeconds, int attempts, Exception cause)
-        : base($"{method} {url} timed out after {attempts} attempt(s), {elapsedSeconds:0.0}s total: {cause.Message}", cause)
+        : base($"{method} {UrlRedaction.Redact(url)} timed out after {attempts} attempt(s), {elapsedSeconds:0.0}s total: {cause.Message}", cause)
     {
         Method = method;
-        Url = url;
+        Url = UrlRedaction.Redact(url);
         ElapsedSeconds = elapsedSeconds;
         Attempts = attempts;
     }

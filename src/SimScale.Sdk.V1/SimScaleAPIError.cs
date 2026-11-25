@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Text.Json;
 
@@ -9,18 +10,21 @@ public class SimScaleAPIError : Exception
     public string ResponseBody { get; }
     public string? Url { get; }
 
-    public SimScaleAPIError(int statusCode, string responseBody, string? url = null)
-        : base(FormatMessage(statusCode, responseBody, url))
+    // redirectLocation: Location header of a 3xx response. Redirects are not followed, so the message shows the target.
+    public SimScaleAPIError(int statusCode, string responseBody, string? url = null, string? redirectLocation = null)
+        : base(FormatMessage(statusCode, responseBody, UrlRedaction.Redact(url), UrlRedaction.Redact(redirectLocation)))
     {
         StatusCode = statusCode;
         ResponseBody = responseBody;
-        Url = url;
+        Url = UrlRedaction.Redact(url);
     }
 
-    private static string FormatMessage(int statusCode, string responseBody, string? url)
+    private static string FormatMessage(int statusCode, string responseBody, string? url, string? redirectLocation)
     {
         var reason = ((HttpStatusCode)statusCode).ToString();
         var statusLine = url != null ? $"{statusCode} {reason}: {url}" : $"{statusCode} {reason}";
+        if (redirectLocation != null)
+            statusLine += $" (redirect to {redirectLocation}, not followed)";
 
         try
         {
@@ -87,9 +91,26 @@ public class SimScaleAPIError : Exception
         }
         catch
         {
-            return url != null
-                ? $"{statusCode} {reason}: {url}\n{responseBody}"
-                : $"{statusCode} {reason}: {responseBody}";
+            return $"{statusLine}\n{responseBody}";
         }
+    }
+}
+
+internal static class UrlRedaction
+{
+    private const string Unparseable = "<unparseable url>";
+
+    /// <summary>
+    /// Drops userinfo, query and fragment for error text: presigned storage URLs carry their signature in the query.
+    /// A URL that does not parse is replaced entirely, since its parts cannot be separated reliably.
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(url))]
+    public static string? Redact(string? url)
+    {
+        if (url == null)
+            return null;
+        if (!Uri.TryCreate(url, UriKind.Absolute, out var uri))
+            return Unparseable;
+        return uri.GetComponents(UriComponents.SchemeAndServer | UriComponents.Path, UriFormat.UriEscaped);
     }
 }

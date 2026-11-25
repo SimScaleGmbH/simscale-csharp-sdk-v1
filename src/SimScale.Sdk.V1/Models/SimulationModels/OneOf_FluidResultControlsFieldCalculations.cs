@@ -19,7 +19,6 @@ internal class OneOf_FluidResultControlsFieldCalculationsConverter : JsonConvert
         ["WALL_FLUXES"] = typeof(FieldCalculationsWallFluxesResultControl),
         ["AGE_OF_FLUID"] = typeof(FieldCalculationsMeanAgeOfFluidResultControl),
         ["THERMAL_COMFORT"] = typeof(FieldCalculationsThermalComfortResultControl),
-        ["ADJOINT_SENSITIVITIES"] = typeof(FieldCalculationsAdjointSensitivitiesResultControl),
         ["WALL_HEAT_FLUX"] = typeof(FieldCalculationsWallHeatFluxResultControl),
         ["MEAN_RADIANT_TEMPERATURE"] = typeof(FieldCalculationsMeanRadiantTemperatureResultControl),
         ["OPERATIVE_TEMPERATURE"] = typeof(FieldCalculationsOperativeTemperatureResultControl),

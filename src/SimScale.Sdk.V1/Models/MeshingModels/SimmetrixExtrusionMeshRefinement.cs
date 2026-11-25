@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.MeshingModels;
 
-public class SimmetrixExtrusionMeshRefinement : OneOf_SimmetrixMeshingSolidRefinements, OneOf_SimmetrixMeshingFluidRefinements
+public class SimmetrixExtrusionMeshRefinement : OneOf_SimmetrixMeshingFluidRefinements, OneOf_SimmetrixMeshingSolidRefinements
 {
     /// <summary>Schema name: SimmetrixExtrusionMeshRefinement</summary>
     [JsonPropertyName("type")]
@@ -24,6 +24,21 @@ public class SimmetrixExtrusionMeshRefinement : OneOf_SimmetrixMeshingSolidRefin
 
     [JsonPropertyName("maxElementSize")]
     public Dimensional_Length? MaxElementSize { get; set; }
+
+    /// <summary>Enables the grading of the extrusion elements, starting from either side of the extrusion. The first layer has to be...</summary>
+    [JsonPropertyName("enableGrading")]
+    public bool? EnableGrading { get; set; }
+
+    [JsonPropertyName("firstElementThickness")]
+    public Dimensional_Length? FirstElementThickness { get; set; }
+
+    /// <summary>The Growth rate defines the thickness ratio between adjacent boundary layer cells. It needs to be always greater than...</summary>
+    [JsonPropertyName("growthRate")]
+    public double? GrowthRate { get; set; }
+
+    /// <summary>Side defines which side of the extrusion will have the specified First layer thickness. The options are Start face, E...</summary>
+    [JsonPropertyName("gradingSide")]
+    public string? GradingSide { get; set; }
 
     [JsonPropertyName("sourceTopologicalReference")]
     public TopologicalReference? SourceTopologicalReference { get; set; }

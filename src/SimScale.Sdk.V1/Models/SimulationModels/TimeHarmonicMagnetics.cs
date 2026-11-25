@@ -20,4 +20,8 @@ public class TimeHarmonicMagnetics : OneOf_ElectromagneticAnalysisModel
     [JsonPropertyName("timeDependency")]
     public OneOf_TimeHarmonicMagneticsTimeDependency? TimeDependency { get; set; }
 
+    /// <summary>Once enabled, all excitation coils are driven through a user specified electric circuit.</summary>
+    [JsonPropertyName("circuit")]
+    public bool? Circuit { get; set; }
+
 }

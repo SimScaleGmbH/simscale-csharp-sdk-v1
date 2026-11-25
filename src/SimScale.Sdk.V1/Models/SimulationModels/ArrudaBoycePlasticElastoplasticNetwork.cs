@@ -10,12 +10,11 @@ public class ArrudaBoycePlasticElastoplasticNetwork : OneOf_ElastoplasticNetwork
     [JsonPropertyName("type")]
     public string Type { get; set; } = "ARRUDA_BOYCE_PLASTIC";
 
-    [JsonPropertyName("nkTheta")]
-    public Dimensional_Pressure? NkTheta { get; set; }
+    [JsonPropertyName("nkThetaFunction")]
+    public DimensionalFunction_Pressure? NkThetaFunction { get; set; }
 
-    /// <summary>Defined by the number of statistically independent links (N) in a polymer chain, this determines the material's exten...</summary>
-    [JsonPropertyName("chainLength")]
-    public double? ChainLength { get; set; }
+    [JsonPropertyName("chainLengthFunction")]
+    public OneOf_ArrudaBoycePlasticElastoplasticNetworkChainLengthFunction? ChainLengthFunction { get; set; }
 
     [JsonPropertyName("yieldStress")]
     public Dimensional_Pressure? YieldStress { get; set; }

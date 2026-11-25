@@ -30,7 +30,7 @@ public class AiModels
         Guid aiModelId
     )
     {
-        return _client.Request<AiUserModel>(HttpMethod.Get, $"/ai/models/{aiModelId}");
+        return _client.Request<AiUserModel>(HttpMethod.Get, $"/ai/models/{SimScaleClient.PathSegment(aiModelId)}");
     }
 
     /// <summary>Get all AI models belonging to the user</summary>
@@ -54,6 +54,6 @@ public class AiModels
         Guid predictionId
     )
     {
-        return _client.Request<GetAiPredictionResponse>(HttpMethod.Get, $"/ai/predictions/{predictionId}");
+        return _client.Request<GetAiPredictionResponse>(HttpMethod.Get, $"/ai/predictions/{SimScaleClient.PathSegment(predictionId)}");
     }
 }

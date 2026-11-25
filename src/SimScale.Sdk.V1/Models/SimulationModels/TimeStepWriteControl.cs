@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This option controls how the simulation results are written and how frequently.</summary>
-public class TimeStepWriteControl : OneOf_ForceMomentCoefficientsResultControlWriteControl, OneOf_FluidSimulationControlWriteControl, OneOf_ScalarTransportResultControlWriteControl, OneOf_AreaIntegralResultControlWriteControl, OneOf_AreaAverageResultControlWriteControl, OneOf_ForcesMomentsResultControlWriteControl, OneOf_ProbePointsResultControlWriteControl
+public class TimeStepWriteControl : OneOf_AreaIntegralResultControlWriteControl, OneOf_FluidSimulationControlWriteControl, OneOf_ForceMomentCoefficientsResultControlWriteControl, OneOf_ForcesMomentsResultControlWriteControl, OneOf_AreaAverageResultControlWriteControl, OneOf_ProbePointsResultControlWriteControl, OneOf_ScalarTransportResultControlWriteControl
 {
     /// <summary>This option controls how the simulation results are written and how frequently. Schema name: TimeStepWriteControl</summary>
     [JsonPropertyName("type")]

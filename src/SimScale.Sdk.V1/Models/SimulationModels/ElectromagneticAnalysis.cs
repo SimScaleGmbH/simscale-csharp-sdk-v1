@@ -10,6 +10,9 @@ public class ElectromagneticAnalysis : Analysis
     [JsonPropertyName("type")]
     public string Type { get; set; } = "ELECTROMAGNETIC_ANALYSIS";
 
+    [JsonPropertyName("localCoordinateSystems")]
+    public List<OneOf_ElectromagneticAnalysisLocalCoordinateSystems>? LocalCoordinateSystems { get; set; }
+
     [JsonPropertyName("model")]
     public OneOf_ElectromagneticAnalysisModel? Model { get; set; }
 

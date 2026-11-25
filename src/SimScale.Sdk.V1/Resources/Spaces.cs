@@ -14,7 +14,7 @@ public class Spaces
         Guid spaceId
     )
     {
-        return _client.Request<Space>(HttpMethod.Get, $"/spaces/{spaceId}");
+        return _client.Request<Space>(HttpMethod.Get, $"/spaces/{SimScaleClient.PathSegment(spaceId)}");
     }
 
     /// <summary>Get User Spaces Get Info about the User Personal Space and all the Team Spaces the user has access to.</summary>
@@ -29,6 +29,6 @@ public class Spaces
         Space body
     )
     {
-        return _client.Request<Space>(HttpMethod.Put, $"/spaces/{spaceId}", body);
+        return _client.Request<Space>(HttpMethod.Put, $"/spaces/{SimScaleClient.PathSegment(spaceId)}", body);
     }
 }

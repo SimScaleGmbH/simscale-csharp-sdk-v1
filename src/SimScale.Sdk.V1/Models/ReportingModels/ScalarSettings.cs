@@ -40,4 +40,12 @@ public class ScalarSettings
     [JsonPropertyName("aboveRangeColor")]
     public Color? AboveRangeColor { get; set; }
 
+    /// <summary>How the numbers on the legend bar are written. AUTOMATIC, used when this field is omitted, rounds each number to a fe...</summary>
+    [JsonPropertyName("numberFormat")]
+    public string? NumberFormat { get; set; }
+
+    /// <summary>Digits after the decimal point on the legend bar. Used by DECIMAL and SCIENTIFIC only.</summary>
+    [JsonPropertyName("decimalPlaces")]
+    public int? DecimalPlaces { get; set; }
+
 }

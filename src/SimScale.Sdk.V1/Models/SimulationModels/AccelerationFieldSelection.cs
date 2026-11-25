@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class AccelerationFieldSelection : OneOf_AverageFieldsCalculationResultControlItemFieldSelection, OneOf_HarmonicResponseResultControlItemFieldSelection, OneOf_MinMaxFieldsCalculationResultControlItemFieldSelection, OneOf_TemporalResponseResultControlItemFieldSelection
+public class AccelerationFieldSelection : OneOf_TemporalResponseResultControlItemFieldSelection, OneOf_AverageFieldsCalculationResultControlItemFieldSelection, OneOf_MinMaxFieldsCalculationResultControlItemFieldSelection, OneOf_HarmonicResponseResultControlItemFieldSelection
 {
     /// <summary>Schema name: AccelerationFieldSelection</summary>
     [JsonPropertyName("type")]

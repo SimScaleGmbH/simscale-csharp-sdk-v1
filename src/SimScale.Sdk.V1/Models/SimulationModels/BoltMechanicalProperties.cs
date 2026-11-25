@@ -9,7 +9,7 @@ public class BoltMechanicalProperties
     [JsonPropertyName("youngsModulus")]
     public Dimensional_Pressure? YoungsModulus { get; set; }
 
-    /// <summary>Provide the Poisson's ratio value which describes the compression or elongation of the bolt material transverse to ax...</summary>
+    /// <summary>Poisson's ratio of the bolt material. It must be greater than -1 and less than 0.5.</summary>
     [JsonPropertyName("poissonsRatio")]
     public double? PoissonsRatio { get; set; }
 

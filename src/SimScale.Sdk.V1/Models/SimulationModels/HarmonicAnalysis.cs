@@ -10,6 +10,9 @@ public class HarmonicAnalysis : Analysis
     [JsonPropertyName("type")]
     public string Type { get; set; } = "HARMONIC_ANALYSIS";
 
+    [JsonPropertyName("localCoordinateSystems")]
+    public List<OneOf_HarmonicAnalysisLocalCoordinateSystems>? LocalCoordinateSystems { get; set; }
+
     [JsonPropertyName("connectionGroups")]
     public List<Contact>? ConnectionGroups { get; set; }
 

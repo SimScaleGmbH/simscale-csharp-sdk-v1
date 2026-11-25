@@ -15,7 +15,7 @@ public class Reports
         Guid reportId
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/projects/{projectId}/reports/{reportId}/cancel");
+        _client.RequestVoid(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/reports/{SimScaleClient.PathSegment(reportId)}/cancel");
     }
 
     public ReportResponse CreateReport(
@@ -23,7 +23,7 @@ public class Reports
         ReportRequest body
     )
     {
-        return _client.Request<ReportResponse>(HttpMethod.Post, $"/projects/{projectId}/reports", body);
+        return _client.Request<ReportResponse>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/reports", body);
     }
 
     public ReportResponse CreateReportFromPostprocessingState(
@@ -31,7 +31,7 @@ public class Reports
         ReportFromStateRequest body
     )
     {
-        return _client.Request<ReportResponse>(HttpMethod.Post, $"/projects/{projectId}/reports/from-state", body);
+        return _client.Request<ReportResponse>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/reports/from-state", body);
     }
 
     public void DeleteReport(
@@ -39,7 +39,7 @@ public class Reports
         Guid reportId
     )
     {
-        _client.RequestVoid(HttpMethod.Delete, $"/projects/{projectId}/reports/{reportId}");
+        _client.RequestVoid(HttpMethod.Delete, $"/projects/{SimScaleClient.PathSegment(projectId)}/reports/{SimScaleClient.PathSegment(reportId)}");
     }
 
     public ReportResponse GetReport(
@@ -47,7 +47,7 @@ public class Reports
         Guid reportId
     )
     {
-        return _client.Request<ReportResponse>(HttpMethod.Get, $"/projects/{projectId}/reports/{reportId}");
+        return _client.Request<ReportResponse>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/reports/{SimScaleClient.PathSegment(reportId)}");
     }
 
     public PaginatedResponse<ReportResponse> GetReports(
@@ -58,7 +58,7 @@ public class Reports
         int? page = null
     )
     {
-        return _client.RequestPaginated<ReportResponse>(HttpMethod.Get, $"/projects/{projectId}/reports",
+        return _client.RequestPaginated<ReportResponse>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/reports",
             queryParams: new Dictionary<string, object?> { ["simulationId"] = simulationId, ["runId"] = runId, ["limit"] = limit, ["page"] = page });
     }
 
@@ -67,7 +67,7 @@ public class Reports
         Guid reportId
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/projects/{projectId}/reports/{reportId}/start");
+        _client.RequestVoid(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/reports/{SimScaleClient.PathSegment(reportId)}/start");
     }
 
     public void UpdateReport(
@@ -76,6 +76,6 @@ public class Reports
         ReportRequest body
     )
     {
-        _client.RequestVoid(HttpMethod.Put, $"/projects/{projectId}/reports/{reportId}", body);
+        _client.RequestVoid(HttpMethod.Put, $"/projects/{SimScaleClient.PathSegment(projectId)}/reports/{SimScaleClient.PathSegment(reportId)}", body);
     }
 }

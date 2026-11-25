@@ -1,0 +1,35 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using SimScale.Sdk.V1.Models;
+
+namespace SimScale.Sdk.V1.Models.SimulationModels;
+
+[JsonConverter(typeof(OneOf_DimensionalVectorFunctionWithLCS_ForceValueConverter))]
+public interface OneOf_DimensionalVectorFunctionWithLCS_ForceValue { }
+
+internal class OneOf_DimensionalVectorFunctionWithLCS_ForceValueConverter : JsonConverter<OneOf_DimensionalVectorFunctionWithLCS_ForceValue>
+{
+    private static readonly Dictionary<string, Type> Variants = new()
+    {
+        ["CARTESIAN_COMPONENTS"] = typeof(CartesianComponentVectorFunction),
+        ["CYLINDRICAL_COMPONENTS"] = typeof(CylindricalComponentVectorFunction),
+    };
+
+    public override OneOf_DimensionalVectorFunctionWithLCS_ForceValue? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        using var doc = JsonDocument.ParseValue(ref reader);
+        var root = doc.RootElement;
+        if (!root.TryGetProperty("type", out var discProp))
+            throw new JsonException("Missing discriminator property \"type\"");
+        var discValue = discProp.GetString();
+        if (discValue == null || !Variants.TryGetValue(discValue, out var variantType))
+            throw new JsonException($"Unknown discriminator value \"{discValue}\" for \"type\"");
+        return ((OneOf_DimensionalVectorFunctionWithLCS_ForceValue?)JsonSerializer.Deserialize(root.GetRawText(), variantType, options))
+            ?? throw new JsonException("Deserialization returned null");
+    }
+
+    public override void Write(Utf8JsonWriter writer, OneOf_DimensionalVectorFunctionWithLCS_ForceValue value, JsonSerializerOptions options)
+    {
+        JsonSerializer.Serialize(writer, value, value.GetType(), options);
+    }
+}

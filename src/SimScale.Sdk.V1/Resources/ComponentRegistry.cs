@@ -17,7 +17,7 @@ public class ComponentRegistry
         string? language = null
     )
     {
-        return _client.Request<ComponentGroupMetadata>(HttpMethod.Get, $"/component-registry/component-groups/{componentGroupReference}",
+        return _client.Request<ComponentGroupMetadata>(HttpMethod.Get, $"/component-registry/component-groups/{SimScaleClient.PathSegment(componentGroupReference)}",
             queryParams: new Dictionary<string, object?> { ["language"] = language });
     }
 
@@ -27,7 +27,7 @@ public class ComponentRegistry
         string? language = null
     )
     {
-        return _client.Request<ComponentOverview>(HttpMethod.Get, $"/component-registry/components/{componentReference}",
+        return _client.Request<ComponentOverview>(HttpMethod.Get, $"/component-registry/components/{SimScaleClient.PathSegment(componentReference)}",
             queryParams: new Dictionary<string, object?> { ["language"] = language });
     }
 
@@ -36,7 +36,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<ComponentVersionDependencies>(HttpMethod.Get, $"/component-registry/component-versions/{componentVersionReference}/dependencies");
+        return _client.Request<ComponentVersionDependencies>(HttpMethod.Get, $"/component-registry/component-versions/{SimScaleClient.PathSegment(componentVersionReference)}/dependencies");
     }
 
     /// <summary>List the dependents of a component version.</summary>
@@ -44,7 +44,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<ComponentVersionDependents>(HttpMethod.Get, $"/component-registry/component-versions/{componentVersionReference}/dependents");
+        return _client.Request<ComponentVersionDependents>(HttpMethod.Get, $"/component-registry/component-versions/{SimScaleClient.PathSegment(componentVersionReference)}/dependents");
     }
 
     /// <summary>Read the metadata of a component version.</summary>
@@ -52,7 +52,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<ComponentVersionMetadata>(HttpMethod.Get, $"/component-registry/component-versions/{componentVersionReference}");
+        return _client.Request<ComponentVersionMetadata>(HttpMethod.Get, $"/component-registry/component-versions/{SimScaleClient.PathSegment(componentVersionReference)}");
     }
 
     /// <summary>Read the file-operations description of a data type version.</summary>
@@ -60,7 +60,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<DataTypeFileOperationsDescription>(HttpMethod.Get, $"/component-registry/data-types/{componentVersionReference}/file-operations");
+        return _client.Request<DataTypeFileOperationsDescription>(HttpMethod.Get, $"/component-registry/data-types/{SimScaleClient.PathSegment(componentVersionReference)}/file-operations");
     }
 
     /// <summary>Read the metadata schema of a data type version.</summary>
@@ -69,7 +69,7 @@ public class ComponentRegistry
         bool? resolveDependencies = null
     )
     {
-        return _client.Request<SchemaDefinition>(HttpMethod.Get, $"/component-registry/data-types/{componentVersionReference}/metadata-schema",
+        return _client.Request<SchemaDefinition>(HttpMethod.Get, $"/component-registry/data-types/{SimScaleClient.PathSegment(componentVersionReference)}/metadata-schema",
             queryParams: new Dictionary<string, object?> { ["resolveDependencies"] = resolveDependencies });
     }
 
@@ -78,7 +78,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<ValidationRuleSet>(HttpMethod.Get, $"/component-registry/data-types/{componentVersionReference}/metadata-schema-validation-rules");
+        return _client.Request<ValidationRuleSet>(HttpMethod.Get, $"/component-registry/data-types/{SimScaleClient.PathSegment(componentVersionReference)}/metadata-schema-validation-rules");
     }
 
     /// <summary>Read the data schema of a data type version.</summary>
@@ -87,7 +87,7 @@ public class ComponentRegistry
         bool? resolveDependencies = null
     )
     {
-        return _client.Request<SchemaDefinition>(HttpMethod.Get, $"/component-registry/data-types/{componentVersionReference}/schema",
+        return _client.Request<SchemaDefinition>(HttpMethod.Get, $"/component-registry/data-types/{SimScaleClient.PathSegment(componentVersionReference)}/schema",
             queryParams: new Dictionary<string, object?> { ["resolveDependencies"] = resolveDependencies });
     }
 
@@ -96,7 +96,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<ValidationRuleSet>(HttpMethod.Get, $"/component-registry/data-types/{componentVersionReference}/schema-validation-rules");
+        return _client.Request<ValidationRuleSet>(HttpMethod.Get, $"/component-registry/data-types/{SimScaleClient.PathSegment(componentVersionReference)}/schema-validation-rules");
     }
 
     /// <summary>Read the UI schema of a data type version.</summary>
@@ -104,7 +104,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<SchemaDefinition>(HttpMethod.Get, $"/component-registry/data-types/{componentVersionReference}/ui-schema");
+        return _client.Request<SchemaDefinition>(HttpMethod.Get, $"/component-registry/data-types/{SimScaleClient.PathSegment(componentVersionReference)}/ui-schema");
     }
 
     /// <summary>Read the configuration schema of a method version.</summary>
@@ -113,7 +113,7 @@ public class ComponentRegistry
         bool? resolveDependencies = null
     )
     {
-        return _client.Request<SchemaDefinition>(HttpMethod.Get, $"/component-registry/methods/{componentVersionReference}/configuration-schema",
+        return _client.Request<SchemaDefinition>(HttpMethod.Get, $"/component-registry/methods/{SimScaleClient.PathSegment(componentVersionReference)}/configuration-schema",
             queryParams: new Dictionary<string, object?> { ["resolveDependencies"] = resolveDependencies });
     }
 
@@ -122,7 +122,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<ValidationRuleSet>(HttpMethod.Get, $"/component-registry/methods/{componentVersionReference}/configuration-schema-validation-rules");
+        return _client.Request<ValidationRuleSet>(HttpMethod.Get, $"/component-registry/methods/{SimScaleClient.PathSegment(componentVersionReference)}/configuration-schema-validation-rules");
     }
 
     /// <summary>Read the data interface of a method version.</summary>
@@ -130,7 +130,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<DataInterface>(HttpMethod.Get, $"/component-registry/methods/{componentVersionReference}/data-interface");
+        return _client.Request<DataInterface>(HttpMethod.Get, $"/component-registry/methods/{SimScaleClient.PathSegment(componentVersionReference)}/data-interface");
     }
 
     /// <summary>Read the resource estimation model of a method version.</summary>
@@ -138,7 +138,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<MethodResourceEstimationValueModel>(HttpMethod.Get, $"/component-registry/methods/{componentVersionReference}/resource-estimation");
+        return _client.Request<MethodResourceEstimationValueModel>(HttpMethod.Get, $"/component-registry/methods/{SimScaleClient.PathSegment(componentVersionReference)}/resource-estimation");
     }
 
     /// <summary>Read the metadata of the organization component group.</summary>
@@ -146,7 +146,7 @@ public class ComponentRegistry
         string organizationReference
     )
     {
-        return _client.Request<OrganizationComponentGroupMetadata>(HttpMethod.Get, $"/component-registry/organization-component-groups/{organizationReference}");
+        return _client.Request<OrganizationComponentGroupMetadata>(HttpMethod.Get, $"/component-registry/organization-component-groups/{SimScaleClient.PathSegment(organizationReference)}");
     }
 
     /// <summary>Read the configuration schema of a workflow type version.</summary>
@@ -155,7 +155,7 @@ public class ComponentRegistry
         bool? resolveDependencies = null
     )
     {
-        return _client.Request<SchemaDefinition>(HttpMethod.Get, $"/component-registry/workflow-types/{componentVersionReference}/configuration-schema",
+        return _client.Request<SchemaDefinition>(HttpMethod.Get, $"/component-registry/workflow-types/{SimScaleClient.PathSegment(componentVersionReference)}/configuration-schema",
             queryParams: new Dictionary<string, object?> { ["resolveDependencies"] = resolveDependencies });
     }
 
@@ -164,7 +164,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<ValidationRuleSet>(HttpMethod.Get, $"/component-registry/workflow-types/{componentVersionReference}/configuration-schema-validation-rules");
+        return _client.Request<ValidationRuleSet>(HttpMethod.Get, $"/component-registry/workflow-types/{SimScaleClient.PathSegment(componentVersionReference)}/configuration-schema-validation-rules");
     }
 
     /// <summary>Read the data interface of a workflow type version.</summary>
@@ -172,7 +172,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<DataInterface>(HttpMethod.Get, $"/component-registry/workflow-types/{componentVersionReference}/data-interface");
+        return _client.Request<DataInterface>(HttpMethod.Get, $"/component-registry/workflow-types/{SimScaleClient.PathSegment(componentVersionReference)}/data-interface");
     }
 
     /// <summary>Read the UI configuration of a workflow type version.</summary>
@@ -180,7 +180,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<UiConfiguration>(HttpMethod.Get, $"/component-registry/workflow-types/{componentVersionReference}/ui-configuration");
+        return _client.Request<UiConfiguration>(HttpMethod.Get, $"/component-registry/workflow-types/{SimScaleClient.PathSegment(componentVersionReference)}/ui-configuration");
     }
 
     /// <summary>Read the workflow definition of a workflow type version.</summary>
@@ -188,7 +188,7 @@ public class ComponentRegistry
         string componentVersionReference
     )
     {
-        return _client.Request<WorkflowDefinition>(HttpMethod.Get, $"/component-registry/workflow-types/{componentVersionReference}/workflow-definition");
+        return _client.Request<WorkflowDefinition>(HttpMethod.Get, $"/component-registry/workflow-types/{SimScaleClient.PathSegment(componentVersionReference)}/workflow-definition");
     }
 
     /// <summary>List the subgroups of a component group.</summary>
@@ -198,7 +198,7 @@ public class ComponentRegistry
         int? size = null
     )
     {
-        return _client.Request<List<ComponentGroupMetadata>>(HttpMethod.Get, $"/component-registry/component-groups/{componentGroupReference}/subgroups",
+        return _client.Request<List<ComponentGroupMetadata>>(HttpMethod.Get, $"/component-registry/component-groups/{SimScaleClient.PathSegment(componentGroupReference)}/subgroups",
             queryParams: new Dictionary<string, object?> { ["page"] = page, ["size"] = size });
     }
 
@@ -209,7 +209,7 @@ public class ComponentRegistry
         int? size = null
     )
     {
-        return _client.Request<List<ComponentVersionMetadata>>(HttpMethod.Get, $"/component-registry/components/{componentReference}/versions",
+        return _client.Request<List<ComponentVersionMetadata>>(HttpMethod.Get, $"/component-registry/components/{SimScaleClient.PathSegment(componentReference)}/versions",
             queryParams: new Dictionary<string, object?> { ["page"] = page, ["size"] = size });
     }
 
@@ -221,7 +221,7 @@ public class ComponentRegistry
         string? language = null
     )
     {
-        return _client.Request<List<ComponentOverview>>(HttpMethod.Get, $"/component-registry/component-groups/{componentGroupReference}/components",
+        return _client.Request<List<ComponentOverview>>(HttpMethod.Get, $"/component-registry/component-groups/{SimScaleClient.PathSegment(componentGroupReference)}/components",
             queryParams: new Dictionary<string, object?> { ["page"] = page, ["size"] = size, ["language"] = language });
     }
 }

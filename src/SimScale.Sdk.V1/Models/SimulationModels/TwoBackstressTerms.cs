@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class TwoBackstressTerms : OneOf_KinematicChabocheHardeningMarcBackstressTerms, OneOf_CombinedVoceChabocheHardeningMarcBackstressTerms
+public class TwoBackstressTerms : OneOf_CombinedVoceChabocheHardeningMarcBackstressTerms, OneOf_KinematicChabocheHardeningMarcBackstressTerms
 {
     /// <summary>Schema name: TwoBackstressTerms</summary>
     [JsonPropertyName("type")]

@@ -24,6 +24,9 @@ public class FixedValueBCMarc : OneOf_MarcAnalysisBoundaryConditions
     [JsonPropertyName("loadStepUuids")]
     public List<Guid>? LoadStepUuids { get; set; }
 
+    [JsonPropertyName("automaticLoadRamping")]
+    public AutomaticLoadRampingMarc? AutomaticLoadRamping { get; set; }
+
     [JsonPropertyName("topologicalReference")]
     public TopologicalReference? TopologicalReference { get; set; }
 

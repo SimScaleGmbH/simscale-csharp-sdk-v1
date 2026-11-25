@@ -10,6 +10,9 @@ public class DynamicAnalysis : Analysis
     [JsonPropertyName("type")]
     public string Type { get; set; } = "DYNAMIC_ANALYSIS";
 
+    [JsonPropertyName("localCoordinateSystems")]
+    public List<OneOf_DynamicAnalysisLocalCoordinateSystems>? LocalCoordinateSystems { get; set; }
+
     [JsonPropertyName("connectionGroups")]
     public List<OneOf_DynamicAnalysisConnectionGroups>? ConnectionGroups { get; set; }
 

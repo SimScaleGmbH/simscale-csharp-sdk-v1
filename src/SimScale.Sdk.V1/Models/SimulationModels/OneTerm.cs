@@ -10,10 +10,10 @@ public class OneTerm : OneOf_OgdenHyperelasticModelMarcNumberOfTerms
     [JsonPropertyName("type")]
     public string Type { get; set; } = "ONE_TERM";
 
-    [JsonPropertyName("modulus1")]
-    public Dimensional_Pressure? Modulus1 { get; set; }
+    [JsonPropertyName("modulus1Function")]
+    public DimensionalFunction_Pressure? Modulus1Function { get; set; }
 
-    [JsonPropertyName("exponent1")]
-    public double? Exponent1 { get; set; }
+    [JsonPropertyName("exponent1Function")]
+    public OneOf_OneTermExponent1Function? Exponent1Function { get; set; }
 
 }

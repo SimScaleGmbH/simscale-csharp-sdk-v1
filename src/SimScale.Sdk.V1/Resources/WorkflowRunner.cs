@@ -15,7 +15,7 @@ public class WorkflowRunner
         string workflowRunId
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/workflow-runner/runs/{workflowRunId}/cancel");
+        _client.RequestVoid(HttpMethod.Post, $"/workflow-runner/runs/{SimScaleClient.PathSegment(workflowRunId)}/cancel");
     }
 
     /// <summary>Read a method run's resource-usage report.</summary>
@@ -23,7 +23,7 @@ public class WorkflowRunner
         string methodRunId
     )
     {
-        return _client.Request<MethodResourceUsageReport>(HttpMethod.Get, $"/workflow-runner/method-runs/{methodRunId}/resource-usage");
+        return _client.Request<MethodResourceUsageReport>(HttpMethod.Get, $"/workflow-runner/method-runs/{SimScaleClient.PathSegment(methodRunId)}/resource-usage");
     }
 
     /// <summary>Read an operation run.</summary>
@@ -31,7 +31,7 @@ public class WorkflowRunner
         string operationRunId
     )
     {
-        return _client.Request<OperationRun>(HttpMethod.Get, $"/workflow-runner/operation-runs/{operationRunId}");
+        return _client.Request<OperationRun>(HttpMethod.Get, $"/workflow-runner/operation-runs/{SimScaleClient.PathSegment(operationRunId)}");
     }
 
     /// <summary>Read a workflow run.</summary>
@@ -39,7 +39,7 @@ public class WorkflowRunner
         string workflowRunId
     )
     {
-        return _client.Request<PublicWorkflowRunOverview>(HttpMethod.Get, $"/workflow-runner/runs/{workflowRunId}");
+        return _client.Request<PublicWorkflowRunOverview>(HttpMethod.Get, $"/workflow-runner/runs/{SimScaleClient.PathSegment(workflowRunId)}");
     }
 
     /// <summary>Read the progress of a workflow run.</summary>
@@ -47,7 +47,7 @@ public class WorkflowRunner
         string workflowRunId
     )
     {
-        return _client.Request<WorkflowRunProgress>(HttpMethod.Get, $"/workflow-runner/runs/{workflowRunId}/progress");
+        return _client.Request<WorkflowRunProgress>(HttpMethod.Get, $"/workflow-runner/runs/{SimScaleClient.PathSegment(workflowRunId)}/progress");
     }
 
     /// <summary>Initialize a workflow run from a workflow version.</summary>
@@ -66,7 +66,7 @@ public class WorkflowRunner
         string? sortBy = null
     )
     {
-        return _client.Request<List<PublicWorkflowRunOverview>>(HttpMethod.Get, $"/workflow-runner/workflows/{workflowId}/runs",
+        return _client.Request<List<PublicWorkflowRunOverview>>(HttpMethod.Get, $"/workflow-runner/workflows/{SimScaleClient.PathSegment(workflowId)}/runs",
             queryParams: new Dictionary<string, object?> { ["page"] = page, ["size"] = size, ["sortBy"] = sortBy });
     }
 
@@ -75,7 +75,7 @@ public class WorkflowRunner
         string workflowRunId
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/workflow-runner/runs/{workflowRunId}/pause");
+        _client.RequestVoid(HttpMethod.Post, $"/workflow-runner/runs/{SimScaleClient.PathSegment(workflowRunId)}/pause");
     }
 
     /// <summary>Resume a paused workflow run.</summary>
@@ -83,7 +83,7 @@ public class WorkflowRunner
         string workflowRunId
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/workflow-runner/runs/{workflowRunId}/resume");
+        _client.RequestVoid(HttpMethod.Post, $"/workflow-runner/runs/{SimScaleClient.PathSegment(workflowRunId)}/resume");
     }
 
     /// <summary>Start a workflow run.</summary>
@@ -91,6 +91,6 @@ public class WorkflowRunner
         string workflowRunId
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/workflow-runner/runs/{workflowRunId}/start");
+        _client.RequestVoid(HttpMethod.Post, $"/workflow-runner/runs/{SimScaleClient.PathSegment(workflowRunId)}/start");
     }
 }

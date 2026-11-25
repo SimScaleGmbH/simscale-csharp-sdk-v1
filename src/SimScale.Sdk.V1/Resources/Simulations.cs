@@ -17,7 +17,7 @@ public class Simulations
         Guid simulationId
     )
     {
-        return _client.Request<CheckResponse>(HttpMethod.Post, $"/projects/{projectId}/simulations/{simulationId}/check");
+        return _client.Request<CheckResponse>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/check");
     }
 
     /// <summary>Create a geometry primitive for reference within a Simulation spec</summary>
@@ -26,7 +26,7 @@ public class Simulations
         GeometryPrimitive body
     )
     {
-        return _client.Request<GeometryPrimitiveResponse>(HttpMethod.Post, $"/projects/{projectId}/geometryprimitives", body);
+        return _client.Request<GeometryPrimitiveResponse>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/geometryprimitives", body);
     }
 
     /// <summary>Create a simulation setup</summary>
@@ -35,7 +35,7 @@ public class Simulations
         SimulationSpec body
     )
     {
-        return _client.Request<Simulation>(HttpMethod.Post, $"/projects/{projectId}/simulations", body);
+        return _client.Request<Simulation>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations", body);
     }
 
     /// <summary>Delete the simulation setup All runs of the simulation are deleted with it. Running jobs are stopped.</summary>
@@ -44,7 +44,7 @@ public class Simulations
         Guid simulationId
     )
     {
-        _client.RequestVoid(HttpMethod.Delete, $"/projects/{projectId}/simulations/{simulationId}");
+        _client.RequestVoid(HttpMethod.Delete, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}");
     }
 
     /// <summary>Estimate the simulation setup</summary>
@@ -53,7 +53,7 @@ public class Simulations
         Guid simulationId
     )
     {
-        return _client.Request<Estimation>(HttpMethod.Post, $"/projects/{projectId}/simulations/{simulationId}/estimate");
+        return _client.Request<Estimation>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/estimate");
     }
 
     /// <summary>Get information about the simulation setup</summary>
@@ -63,7 +63,7 @@ public class Simulations
         string? simulationSpecSchemaVersion = null
     )
     {
-        return _client.Request<SimulationSpec>(HttpMethod.Get, $"/projects/{projectId}/simulations/{simulationId}",
+        return _client.Request<SimulationSpec>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}",
             queryParams: new Dictionary<string, object?> { ["simulationSpecSchemaVersion"] = simulationSpecSchemaVersion });
     }
 
@@ -74,7 +74,7 @@ public class Simulations
         int? page = null
     )
     {
-        return _client.RequestPaginated<Simulation>(HttpMethod.Get, $"/projects/{projectId}/simulations",
+        return _client.RequestPaginated<Simulation>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page });
     }
 
@@ -85,7 +85,7 @@ public class Simulations
         SwapCadRequest body
     )
     {
-        return _client.Request<SwapCadReport>(HttpMethod.Post, $"/projects/{projectId}/simulations/{simulationId}/swapcad", body);
+        return _client.Request<SwapCadReport>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/swapcad", body);
     }
 
     /// <summary>Update information about the simulation setup</summary>
@@ -95,7 +95,7 @@ public class Simulations
         SimulationSpec body
     )
     {
-        _client.RequestVoid(HttpMethod.Put, $"/projects/{projectId}/simulations/{simulationId}", body);
+        _client.RequestVoid(HttpMethod.Put, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}", body);
     }
 
     /// <summary>Update materials in the simulation setup</summary>
@@ -106,7 +106,7 @@ public class Simulations
         bool? preview = null
     )
     {
-        return _client.Request<MaterialUpdateResponse>(HttpMethod.Post, $"/projects/{projectId}/simulations/{simulationId}/materials", body,
+        return _client.Request<MaterialUpdateResponse>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/simulations/{SimScaleClient.PathSegment(simulationId)}/materials", body,
             queryParams: new Dictionary<string, object?> { ["preview"] = preview });
     }
 }

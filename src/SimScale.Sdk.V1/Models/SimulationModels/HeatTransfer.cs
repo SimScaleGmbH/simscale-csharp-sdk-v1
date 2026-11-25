@@ -10,6 +10,9 @@ public class HeatTransfer : Analysis
     [JsonPropertyName("type")]
     public string Type { get; set; } = "HEAT_TRANSFER";
 
+    [JsonPropertyName("localCoordinateSystems")]
+    public List<OneOf_HeatTransferLocalCoordinateSystems>? LocalCoordinateSystems { get; set; }
+
     [JsonPropertyName("timeDependency")]
     public OneOf_HeatTransferTimeDependency? TimeDependency { get; set; }
 

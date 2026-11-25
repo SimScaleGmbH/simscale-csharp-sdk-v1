@@ -15,6 +15,12 @@ public class MarcMaterial
     [JsonPropertyName("density")]
     public DimensionalFunction_Density? Density { get; set; }
 
+    [JsonPropertyName("expansion")]
+    public IsotropicMarcExpansion? Expansion { get; set; }
+
+    [JsonPropertyName("thermalProperties")]
+    public MarcThermalProperties? ThermalProperties { get; set; }
+
     [JsonPropertyName("topologicalReference")]
     public TopologicalReference? TopologicalReference { get; set; }
 

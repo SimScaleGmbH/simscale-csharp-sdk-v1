@@ -15,7 +15,7 @@ public class CadImports
         Guid cadId
     )
     {
-        return _client.Request<EventLogResponse>(HttpMethod.Get, $"/projects/{projectId}/cadimports/{cadId}/eventlog");
+        return _client.Request<EventLogResponse>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/cadimports/{SimScaleClient.PathSegment(cadId)}/eventlog");
     }
 
     /// <summary>Get information about the imported CAD</summary>
@@ -24,7 +24,7 @@ public class CadImports
         Guid cadId
     )
     {
-        return _client.Request<CadImportResponse>(HttpMethod.Get, $"/projects/{projectId}/cadimports/{cadId}");
+        return _client.Request<CadImportResponse>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/cadimports/{SimScaleClient.PathSegment(cadId)}");
     }
 
     /// <summary>Import a new CAD from file CAD import requires the following steps: 1. Request a temporary storage location via `POST /storage`. 2. Upload your CAD file using the HTTP `PUT` method to the `url` provided in the temporary storage location response object. 3. Start the import via `POST /projects/{projectId}/cadimports` and include the `storageId` provided in the temporary storage location response object. 4. Check for the import status via `GET /projects/{projectId}/cadimports/{cadId}`.</summary>
@@ -33,6 +33,6 @@ public class CadImports
         CadImportRequest body
     )
     {
-        return _client.Request<CadImportResponse>(HttpMethod.Post, $"/projects/{projectId}/cadimports", body);
+        return _client.Request<CadImportResponse>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/cadimports", body);
     }
 }

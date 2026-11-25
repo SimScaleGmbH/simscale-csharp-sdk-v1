@@ -10,16 +10,16 @@ public class YeohPrimaryNetwork
     [JsonPropertyName("type")]
     public string Type { get; set; } = "YEOH_PRIMARY_NETWORK";
 
-    [JsonPropertyName("c10")]
-    public Dimensional_Pressure? C10 { get; set; }
+    [JsonPropertyName("c10Function")]
+    public DimensionalFunction_Pressure? C10Function { get; set; }
 
-    [JsonPropertyName("c20")]
-    public Dimensional_Pressure? C20 { get; set; }
+    [JsonPropertyName("c20Function")]
+    public DimensionalFunction_Pressure? C20Function { get; set; }
 
-    [JsonPropertyName("c30")]
-    public Dimensional_Pressure? C30 { get; set; }
+    [JsonPropertyName("c30Function")]
+    public DimensionalFunction_Pressure? C30Function { get; set; }
 
-    [JsonPropertyName("bulkModulus")]
-    public Dimensional_Pressure? BulkModulus { get; set; }
+    [JsonPropertyName("bulkModulusFunction")]
+    public DimensionalFunction_Pressure? BulkModulusFunction { get; set; }
 
 }

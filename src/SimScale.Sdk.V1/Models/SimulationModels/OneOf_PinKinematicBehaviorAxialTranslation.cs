@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-/// <summary>Define the translation behavior between the connected entities along the virtual pin axisFree sliding - bodies may freely translate along the pin axisRigid - translation of the bodies in the pin axis direction is lockedWith axial spring - translation is controlled by an axial spring stiffness, allowing the deformation of the virtual pin itself to affect global deformations</summary>
+/// <summary>Movement along the pin axis, between the parts (Body to body) or against the ground (Body to ground):Free sliding: the parts slide freely along the pin.Rigid: sliding is locked.With axial spring: the Axial spring stiffness resists the sliding.Note: with Free sliding, a part that is held only by this pin can move along the axis, and the solver stops with a singular matrix. A contact alone often does not hold it. Hold the part elsewhere, or use a soft axial spring (e.g. 10 N/m).</summary>
 [JsonConverter(typeof(OneOf_PinKinematicBehaviorAxialTranslationConverter))]
 public interface OneOf_PinKinematicBehaviorAxialTranslation { }
 

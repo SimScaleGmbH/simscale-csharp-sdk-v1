@@ -26,4 +26,7 @@ public class ElectromagneticSimulationControl
     [JsonPropertyName("timePeriodicAcceleration")]
     public bool? TimePeriodicAcceleration { get; set; }
 
+    [JsonPropertyName("gravity")]
+    public DimensionalVector_Acceleration? Gravity { get; set; }
+
 }

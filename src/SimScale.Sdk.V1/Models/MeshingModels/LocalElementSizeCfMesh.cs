@@ -17,6 +17,9 @@ public class LocalElementSizeCfMesh
     [JsonPropertyName("maxElementSize")]
     public Dimensional_Length? MaxElementSize { get; set; }
 
+    [JsonPropertyName("minElementSize")]
+    public Dimensional_Length? MinElementSize { get; set; }
+
     [JsonPropertyName("topologicalReference")]
     public TopologicalReference? TopologicalReference { get; set; }
 

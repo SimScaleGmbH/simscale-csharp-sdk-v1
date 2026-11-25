@@ -7,6 +7,9 @@ namespace SimScale.Sdk.V1.Models.ComponentRegistryModels;
 /// <summary>Metadata of an organization component group.</summary>
 public class OrganizationComponentGroupMetadata
 {
+    [JsonPropertyName("hasIcon")]
+    public bool? HasIcon { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 

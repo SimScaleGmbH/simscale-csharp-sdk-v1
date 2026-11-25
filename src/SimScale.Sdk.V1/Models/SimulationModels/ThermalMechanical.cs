@@ -10,6 +10,9 @@ public class ThermalMechanical : Analysis
     [JsonPropertyName("type")]
     public string Type { get; set; } = "THERMAL_MECHANICAL";
 
+    [JsonPropertyName("localCoordinateSystems")]
+    public List<OneOf_ThermalMechanicalLocalCoordinateSystems>? LocalCoordinateSystems { get; set; }
+
     [JsonPropertyName("timeDependency")]
     public OneOf_ThermalMechanicalTimeDependency? TimeDependency { get; set; }
 

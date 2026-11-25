@@ -6,7 +6,7 @@ namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 public class AdvancedConnectorSettings
 {
-    /// <summary>Choose the deformation behavior of the assigned entity. If deformable is selected, the entity is allowed to deform wi...</summary>
+    /// <summary>How the assigned faces are tied to the connector:Deformable (RBE3): the faces can deform, e.g. a hole can ovalize. Th...</summary>
     [JsonPropertyName("assignedFaceBehavior")]
     public string? AssignedFaceBehavior { get; set; }
 

@@ -4,17 +4,17 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-/// <summary>Connect multiple bodies via a virtual pin Usage: Define a separate pin connector item for each virtual pinAssign only cylindrical surfacesBehavior:Option to connect bodies to bodies or bodies to the ground via virtual pinsBodies freely rotate relative to one another about the virtual pin axisUsers have full control over axial translation and rotation of the connection with the ability to define torsional and axial spring stiffness</summary>
-public class PinConnector : OneOf_DynamicAnalysisConnectors, OneOf_HarmonicAnalysisConnectors, OneOf_FrequencyAnalysisConnectors, OneOf_StaticAnalysisConnectors
+/// <summary>Connects parts through a virtual pin, so the pin itself is not modelled. Define one pin connector per pin.Assign the cylindrical hole faces of all parts the pin goes through:all faces on one common axis: no flat faces, no holes of another pineach face in one connector onlyBehavior: the parts turn about the pin axis but cannot tilt against each other. The virtual pin is rigid in bending and has no material or diameter. Set rotation and sliding under Kinematic behavior. Learn more</summary>
+public class PinConnector : OneOf_DynamicAnalysisConnectors, OneOf_FrequencyAnalysisConnectors, OneOf_StaticAnalysisConnectors, OneOf_HarmonicAnalysisConnectors
 {
-    /// <summary>Connect multiple bodies via a virtual pin Usage: Define a separate pin connector item for each virtual pinAssign only...</summary>
+    /// <summary>Connects parts through a virtual pin, so the pin itself is not modelled. Define one pin connector per pin.Assign the...</summary>
     [JsonPropertyName("type")]
     public string Type { get; set; } = "PIN_CONNECTOR";
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
-    /// <summary>Select an interaction optionBody to body - Two or more bodies may be connected to each other via a single virtual pin...</summary>
+    /// <summary>Choose what the pin connects:Body to body: two or more parts are connected to each other. The pin moves with the part...</summary>
     [JsonPropertyName("interaction")]
     public string? Interaction { get; set; }
 

@@ -10,22 +10,22 @@ public class MooneyTypeHyperelasticModelMarc : OneOf_HyperelasticityHyperelastic
     [JsonPropertyName("type")]
     public string Type { get; set; } = "MOONEY_TYPE_MARC";
 
-    [JsonPropertyName("c10")]
-    public Dimensional_Pressure? C10 { get; set; }
+    [JsonPropertyName("c10Function")]
+    public DimensionalFunction_Pressure? C10Function { get; set; }
 
-    [JsonPropertyName("c01")]
-    public Dimensional_Pressure? C01 { get; set; }
+    [JsonPropertyName("c01Function")]
+    public DimensionalFunction_Pressure? C01Function { get; set; }
 
-    [JsonPropertyName("c11")]
-    public Dimensional_Pressure? C11 { get; set; }
+    [JsonPropertyName("c11Function")]
+    public DimensionalFunction_Pressure? C11Function { get; set; }
 
-    [JsonPropertyName("c20")]
-    public Dimensional_Pressure? C20 { get; set; }
+    [JsonPropertyName("c20Function")]
+    public DimensionalFunction_Pressure? C20Function { get; set; }
 
-    [JsonPropertyName("c30")]
-    public Dimensional_Pressure? C30 { get; set; }
+    [JsonPropertyName("c30Function")]
+    public DimensionalFunction_Pressure? C30Function { get; set; }
 
-    [JsonPropertyName("bulkModulus")]
-    public Dimensional_Pressure? BulkModulus { get; set; }
+    [JsonPropertyName("bulkModulusFunction")]
+    public DimensionalFunction_Pressure? BulkModulusFunction { get; set; }
 
 }

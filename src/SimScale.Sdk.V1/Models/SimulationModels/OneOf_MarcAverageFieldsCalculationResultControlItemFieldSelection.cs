@@ -16,6 +16,8 @@ internal class OneOf_MarcAverageFieldsCalculationResultControlItemFieldSelection
         ["STRESS"] = typeof(MarcStressFieldSelection),
         ["STRAIN"] = typeof(MarcStrainFieldSelection),
         ["CONTACT"] = typeof(MarcContactFieldSelection),
+        ["TEMPERATURE"] = typeof(MarcTemperatureFieldSelection),
+        ["HEAT_FLUX"] = typeof(MarcHeatFluxFieldSelection),
     };
 
     public override OneOf_MarcAverageFieldsCalculationResultControlItemFieldSelection? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

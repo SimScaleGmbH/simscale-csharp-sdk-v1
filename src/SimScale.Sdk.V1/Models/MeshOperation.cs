@@ -18,7 +18,7 @@ public class MeshOperation
 
     /// <summary>The schema version of the mesh operation. This can be either the external version like `8.0`, or the internal version...</summary>
     [JsonPropertyName("version")]
-    public string Version { get; set; } = "10.0";
+    public string Version { get; set; } = "11.0";
 
     /// <summary>The ID of CAD input to the mesh operation.</summary>
     [JsonPropertyName("cadId")]

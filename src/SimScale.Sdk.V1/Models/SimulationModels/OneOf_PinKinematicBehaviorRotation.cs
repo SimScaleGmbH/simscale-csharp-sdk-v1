@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-/// <summary>Define the rotational behavior between the connected entitiesFree rotation - bodies may freely rotate about the pin axisRigid - rotation of the bodies about the pin axis direction is lockedWith torsion spring - rotation is controlled by a torsion spring stiffness</summary>
+/// <summary>Rotation about the pin axis, between the parts (Body to body) or against the ground (Body to ground):Free rotation: the parts turn freely, like a hinge.Rigid: rotation is locked.With torsion spring: the Torsion spring stiffness resists the rotation.Note: with Free rotation, a part that is held only by this pin can spin about it, and the solver stops with a singular matrix. Hold the part elsewhere too (a second pin, a contact or a support), or use a soft torsion spring.</summary>
 [JsonConverter(typeof(OneOf_PinKinematicBehaviorRotationConverter))]
 public interface OneOf_PinKinematicBehaviorRotation { }
 

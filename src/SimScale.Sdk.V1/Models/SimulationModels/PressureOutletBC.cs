@@ -5,7 +5,7 @@ using SimScale.Sdk.V1.Models;
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
 /// <summary>This boundary condition allows to specify a pressure value at an outlet boundary.</summary>
-public class PressureOutletBC : OneOf_FlowDomainBoundariesXMIN, OneOf_FlowDomainBoundariesXMAX, OneOf_FlowDomainBoundariesYMIN, OneOf_FlowDomainBoundariesYMAX, OneOf_FlowDomainBoundariesZMIN, OneOf_FlowDomainBoundariesZMAX, OneOf_IncompressibleBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_CoupledConjugateHeatTransferBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_EmbeddedBoundaryBoundaryConditions, OneOf_SimericsAnalysisBoundaryConditions, OneOf_MultiphaseBoundaryConditions
+public class PressureOutletBC : OneOf_MultiphaseBoundaryConditions, OneOf_SimericsAnalysisBoundaryConditions, OneOf_IncompressibleBoundaryConditions, OneOf_CoupledConjugateHeatTransferBoundaryConditions, OneOf_ConjugateHeatTransferBoundaryConditions, OneOf_CompressibleBoundaryConditions, OneOf_ConvectiveHeatTransferBoundaryConditions, OneOf_EmbeddedBoundaryBoundaryConditions, OneOf_FlowDomainBoundariesXMIN, OneOf_FlowDomainBoundariesXMAX, OneOf_FlowDomainBoundariesYMIN, OneOf_FlowDomainBoundariesYMAX, OneOf_FlowDomainBoundariesZMIN, OneOf_FlowDomainBoundariesZMAX
 {
     /// <summary>This boundary condition allows to specify a pressure value at an outlet boundary. Schema name: PressureOutletBC</summary>
     [JsonPropertyName("type")]

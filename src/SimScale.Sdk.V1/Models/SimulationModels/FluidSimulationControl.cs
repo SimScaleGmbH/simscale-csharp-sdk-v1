@@ -9,9 +9,6 @@ public class FluidSimulationControl
     [JsonPropertyName("endTime")]
     public Dimensional_Time? EndTime { get; set; }
 
-    [JsonPropertyName("adjointEndTime")]
-    public Dimensional_Time? AdjointEndTime { get; set; }
-
     /// <summary>This represents the total number of iterations at which the simulation will terminate. No further iterations will be...</summary>
     [JsonPropertyName("numberOfIterations")]
     public int? NumberOfIterations { get; set; }
@@ -21,6 +18,10 @@ public class FluidSimulationControl
 
     [JsonPropertyName("variableDeltaT")]
     public DimensionalFunction_Time? VariableDeltaT { get; set; }
+
+    /// <summary>When the time step is defined via a table, the time step size changes abruptly at each table entry. Enabling smooth d...</summary>
+    [JsonPropertyName("enableVariableTimeStepSmoothTransition")]
+    public bool? EnableVariableTimeStepSmoothTransition { get; set; }
 
     [JsonPropertyName("adjustableTimestep")]
     public OneOf_FluidSimulationControlAdjustableTimestep? AdjustableTimestep { get; set; }

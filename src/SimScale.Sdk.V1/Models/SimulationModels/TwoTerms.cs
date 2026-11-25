@@ -10,16 +10,16 @@ public class TwoTerms : OneOf_OgdenHyperelasticModelMarcNumberOfTerms
     [JsonPropertyName("type")]
     public string Type { get; set; } = "TWO_TERMS";
 
-    [JsonPropertyName("modulus1")]
-    public Dimensional_Pressure? Modulus1 { get; set; }
+    [JsonPropertyName("modulus1Function")]
+    public DimensionalFunction_Pressure? Modulus1Function { get; set; }
 
-    [JsonPropertyName("exponent1")]
-    public double? Exponent1 { get; set; }
+    [JsonPropertyName("exponent1Function")]
+    public OneOf_TwoTermsExponent1Function? Exponent1Function { get; set; }
 
-    [JsonPropertyName("modulus2")]
-    public Dimensional_Pressure? Modulus2 { get; set; }
+    [JsonPropertyName("modulus2Function")]
+    public DimensionalFunction_Pressure? Modulus2Function { get; set; }
 
-    [JsonPropertyName("exponent2")]
-    public double? Exponent2 { get; set; }
+    [JsonPropertyName("exponent2Function")]
+    public OneOf_TwoTermsExponent2Function? Exponent2Function { get; set; }
 
 }

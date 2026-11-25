@@ -15,7 +15,7 @@ public class MeshOperations
         Guid meshOperationId
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/projects/{projectId}/meshoperations/{meshOperationId}/cancel");
+        _client.RequestVoid(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshoperations/{SimScaleClient.PathSegment(meshOperationId)}/cancel");
     }
 
     /// <summary>Check the mesh operation setup</summary>
@@ -25,7 +25,7 @@ public class MeshOperations
         Guid? simulationId = null
     )
     {
-        return _client.Request<CheckResponse>(HttpMethod.Post, $"/projects/{projectId}/meshoperations/{meshOperationId}/check",
+        return _client.Request<CheckResponse>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshoperations/{SimScaleClient.PathSegment(meshOperationId)}/check",
             queryParams: new Dictionary<string, object?> { ["simulationId"] = simulationId });
     }
 
@@ -35,7 +35,7 @@ public class MeshOperations
         MeshOperation body
     )
     {
-        return _client.Request<MeshOperation>(HttpMethod.Post, $"/projects/{projectId}/meshoperations", body);
+        return _client.Request<MeshOperation>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshoperations", body);
     }
 
     /// <summary>Delete the mesh operation The generated mesh is deleted with the operation. A running meshing job is stopped.</summary>
@@ -44,7 +44,7 @@ public class MeshOperations
         Guid meshOperationId
     )
     {
-        _client.RequestVoid(HttpMethod.Delete, $"/projects/{projectId}/meshoperations/{meshOperationId}");
+        _client.RequestVoid(HttpMethod.Delete, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshoperations/{SimScaleClient.PathSegment(meshOperationId)}");
     }
 
     /// <summary>Estimate the mesh operation</summary>
@@ -53,7 +53,7 @@ public class MeshOperations
         Guid meshOperationId
     )
     {
-        return _client.Request<Estimation>(HttpMethod.Post, $"/projects/{projectId}/meshoperations/{meshOperationId}/estimate");
+        return _client.Request<Estimation>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshoperations/{SimScaleClient.PathSegment(meshOperationId)}/estimate");
     }
 
     /// <summary>Get information about the mesh operation</summary>
@@ -63,7 +63,7 @@ public class MeshOperations
         string? meshingSpecSchemaVersion = null
     )
     {
-        return _client.Request<MeshOperation>(HttpMethod.Get, $"/projects/{projectId}/meshoperations/{meshOperationId}",
+        return _client.Request<MeshOperation>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshoperations/{SimScaleClient.PathSegment(meshOperationId)}",
             queryParams: new Dictionary<string, object?> { ["meshingSpecSchemaVersion"] = meshingSpecSchemaVersion });
     }
 
@@ -73,7 +73,7 @@ public class MeshOperations
         Guid meshOperationId
     )
     {
-        return _client.Request<EventLogResponse>(HttpMethod.Get, $"/projects/{projectId}/meshoperations/{meshOperationId}/eventlog");
+        return _client.Request<EventLogResponse>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshoperations/{SimScaleClient.PathSegment(meshOperationId)}/eventlog");
     }
 
     /// <summary>List mesh operations for a project</summary>
@@ -83,7 +83,7 @@ public class MeshOperations
         int? page = null
     )
     {
-        return _client.RequestPaginated<SlimMeshOperation>(HttpMethod.Get, $"/projects/{projectId}/meshoperations",
+        return _client.RequestPaginated<SlimMeshOperation>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshoperations",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page });
     }
 
@@ -94,7 +94,7 @@ public class MeshOperations
         Guid? simulationId = null
     )
     {
-        _client.RequestVoid(HttpMethod.Post, $"/projects/{projectId}/meshoperations/{meshOperationId}/start",
+        _client.RequestVoid(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshoperations/{SimScaleClient.PathSegment(meshOperationId)}/start",
             queryParams: new Dictionary<string, object?> { ["simulationId"] = simulationId });
     }
 
@@ -105,7 +105,7 @@ public class MeshOperations
         SwapCadRequest body
     )
     {
-        return _client.Request<SwapCadReport>(HttpMethod.Post, $"/projects/{projectId}/meshoperations/{meshOperationId}/swapcad", body);
+        return _client.Request<SwapCadReport>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshoperations/{SimScaleClient.PathSegment(meshOperationId)}/swapcad", body);
     }
 
     /// <summary>Update information about the mesh operation</summary>
@@ -115,6 +115,6 @@ public class MeshOperations
         MeshOperation body
     )
     {
-        _client.RequestVoid(HttpMethod.Put, $"/projects/{projectId}/meshoperations/{meshOperationId}", body);
+        _client.RequestVoid(HttpMethod.Put, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshoperations/{SimScaleClient.PathSegment(meshOperationId)}", body);
     }
 }

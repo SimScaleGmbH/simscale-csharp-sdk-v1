@@ -15,6 +15,6 @@ public class TableImports
         TableImportRequest body
     )
     {
-        return _client.Request<TableImportResponse>(HttpMethod.Post, $"/projects/{projectId}/tableimports", body);
+        return _client.Request<TableImportResponse>(HttpMethod.Post, $"/projects/{SimScaleClient.PathSegment(projectId)}/tableimports", body);
     }
 }

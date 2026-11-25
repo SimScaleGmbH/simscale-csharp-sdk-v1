@@ -4,7 +4,7 @@ using SimScale.Sdk.V1.Models;
 
 namespace SimScale.Sdk.V1.Models.SimulationModels;
 
-public class DisplacementFieldSelection : OneOf_AverageFieldsCalculationResultControlItemFieldSelection, OneOf_HarmonicResponseResultControlItemFieldSelection, OneOf_MinMaxFieldsCalculationResultControlItemFieldSelection, OneOf_TemporalResponseResultControlItemFieldSelection
+public class DisplacementFieldSelection : OneOf_TemporalResponseResultControlItemFieldSelection, OneOf_AverageFieldsCalculationResultControlItemFieldSelection, OneOf_MinMaxFieldsCalculationResultControlItemFieldSelection, OneOf_HarmonicResponseResultControlItemFieldSelection
 {
     /// <summary>Schema name: DisplacementFieldSelection</summary>
     [JsonPropertyName("type")]

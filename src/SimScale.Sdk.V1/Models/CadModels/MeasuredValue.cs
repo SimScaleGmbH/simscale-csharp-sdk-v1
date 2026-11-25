@@ -26,4 +26,10 @@ public class MeasuredValue
     [JsonPropertyName("hintLine")]
     public PointPair? HintLine { get; set; }
 
+    [JsonPropertyName("hintArrow")]
+    public Arrow? HintArrow { get; set; }
+
+    [JsonPropertyName("hintPoint")]
+    public Vector? HintPoint { get; set; }
+
 }

@@ -27,6 +27,9 @@ public class PointLoadBCMarc : OneOf_MarcAnalysisBoundaryConditions
     [JsonPropertyName("loadStepUuids")]
     public List<Guid>? LoadStepUuids { get; set; }
 
+    [JsonPropertyName("automaticLoadRamping")]
+    public AutomaticLoadRampingMarc? AutomaticLoadRamping { get; set; }
+
     [JsonPropertyName("geometryPrimitiveUuids")]
     public List<Guid>? GeometryPrimitiveUuids { get; set; }
 

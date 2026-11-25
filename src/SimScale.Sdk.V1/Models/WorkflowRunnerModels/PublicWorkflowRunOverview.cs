@@ -19,6 +19,9 @@ public class PublicWorkflowRunOverview
     [JsonPropertyName("lastProcessed")]
     public DateTimeOffset? LastProcessed { get; set; }
 
+    [JsonPropertyName("operationRecyclingEnabled")]
+    public bool? OperationRecyclingEnabled { get; set; }
+
     [JsonPropertyName("outputDataMap")]
     public JsonElement? OutputDataMap { get; set; }
 

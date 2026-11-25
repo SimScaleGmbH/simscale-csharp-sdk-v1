@@ -10,10 +10,6 @@ public class AdvancedMUMPSSettings
     [JsonPropertyName("forceSymmetric")]
     public bool? ForceSymmetric { get; set; }
 
-    /// <summary>Enable the check for singularities in the model. This is helpful for debugging, to spot problems with the setup.</summary>
-    [JsonPropertyName("enableSingularityDetection")]
-    public bool? EnableSingularityDetection { get; set; }
-
     /// <summary>Define the precision value for the detection of a singular matrix. Positive values enable the check, with 9 being a g...</summary>
     [JsonPropertyName("precisionSingularityDetection")]
     public int? PrecisionSingularityDetection { get; set; }

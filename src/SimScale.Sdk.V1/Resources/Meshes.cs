@@ -15,7 +15,7 @@ public class Meshes
         Guid meshId
     )
     {
-        return _client.Request<Mesh>(HttpMethod.Get, $"/projects/{projectId}/meshes/{meshId}");
+        return _client.Request<Mesh>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshes/{SimScaleClient.PathSegment(meshId)}");
     }
 
     /// <summary>List meshes within a project Only finished and non-uploaded meshes are included.</summary>
@@ -25,7 +25,7 @@ public class Meshes
         int? page = null
     )
     {
-        return _client.RequestPaginated<Mesh>(HttpMethod.Get, $"/projects/{projectId}/meshes",
+        return _client.RequestPaginated<Mesh>(HttpMethod.Get, $"/projects/{SimScaleClient.PathSegment(projectId)}/meshes",
             queryParams: new Dictionary<string, object?> { ["limit"] = limit, ["page"] = page });
     }
 }
